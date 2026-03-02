@@ -45,7 +45,7 @@ def main():
         "data": {}
     }
     
-    # 1. TRUMP 交易统计
+    # 1. TRUMP transaction stats
     print("Fetching TRUMP tx stats...", file=sys.stderr)
     tx_stats = fetch_trump_stats()
     if "error" not in tx_stats:
@@ -65,7 +65,7 @@ def main():
             }
         }
     
-    # 2. TRUMP 安全审计
+    # 2. TRUMP security audit
     print("Fetching TRUMP security audit...", file=sys.stderr)
     security = fetch_trump_security()
     if "error" not in security:
@@ -80,7 +80,7 @@ def main():
             "mint_auth": security.get("mint_auth"),
         }
     
-    # 3. 投资组合价格
+    # 3. Portfolio prices
     print("Fetching portfolio prices...", file=sys.stderr)
     portfolio = fetch_portfolio_prices()
     if "error" not in portfolio:

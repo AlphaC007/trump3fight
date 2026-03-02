@@ -169,10 +169,10 @@ def get_social_pulse():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     today = now.strftime("%Y-%m-%d")
     
-    # 优先读取今天的 interpreted.json
+    # Try to load today's interpreted.json first
     interpreted_file = social_dir / f"{today}_interpreted.json"
     
-    # 如果今天的不存在，尝试昨天的（48h 窗口）
+    # Fallback to yesterday's data (48h window)
     if not interpreted_file.exists():
         yesterday = (now - dt.timedelta(days=1)).strftime("%Y-%m-%d")
         interpreted_file = social_dir / f"{yesterday}_interpreted.json"
