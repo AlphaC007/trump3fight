@@ -164,34 +164,47 @@ def run_social_scrape():
 
 
 def get_social_pulse():
-    """Load latest social scrape data, filtered to 48h freshness window."""
+    """Load interpreted social data (Bull-First framework)."""
     social_dir = ROOT / "data" / "social"
-    today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
-    result = {
-        "meme_account": [],
-        "search_trump": [],
-        "trump_policy": [],
-        "trump_crypto": [],
-        "white_house": [],
-    }
-
-    def _load(filename):
-        f = social_dir / f"{today}_{filename}.json"
-        if not f.exists():
-            return []
-        try:
-            return json.loads(f.read_text())
-        except Exception:
-            return []
-
-    result["meme_account"] = _filter_fresh(_load("GetTrumpMemes"))
-    for suffix in ["TRUMP", "TRUMPMEME", "TRUMP_memecoin"]:
-        result["search_trump"].extend(_filter_fresh(_load(suffix)))
-    result["trump_policy"] = _filter_fresh(_load("Trump_policy"))
-    result["trump_crypto"] = _filter_fresh(_load("Trump_crypto"))
-    result["white_house"] = _filter_fresh(_load("WhiteHouse"))
-
-    return result
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
+    today = now.strftime("%Y-%m-%d")
+    
+    # 优先读取今天的 interpreted.json
+    interpreted_file = social_dir / f"{today}_interpreted.json"
+    
+    # 如果今天的不存在，尝试昨天的（48h 窗口）
+    if not interpreted_file.exists():
+        yesterday = (now - dt.timedelta(days=1)).strftime("%Y-%m-%d")
+        interpreted_file = social_dir / f"{yesterday}_interpreted.json"
+    
+    if not interpreted_file.exists():
+        return {
+            "summary": {
+                "overall_sentiment": "NO_DATA",
+                "confidence": "NONE",
+                "bull_verdict": "暂无新鲜社交信号",
+                "total_signals": 0,
+                "active_dimensions": 0
+            },
+            "dimensions": {}
+        }
+    
+    try:
+        data = json.loads(interpreted_file.read_text())
+        print(f"Loaded social intelligence from {interpreted_file.name}")
+        return data
+    except Exception as e:
+        print(f"Failed to load interpreted social data: {e}")
+        return {
+            "summary": {
+                "overall_sentiment": "ERROR",
+                "confidence": "NONE",
+                "bull_verdict": f"数据加载失败: {e}",
+                "total_signals": 0,
+                "active_dimensions": 0
+            },
+            "dimensions": {}
+        }
 
 
 def format_social_section(social):

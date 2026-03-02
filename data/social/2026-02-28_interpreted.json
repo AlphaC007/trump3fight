@@ -7,19 +7,19 @@
       "dimension": "Dim 1: Official Meme Account",
       "signal_count": 12,
       "sentiment": "NEUTRAL",
-      "bull_interpretation": "Dim 1: Official Meme Account 维度共 12 条信号，活跃度保持。"
+      "bull_interpretation": "Dim 1: Official Meme Account: 12 signals detected. Activity level maintained."
     },
     "TRUMP": {
       "dimension": "Dim 2: $TRUMP Community Pulse",
       "signal_count": 25,
       "sentiment": "CONSTRUCTIVE",
-      "bull_interpretation": "Dim 2: $TRUMP Community Pulse 维度共 25 条信号，活跃度保持。"
+      "bull_interpretation": "Dim 2: $TRUMP Community Pulse: 25 signals detected. Activity level maintained."
     },
     "WhiteHouse": {
       "dimension": "Dim 5: White House Official",
       "signal_count": 10,
       "sentiment": "NEUTRAL",
-      "bull_interpretation": "Dim 5: White House Official 维度共 10 条信号，活跃度保持。"
+      "bull_interpretation": "Dim 5: White House Official: 10 signals detected. Activity level maintained."
     }
   },
   "summary": {
@@ -27,6 +27,6 @@
     "active_dimensions": 3,
     "overall_sentiment": "CONSTRUCTIVE",
     "confidence": "MEDIUM",
-    "bull_verdict": "47 条信号跨 3 个独立维度，社区参与度保持活跃，符合筑底阶段特征。"
+    "bull_verdict": "47 signals across 3 independent dimensions. Community engagement remains active, consistent with base-building phase characteristics."
   }
 }
