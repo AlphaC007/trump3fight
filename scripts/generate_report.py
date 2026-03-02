@@ -182,7 +182,7 @@ def get_social_pulse():
             "summary": {
                 "overall_sentiment": "NO_DATA",
                 "confidence": "NONE",
-                "bull_verdict": "暂无新鲜社交信号",
+                "bull_verdict": "No fresh social signals available",
                 "total_signals": 0,
                 "active_dimensions": 0
             },
@@ -199,7 +199,7 @@ def get_social_pulse():
             "summary": {
                 "overall_sentiment": "ERROR",
                 "confidence": "NONE",
-                "bull_verdict": f"数据加载失败: {e}",
+                "bull_verdict": f"Data loading failed: {e}",
                 "total_signals": 0,
                 "active_dimensions": 0
             },
