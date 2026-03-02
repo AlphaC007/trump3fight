@@ -1,20 +1,24 @@
-# Private strategy workspace (local only; never push)
-PRIVATE_WORKAREA/
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
 
-# Security: prevent accidental sensitive file commits
-.env*
-*.key
-*.pem
-*.p12
-auth.json
-models.json
+# Private workspace files (NEVER commit to public repo)
+PRIVATE_WORKAREA/
+memory/
 MEMORY.md
+TOOLS.md
+AGENTS.md
 SOUL.md
 USER.md
 IDENTITY.md
-AGENTS.md
+HEARTBEAT.md
+BOOTSTRAP.md
 .openclaw/
 
-# Social data: keep summaries, ignore raw tweet dumps
-# data/social/*.json  # 允许提交 social JSON
+# Social data: 只提交解读后的摘要，原始推文不提交
+data/social/*_*.json
+!data/social/*_interpreted.json
 !data/social/*_summary.md

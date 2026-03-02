@@ -1,0 +1,32 @@
+{
+  "date": "2026-02-28",
+  "framework": "Bull-First Social Intelligence",
+  "freshness_window": "48h",
+  "dimensions": {
+    "GetTrumpMemes": {
+      "dimension": "Dim 1: Official Meme Account",
+      "signal_count": 12,
+      "sentiment": "NEUTRAL",
+      "bull_interpretation": "Dim 1: Official Meme Account 维度共 12 条信号，活跃度保持。"
+    },
+    "TRUMP": {
+      "dimension": "Dim 2: $TRUMP Community Pulse",
+      "signal_count": 25,
+      "sentiment": "CONSTRUCTIVE",
+      "bull_interpretation": "Dim 2: $TRUMP Community Pulse 维度共 25 条信号，活跃度保持。"
+    },
+    "WhiteHouse": {
+      "dimension": "Dim 5: White House Official",
+      "signal_count": 10,
+      "sentiment": "NEUTRAL",
+      "bull_interpretation": "Dim 5: White House Official 维度共 10 条信号，活跃度保持。"
+    }
+  },
+  "summary": {
+    "total_signals": 47,
+    "active_dimensions": 3,
+    "overall_sentiment": "CONSTRUCTIVE",
+    "confidence": "MEDIUM",
+    "bull_verdict": "47 条信号跨 3 个独立维度，社区参与度保持活跃，符合筑底阶段特征。"
+  }
+}
