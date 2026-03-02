@@ -16,5 +16,5 @@ AGENTS.md
 .openclaw/
 
 # Social data: keep summaries, ignore raw tweet dumps
-data/social/*.json
+# data/social/*.json  # 允许提交 social JSON
 !data/social/*_summary.md
