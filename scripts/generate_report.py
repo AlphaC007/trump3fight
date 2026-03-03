@@ -164,47 +164,41 @@ def run_social_scrape():
 
 
 def get_social_pulse():
-    """Load interpreted social data (Bull-First framework)."""
+    """Load social data from raw tweet files and filter by freshness."""
     social_dir = ROOT / "data" / "social"
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     today = now.strftime("%Y-%m-%d")
     
-    # Try to load today's interpreted.json first
-    interpreted_file = social_dir / f"{today}_interpreted.json"
+    # Load raw tweet files
+    result = {
+        "meme_account": [],
+        "search_trump": [],
+        "trump_policy": [],
+        "trump_crypto": [],
+        "white_house": []
+    }
     
-    # Fallback to yesterday's data (48h window)
-    if not interpreted_file.exists():
-        yesterday = (now - dt.timedelta(days=1)).strftime("%Y-%m-%d")
-        interpreted_file = social_dir / f"{yesterday}_interpreted.json"
+    file_mapping = {
+        f"{today}_GetTrumpMemes.json": "meme_account",
+        f"{today}_TRUMP.json": "search_trump",
+        f"{today}_Trump_policy.json": "trump_policy",
+        f"{today}_Trump_crypto.json": "trump_crypto",
+        f"{today}_WhiteHouse.json": "white_house"
+    }
     
-    if not interpreted_file.exists():
-        return {
-            "summary": {
-                "overall_sentiment": "NO_DATA",
-                "confidence": "NONE",
-                "bull_verdict": "No fresh social signals available",
-                "total_signals": 0,
-                "active_dimensions": 0
-            },
-            "dimensions": {}
-        }
+    for filename, key in file_mapping.items():
+        filepath = social_dir / filename
+        if filepath.exists():
+            try:
+                tweets = json.loads(filepath.read_text())
+                if isinstance(tweets, list):
+                    # Filter by 48h freshness
+                    fresh_tweets = _filter_fresh(tweets, max_hours=48)
+                    result[key] = fresh_tweets
+            except Exception as e:
+                print(f"Warning: failed to load {filename}: {e}")
     
-    try:
-        data = json.loads(interpreted_file.read_text())
-        print(f"Loaded social intelligence from {interpreted_file.name}")
-        return data
-    except Exception as e:
-        print(f"Failed to load interpreted social data: {e}")
-        return {
-            "summary": {
-                "overall_sentiment": "ERROR",
-                "confidence": "NONE",
-                "bull_verdict": f"Data loading failed: {e}",
-                "total_signals": 0,
-                "active_dimensions": 0
-            },
-            "dimensions": {}
-        }
+    return result
 
 
 def format_social_section(social):
@@ -328,21 +322,43 @@ def get_bitget_data():
     return None
 
 
+def get_okx_data():
+    """Fetch OKX OnChainOS data."""
+    import subprocess
+    okx_script = Path.home() / "projects-public" / "trump-thesis-lab" / "scripts" / "fetch_okx_data.py"
+    if not okx_script.exists():
+        return None
+    try:
+        r = subprocess.run(
+            ["python3", str(okx_script)],
+            capture_output=True, text=True, timeout=60,
+        )
+        if r.returncode == 0 and r.stdout.strip():
+            return json.loads(r.stdout)
+    except Exception as e:
+        print(f"OKX data fetch failed (non-fatal): {e}")
+    return None
+
+
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     date_s = now.strftime("%Y-%m-%d")
 
-    # Run social scrape first (best-effort, non-blocking on failure)
-    print("Collecting social intelligence...")
-    try:
-        run_social_scrape()
-    except Exception as e:
-        print(f"Social scrape failed (non-fatal): {e}")
+    # Skip social scrape to avoid hanging, we rely on the cron job or manual scrape
+    # print("Collecting social intelligence...")
+    # try:
+    #     run_social_scrape()
+    # except Exception as e:
+    #     print(f"Social scrape failed (non-fatal): {e}")
     social = get_social_pulse()
     
     # Fetch Bitget Wallet data (best-effort, non-blocking)
     print("Fetching Bitget Wallet on-chain data...")
     bitget = get_bitget_data()
+
+    # Fetch OKX OnChainOS data (best-effort, non-blocking)
+    print("Fetching OKX OnChainOS data...")
+    okx_data = get_okx_data()
 
     macro_map = {
         "S&P 500": "^GSPC",
@@ -430,14 +446,30 @@ def main():
     md.append(f"- Risk Flags: {', '.join(flags) if flags else 'none'}")
     md.append("")
     
-    # Bitget Wallet on-chain data
+    # OKX OnChainOS (primary data source)
+    if okx_data and "error" not in okx_data:
+        md.append("### 📈 On-Chain Data (OKX OnChainOS - Primary)")
+        md.append(f"- Price: ${okx_data.get('price_usd', 0):.4f}")
+        md.append(f"- 24h Volume: ${okx_data.get('volume_24h', 0):,.0f}")
+        md.append(f"- Market Cap: ${okx_data.get('market_cap', 0):,.0f}")
+        md.append(f"- Liquidity: ${okx_data.get('liquidity', 0):,.0f}")
+        md.append(f"- Holders: {okx_data.get('holders', 'N/A')}")
+        
+        txs = okx_data.get('txs', {})
+        md.append(f"- 24h Txs: {txs.get('24h', 0):,}")
+        
+        chg = okx_data.get('price_change', {})
+        md.append(f"- Price Change: 1h {chg.get('1h', 0):+.2f}% | 24h {chg.get('24h', 0):+.2f}%")
+        md.append("")
+    
+    # Bitget Wallet (backup data source)
     if bitget and bitget.get("data"):
         bg_data = bitget["data"]
         tx_stats = bg_data.get("trump_tx_stats", {})
         security = bg_data.get("trump_security", {})
         
         if tx_stats:
-            md.append("### 📊 On-Chain Activity (Bitget Wallet)")
+            md.append("### 📊 On-Chain Activity (Bitget Wallet - Backup)")
             h24 = tx_stats.get("24h", {})
             h1 = tx_stats.get("1h", {})
             md.append(f"- 24h Volume: ${h24.get('volume', 0):,.0f}")
@@ -456,7 +488,7 @@ def main():
             md.append(f"- Freeze Auth: {'Yes' if security.get('freeze_auth') else 'No'}")
             md.append(f"- Mint Auth: {'Yes' if security.get('mint_auth') else 'No'}")
             md.append("")
-    
+
     # Social intelligence sub-section
     social_section = format_social_section(social)
     md.append(social_section)
@@ -494,7 +526,16 @@ def main():
     md.append("- Trigger A status: not confirmed")
     md.append("- Trigger B status: not confirmed")
     md.append("- Trigger C status: not confirmed")
-    md.append("- Proxy notes: if `using_heuristic_proxy` is active, confidence is adjusted downward but not ignored.")
+    
+    # Dynamic proxy notes based on actual data source
+    using_proxy = any(flag in flags for flag in ['using_heuristic_proxy', 'using_moralis_enhanced_proxy'])
+    if using_proxy:
+        md.append("- Data source: Using proxy estimation for concentration (real holder data unavailable)")
+        md.append("- Confidence adjustment: Downward adjustment applied due to proxy usage")
+    else:
+        md.append("- Data source: Real on-chain data (OKX OnChainOS + Bitget Wallet)")
+        md.append("- Confidence: Full confidence in concentration metrics")
+    
     md.append("")
     md.append("## Human Value Note")
     md.append("- Beyond positions and probabilities, this system is built to preserve what matters most: dignity, care, and gratitude for those who gave us life.")

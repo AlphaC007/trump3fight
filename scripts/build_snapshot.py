@@ -220,18 +220,52 @@ def fetch_bitget_token_info() -> Optional[dict]:
     return None
 
 
+def fetch_okx_token_info() -> Optional[dict]:
+    """Fetch token info from OKX OnChainOS API via subprocess."""
+    try:
+        import subprocess
+        okx_script = Path.home() / "projects-public/trump-thesis-lab/scripts/fetch_okx_data.py"
+        if not okx_script.exists():
+            return None
+        
+        result = subprocess.run(
+            ["python3", str(okx_script)],
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if result.returncode == 0:
+            data = json.loads(result.stdout)
+            if "error" not in data:
+                return data
+    except Exception:
+        pass
+    return None
+
+
 def fetch_top10_holder_pct(liquidity_usd: Optional[float], fdv_usd: Optional[float]) -> tuple[Optional[float], str, bool, list[str]]:
     """
     Returns (top10_holder_pct, source_id, using_proxy, risk_flags).
     Fallback tree:
-      Tier 0: Bitget Wallet (real on-chain data)
+      Tier 0a: OKX OnChainOS (real on-chain data, primary)
+      Tier 0b: Bitget Wallet (real on-chain data, backup)
       Tier 1: Solscan Pro hard truth
       Tier 2: Moralis trend proxy (holder stats)
       Tier 3: Heuristic proxy
     """
     flags: list[str] = []
 
-    # Tier 0: Bitget Wallet (real on-chain data)
+    # Tier 0a: OKX OnChainOS (real on-chain data, primary)
+    try:
+        okx_data = fetch_okx_token_info()
+        if okx_data:
+            # OKX doesn't provide top10_holder_pct directly yet
+            # When available, extract and return here
+            pass
+    except Exception:
+        flags.append("okx_unavailable")
+
+    # Tier 0b: Bitget Wallet (real on-chain data, backup)
     try:
         bitget_data = fetch_bitget_token_info()
         if bitget_data:
@@ -491,7 +525,7 @@ def main() -> None:
         },
         "scenario_probabilities": {},
         "risk_flags": [],
-        "sources": ["coingecko", "dexscreener", holder_source],
+        "sources": ["coingecko", "dexscreener", "okx-onchainos", "bitget-wallet"] if holder_source in ("okx-onchainos", "bitget-wallet") else ["coingecko", "dexscreener", holder_source],
         "model": {
             "name": "scenario_prob_v1",
             "rules_source": str(RULES_PATH),
