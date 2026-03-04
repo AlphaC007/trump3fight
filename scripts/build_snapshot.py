@@ -37,6 +37,9 @@ SOLSCAN_META_URL = f"https://pro-api.solscan.io/v2.0/token/meta?address={SOL_TOK
 BIRDEYE_HOLDERS_URL = f"https://public-api.birdeye.so/defi/v3/token/holder?address={SOL_TOKEN_ADDRESS}&offset=0&limit=10"
 BIRDEYE_META_URL = f"https://public-api.birdeye.so/defi/token_overview?address={SOL_TOKEN_ADDRESS}"
 
+# Binance Web3 (new primary on-chain source)
+BINANCE_WEB3_DYNAMIC_URL = "https://web3.binance.com/bapi/defi/v4/public/wallet-direct/buw/wallet/market/token/dynamic/info"
+
 # Public Solana RPC fallback (no API key)
 SOLANA_RPC_URLS = [
     "https://solana-rpc.publicnode.com",
@@ -260,7 +263,7 @@ def fetch_okx_token_info() -> Optional[dict]:
         okx_script = Path.home() / "projects-public/trump-thesis-lab/scripts/fetch_okx_data.py"
         if not okx_script.exists():
             return None
-        
+
         result = subprocess.run(
             ["python3", str(okx_script)],
             capture_output=True,
@@ -276,29 +279,56 @@ def fetch_okx_token_info() -> Optional[dict]:
     return None
 
 
-def fetch_top10_holder_pct(liquidity_usd: Optional[float], fdv_usd: Optional[float]) -> tuple[Optional[float], str, bool, list[str]]:
+def fetch_binance_web3_token_info() -> Optional[dict]:
+    """Fetch TRUMP token dynamic info from Binance Web3 public API."""
+    try:
+        resp = fetch_json(
+            BINANCE_WEB3_DYNAMIC_URL + f"?chainId=CT_501&contractAddress={SOL_TOKEN_ADDRESS}",
+            headers={"Accept-Encoding": "identity"},
+            timeout=25,
+        )
+        if isinstance(resp, dict):
+            data = resp.get("data") or {}
+            if data:
+                return data
+    except Exception:
+        pass
+    return None
+
+
+def fetch_top10_holder_pct(liquidity_usd: Optional[float], fdv_usd: Optional[float], binance_data: Optional[dict] = None) -> tuple[Optional[float], str, bool, list[str]]:
     """
     Returns (top10_holder_pct, source_id, using_proxy, risk_flags).
     Fallback tree:
-      Tier 0a: OKX OnChainOS (real on-chain data, primary)
-      Tier 0b: Bitget Wallet (real on-chain data, backup)
+      Tier 0a: Binance Web3 (primary)
+      Tier 0b: OKX OnChainOS (backup 1)
+      Tier 0c: Bitget Wallet (backup 2)
       Tier 1: Solscan Pro hard truth
       Tier 2: Moralis trend proxy (holder stats)
       Tier 3: Heuristic proxy
     """
     flags: list[str] = []
 
-    # Tier 0a: OKX OnChainOS (real on-chain data, primary)
+    # Tier 0a: Binance Web3 (primary)
+    try:
+        bd = binance_data if binance_data else fetch_binance_web3_token_info()
+        if bd:
+            top10_pct = to_float(bd.get("top10HoldersPercentage") or bd.get("holdersTop10Percent"))
+            if top10_pct is not None:
+                return round(top10_pct, 4), "binance-web3", False, flags
+    except Exception:
+        flags.append("binance_web3_unavailable")
+
+    # Tier 0b: OKX OnChainOS (backup 1)
     try:
         okx_data = fetch_okx_token_info()
         if okx_data:
-            # OKX doesn't provide top10_holder_pct directly yet
-            # When available, extract and return here
+            # OKX currently has no direct top10 holder concentration output for this token.
             pass
     except Exception:
         flags.append("okx_unavailable")
 
-    # Tier 0b: Bitget Wallet (real on-chain data, backup)
+    # Tier 0c: Bitget Wallet (backup 2)
     try:
         bitget_data = fetch_bitget_token_info()
         if bitget_data:
@@ -509,8 +539,16 @@ def main() -> None:
     pairs = ds.get("pairs", [])
     p0 = pairs[0] if pairs else {}
 
-    liquidity_usd = to_float(((p0.get("liquidity") or {}).get("usd")))
-    fdv_usd = to_float(p0.get("fdv"))
+    # Binance Web3 primary market dataset; Dexscreener/CoinGecko remain fallback/cross-check.
+    binance_data = fetch_binance_web3_token_info()
+
+    liquidity_usd = to_float((binance_data or {}).get("liquidity")) if binance_data else None
+    if liquidity_usd is None:
+        liquidity_usd = to_float(((p0.get("liquidity") or {}).get("usd")))
+
+    fdv_usd = to_float((binance_data or {}).get("marketCap")) if binance_data else None
+    if fdv_usd is None:
+        fdv_usd = to_float(p0.get("fdv"))
 
     txns_h24 = p0.get("txns", {}).get("h24", {}) if isinstance(p0.get("txns"), dict) else {}
     buys_24h = to_float(txns_h24.get("buys"))
@@ -523,21 +561,23 @@ def main() -> None:
     prev_liq = to_float((prev.get("market") or {}).get("liquidity_usd")) if prev else None
     liquidity_change_24h = pct_change(liquidity_usd, prev_liq)
 
-    price_change_24h_pct = to_float(((p0.get("priceChange") or {}).get("h24")))
+    price_change_24h_pct = to_float((binance_data or {}).get("percentChange24h")) if binance_data else None
+    if price_change_24h_pct is None:
+        price_change_24h_pct = to_float(((p0.get("priceChange") or {}).get("h24")))
 
     liq_fdv_ratio = None
     if liquidity_usd is not None and fdv_usd not in (None, 0):
         liq_fdv_ratio = liquidity_usd / fdv_usd
 
-    top10_holder_pct, holder_source, using_proxy, top10_flags = fetch_top10_holder_pct(liquidity_usd, fdv_usd)
+    top10_holder_pct, holder_source, using_proxy, top10_flags = fetch_top10_holder_pct(liquidity_usd, fdv_usd, binance_data=binance_data)
 
     snapshot = {
         "as_of_utc": as_of,
         "asset": "TRUMP",
         "market": {
-            "price_usd": to_float(token.get("usd")),
-            "mcap_usd": to_float(token.get("usd_market_cap")),
-            "volume_24h_usd": to_float(token.get("usd_24h_vol")),
+            "price_usd": to_float((binance_data or {}).get("price")) if binance_data else to_float(token.get("usd")),
+            "mcap_usd": to_float((binance_data or {}).get("marketCap")) if binance_data else to_float(token.get("usd_market_cap")),
+            "volume_24h_usd": to_float((binance_data or {}).get("volume24h")) if binance_data else to_float(token.get("usd_24h_vol")),
             "liquidity_usd": liquidity_usd,
             "fdv_usd": fdv_usd,
             "buys_24h": buys_24h,
@@ -558,7 +598,7 @@ def main() -> None:
         },
         "scenario_probabilities": {},
         "risk_flags": [],
-        "sources": ["coingecko", "dexscreener", "okx-onchainos", "bitget-wallet"] if holder_source in ("okx-onchainos", "bitget-wallet") else ["coingecko", "dexscreener", holder_source],
+        "sources": ["binance-web3", "okx-onchainos", "bitget-wallet", "coingecko", "dexscreener"] if holder_source in ("binance-web3", "okx-onchainos", "bitget-wallet") else ["binance-web3", "coingecko", "dexscreener", holder_source],
         "model": {
             "name": "scenario_prob_v1",
             "rules_source": str(RULES_PATH),

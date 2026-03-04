@@ -409,6 +409,26 @@ def get_okx_data():
     return None
 
 
+def get_binance_data():
+    """Fetch Binance Web3 + Spot anchor data."""
+    import subprocess
+    script = Path.home() / "projects-public" / "trump-thesis-lab" / "scripts" / "fetch_binance_data.py"
+    if not script.exists():
+        return None
+    try:
+        r = subprocess.run(
+            ["python3", str(script)],
+            capture_output=True, text=True, timeout=60,
+        )
+        if r.returncode == 0 and r.stdout.strip():
+            data = json.loads(r.stdout)
+            if "error" not in data:
+                return data
+    except Exception as e:
+        print(f"Binance data fetch failed (non-fatal): {e}")
+    return None
+
+
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     date_s = now.strftime("%Y-%m-%d")
@@ -425,13 +445,15 @@ def main():
 
     social, social_sources = get_social_pulse(max_hours=72)
     
-    # Fetch Bitget Wallet data (best-effort, non-blocking)
-    print("Fetching Bitget Wallet on-chain data...")
-    bitget = get_bitget_data()
+    # Fetch Binance/OKX/Bitget datasets (best-effort, non-blocking)
+    print("Fetching Binance data (primary)...")
+    binance_data = get_binance_data()
 
-    # Fetch OKX OnChainOS data (best-effort, non-blocking)
-    print("Fetching OKX OnChainOS data...")
+    print("Fetching OKX OnChainOS data (backup 1)...")
     okx_data = get_okx_data()
+
+    print("Fetching Bitget Wallet data (backup 2)...")
+    bitget = get_bitget_data()
 
     macro_map = {
         "S&P 500": "^GSPC",
@@ -519,30 +541,46 @@ def main():
     md.append(f"- Risk Flags: {', '.join(flags) if flags else 'none'}")
     md.append("")
     
-    # Primary on-chain dataset
+    # Primary on-chain dataset: Binance
+    if binance_data and "error" not in binance_data:
+        md.append("### 📈 On-Chain Data (Primary Feed: Binance)")
+        md.append(f"- Price: ${binance_data.get('price_usd', 0):.4f}")
+        md.append(f"- 24h Volume: ${binance_data.get('volume_24h', 0):,.0f}")
+        md.append(f"- Market Cap: ${binance_data.get('market_cap', 0):,.0f}")
+        md.append(f"- Liquidity: ${binance_data.get('liquidity', 0):,.0f}")
+        md.append(f"- Holders: {binance_data.get('holders', 'N/A')}")
+        md.append(f"- Top10 Holder %: {binance_data.get('top10_holder_pct', 'N/A')}")
+
+        txs = binance_data.get('txs', {})
+        if txs.get('24h') is not None:
+            md.append(f"- 24h Txs: {txs.get('24h', 0):,}")
+
+        chg = binance_data.get('price_change', {})
+        md.append(f"- Price Change: 1h {chg.get('1h', 0):+.2f}% | 24h {chg.get('24h', 0):+.2f}%")
+
+        spot = binance_data.get('spot', {})
+        if spot:
+            md.append(f"- CEX Anchor ({spot.get('symbol', 'TRUMPUSDT')}): ${spot.get('last_price', 0):.4f} ({spot.get('price_change_pct', 0):+.2f}%)")
+            md.append(f"- CEX 24h Quote Volume: ${spot.get('volume_quote', 0):,.0f}")
+        md.append("")
+
+    # Backup 1: OKX cross-validation
     if okx_data and "error" not in okx_data:
-        md.append("### 📈 On-Chain Data (Primary Feed)")
+        md.append("### 📊 Cross-Validation (Backup 1: OKX)")
         md.append(f"- Price: ${okx_data.get('price_usd', 0):.4f}")
         md.append(f"- 24h Volume: ${okx_data.get('volume_24h', 0):,.0f}")
-        md.append(f"- Market Cap: ${okx_data.get('market_cap', 0):,.0f}")
         md.append(f"- Liquidity: ${okx_data.get('liquidity', 0):,.0f}")
         md.append(f"- Holders: {okx_data.get('holders', 'N/A')}")
-        
-        txs = okx_data.get('txs', {})
-        md.append(f"- 24h Txs: {txs.get('24h', 0):,}")
-        
-        chg = okx_data.get('price_change', {})
-        md.append(f"- Price Change: 1h {chg.get('1h', 0):+.2f}% | 24h {chg.get('24h', 0):+.2f}%")
         md.append("")
-    
-    # Secondary on-chain verification feed
+
+    # Backup 2: Bitget verification feed
     if bitget and bitget.get("data"):
         bg_data = bitget["data"]
         tx_stats = bg_data.get("trump_tx_stats", {})
         security = bg_data.get("trump_security", {})
-        
+
         if tx_stats:
-            md.append("### 📊 On-Chain Activity (Secondary Feed)")
+            md.append("### 🧪 Cross-Validation (Backup 2: Bitget)")
             h24 = tx_stats.get("24h", {})
             h1 = tx_stats.get("1h", {})
             md.append(f"- 24h Volume: ${h24.get('volume', 0):,.0f}")
@@ -550,11 +588,11 @@ def main():
             md.append(f"- 1h Volume: ${h1.get('volume', 0):,.0f}")
             md.append(f"- 1h Buyers/Sellers: {h1.get('buyers', 0)}/{h1.get('sellers', 0)}")
             md.append("")
-        
+
         if security:
             safe = security.get("safe", False)
             risk_count = security.get("risk_count", 0)
-            md.append("### 🛡️ Security Audit (Secondary Feed)")
+            md.append("### 🛡️ Security Audit (Backup 2: Bitget)")
             md.append(f"- Status: {'✅ SAFE' if safe else '⚠️ RISK DETECTED'}")
             md.append(f"- Risk Count: {risk_count}")
             md.append(f"- Buy/Sell Tax: {security.get('buy_tax', 0)}% / {security.get('sell_tax', 0)}%")

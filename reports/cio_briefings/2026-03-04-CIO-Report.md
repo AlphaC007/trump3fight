@@ -3,45 +3,54 @@
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 6816.63 (-0.94%)
 - Nasdaq: 22516.69 (-1.02%)
-- DXY: 99.06 (+0.01%)
+- DXY: 98.78 (-0.27%)
 - US10Y: 4.06 (+0.20%)
-- Gold: 5163.60 (+1.10%)
-- Crude Oil: 76.29 (+2.32%)
+- Gold: 5213.50 (+2.08%)
+- Crude Oil: 75.13 (+0.76%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $69286.00 (+2.24%)
-- ETH: $2005.22 (+1.02%)
+- BTC: $70899.00 (+4.68%)
+- ETH: $2051.39 (+3.57%)
 - Fear & Greed: 10 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $3.35
-- Concentration: 98.3606%
-- Bull Probability: 40.05%
-- Base Probability: 50.57%
-- Stress Probability: 9.38%
-- Risk Flags: solscan_pro_unauthorized, using_moralis_enhanced_proxy
+- Price: $3.3798077046360953
+- Concentration: 89.6974%
+- Bull Probability: 56.24%
+- Base Probability: 42.44%
+- Stress Probability: 1.32%
+- Risk Flags: none
 
-### 📈 On-Chain Data (Primary Feed)
-- Price: $3.3472
-- 24h Volume: $17,007,876
-- Market Cap: $778,208,930
-- Liquidity: $24,143,199
-- Holders: 646002
-- 24h Txs: 23,014
-- Price Change: 1h -0.11% | 24h -2.76%
+### 📈 On-Chain Data (Primary Feed: Binance)
+- Price: $3.3798
+- 24h Volume: $17,879,674
+- Market Cap: $675,959,495
+- Liquidity: $92,949,435
+- Holders: 647721
+- Top10 Holder %: 89.69738601333748
+- 24h Txs: 16,684
+- Price Change: 1h -0.23% | 24h -1.31%
+- CEX Anchor (TRUMPUSDT): $3.3770 (-1.37%)
+- CEX 24h Quote Volume: $7,593,282
 
-### 📊 On-Chain Activity (Secondary Feed)
-- 24h Volume: $2,904,071
-- 24h Buyers/Sellers: 704/989 (ratio: 0.71)
-- 1h Volume: $43,106
-- 1h Buyers/Sellers: 43/88
+### 📊 Cross-Validation (Backup 1: OKX)
+- Price: $3.3786
+- 24h Volume: $17,874,299
+- Liquidity: $24,344,334
+- Holders: 646004
 
-### 🛡️ Security Audit (Secondary Feed)
+### 🧪 Cross-Validation (Backup 2: Bitget)
+- 24h Volume: $2,920,747
+- 24h Buyers/Sellers: 666/979 (ratio: 0.68)
+- 1h Volume: $78,486
+- 1h Buyers/Sellers: 38/43
+
+### 🛡️ Security Audit (Backup 2: Bitget)
 - Status: ✅ SAFE
 - Risk Count: 0
 - Buy/Sell Tax: 0% / 0%
@@ -51,8 +60,8 @@
 ### 📊 Social Sentiment Verdict (Bull-First)
 
 - **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: HIGH (4/5 dimensions active)
-- **Signal Coverage**: 67 fresh posts across 4 independent dimensions (72h window)
-  - ✅ community discussion alive (44 $TRUMP mentions)
+- **Signal Coverage**: 65 fresh posts across 4 independent dimensions (72h window)
+  - ✅ community discussion alive (42 $TRUMP mentions)
   - ✅ policy tailwinds detected (13 positive policy signals)
   - ✅ crypto ecosystem bullish (1 positive crypto mentions)
   - ✅ White House comms active (9 official posts)
@@ -60,7 +69,7 @@
 - **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
 - **Data Freshness Source**: 5/5 dimensions loaded from recent social files.
 
-### 🔍 Dim 2: $TRUMP Community Pulse (44 posts)
+### 🔍 Dim 2: $TRUMP Community Pulse (42 posts)
 - @duta_crypto: "Tuh kan bingung lu.   Mending urusin noh memecoin $TRUMP lu. Cukup tweet tweet doang. Gak perlu moda" — ❤️ 48
 - @Zerg_App: "Which memecoin is a must-have in 2026?  $DOGE $SHIB $M $PEPE $TRUMP $PIPPIN $BONK $PENGU $SPX $FLOKI" — ❤️ 28
 - @TurntUpDylan: "Jan 20, 2025: Solana DEX traders: 4.8M  ( $TRUMP drop + memecoin peak frenzy )  Today: 640k.  87% de" — ❤️ 9
@@ -85,11 +94,11 @@
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium
+- Confidence: medium-high
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9209); Very high concentration (top10_holder_pct=98.36%)
+- Adverse signal observed: No dominant adverse structural signal in current snapshot
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -112,8 +121,8 @@ Invalidate bull bias if Trigger A (4H whale-to-exchange net inflow >5% liquidity
 - Trigger A (whale-to-exchange inflow spike): not confirmed
 - Trigger B (orderbook depth shock): not confirmed
 - Trigger C (holder concentration decay): not confirmed
-- Concentration quality: model-estimated fallback path in use (direct holder feed temporarily unavailable)
-- Confidence mode: conservative (positioning should be trigger-disciplined until direct feed recovers)
+- Concentration quality: direct on-chain holder feed available
+- Confidence mode: standard
 
 ## Human Value Note
 - Beyond positions and probabilities, this system is built to preserve what matters most: dignity, care, and gratitude for those who gave us life.
