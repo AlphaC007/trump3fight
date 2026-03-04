@@ -9,20 +9,9 @@ repo_url: https://github.com/AlphaC007/trump3fight
 theme:
   name: material
   palette:
-    # Light mode
     - scheme: default
       primary: red
       accent: blue
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Dark mode
-    - scheme: slate
-      primary: red
-      accent: amber
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.tracking
@@ -35,7 +24,7 @@ theme:
     - content.code.copy
   icon:
     repo: fontawesome/brands/github
-  logo: assets/logo.png
+  logo: assets/trump-fight-logo.webp
   favicon: assets/favicon.ico
 
 nav:
