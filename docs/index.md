@@ -1,5 +1,15 @@
 # 🇺🇸 The $TRUMP Thesis Lab
 
+<div class="hero-shell">
+  <div class="hero-kicker">THE OFFICIAL BULL-FIRST INTELLIGENCE LAB</div>
+  <div class="hero-title">FIGHT. FIGHT. FIGHT.</div>
+  <div class="hero-subtitle">Data-driven conviction for the $TRUMP path to <strong>$100</strong>.</div>
+  <div class="hero-actions">
+    <a class="cta-btn cta-primary" href="cio-reports/latest/">Read Today’s CIO Hub</a>
+    <a class="cta-btn cta-secondary" href="trends/">Open Trend Dashboard</a>
+  </div>
+</div>
+
 ## The Vision: $100 is Not a Dream
 
 We believe $TRUMP will reach $100. Not because of hype, but because of **data-driven conviction** and **unwavering community spirit**.
