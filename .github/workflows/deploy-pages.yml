@@ -30,10 +30,8 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-glightbox
 
-      - name: Copy latest CIO report
-        run: |
-          mkdir -p docs/cio-reports
-          cp "$(ls -t reports/cio_briefings/*.md | head -1)" docs/cio-reports/latest.md
+      - name: Build CIO hub page
+        run: python scripts/build_cio_hub.py
 
       - name: Build trend dataset
         run: python scripts/build_trend_data.py
