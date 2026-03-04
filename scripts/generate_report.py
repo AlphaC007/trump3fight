@@ -429,6 +429,24 @@ def get_binance_data():
     return None
 
 
+def get_derivatives_panel(symbol: str = "TRUMP"):
+    """Fetch free derivatives panel via coinglass_free.mjs wrapper."""
+    import subprocess
+    script = Path.home() / "projects-public" / "trump-thesis-lab" / "scripts" / "coinglass_free.mjs"
+    if not script.exists():
+        return None
+    try:
+        r = subprocess.run(
+            ["node", str(script), "dashboard", symbol],
+            capture_output=True, text=True, timeout=90,
+        )
+        if r.returncode == 0 and r.stdout.strip():
+            return json.loads(r.stdout)
+    except Exception as e:
+        print(f"Derivatives panel fetch failed (non-fatal): {e}")
+    return None
+
+
 def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     date_s = now.strftime("%Y-%m-%d")
@@ -454,6 +472,9 @@ def main():
 
     print("Fetching Bitget Wallet data (backup 2)...")
     bitget = get_bitget_data()
+
+    print("Fetching derivatives panel...")
+    derivatives = get_derivatives_panel("TRUMP")
 
     macro_map = {
         "S&P 500": "^GSPC",
@@ -530,7 +551,43 @@ def main():
     md.append(f"- BTC: ${cg['btc']['price']:.2f} ({pct(cg['btc']['change_pct'])})")
     md.append(f"- ETH: ${cg['eth']['price']:.2f} ({pct(cg['eth']['change_pct'])})")
     md.append(f"- Fear & Greed: {fg['value']} ({fg['classification']})")
-    md.append("- Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.")
+
+    if derivatives and isinstance(derivatives, dict):
+        oi_list = derivatives.get("open_interest") or []
+        funding_list = derivatives.get("funding_rates") or []
+        taker_list = derivatives.get("taker_buy_sell") or []
+
+        if isinstance(oi_list, list) and oi_list:
+            oi_parts = []
+            for x in oi_list[:3]:
+                ex = x.get("exchange", "?")
+                oi_usd = x.get("oi_usd")
+                oi_qty = x.get("oi_quantity")
+                if isinstance(oi_usd, (int, float)):
+                    oi_parts.append(f"{ex}: ${oi_usd:,.0f}")
+                elif isinstance(oi_qty, (int, float)):
+                    oi_parts.append(f"{ex}: {oi_qty:,.0f} qty")
+            if oi_parts:
+                md.append(f"- Open Interest: {' | '.join(oi_parts)}")
+
+        if isinstance(funding_list, list) and funding_list:
+            fr_parts = []
+            for x in funding_list[:3]:
+                ex = x.get("exchange", "?")
+                fr = x.get("funding_rate")
+                if isinstance(fr, (int, float)):
+                    fr_parts.append(f"{ex}: {fr*100:+.4f}%")
+            if fr_parts:
+                md.append(f"- Funding Rate: {' | '.join(fr_parts)}")
+
+        if isinstance(taker_list, list) and taker_list:
+            latest_taker = taker_list[-1]
+            ratio = latest_taker.get("buy_sell_ratio")
+            if isinstance(ratio, (int, float)):
+                md.append(f"- Taker Buy/Sell Ratio (latest 4h): {ratio:.3f}")
+    else:
+        md.append("- Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).")
+
     md.append("")
     md.append("## 💎 4. $TRUMP Local Radar (Fact Layer)")
     md.append(f"- Price: ${tr_price}")
