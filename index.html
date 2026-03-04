@@ -292,6 +292,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="for-agents/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  For Agents
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="about/" class="md-tabs__link">
         
   
@@ -482,6 +501,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#for-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 For Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#join-the-movement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -542,6 +572,33 @@
     
   
     Trend Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="for-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For Agents
   
 
     
@@ -674,6 +731,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#for-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 For Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#join-the-movement" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -716,6 +784,42 @@
 - Bull Probability: 40.91%
 - Top 10 Holder Concentration: 91.50%</p>
 <p>➡️ Open full interactive dashboard: <a href="trends/">Trend Analysis</a></p>
+<div id="home-trend-mini" style="margin-top:10px; width:100%; height:150px;"></div>
+
+<script src="assets/js/echarts.min.js"></script>
+<script>
+(async function () {
+  const box = document.getElementById('home-trend-mini');
+  if (!box || !window.echarts) return;
+  try {
+    const res = await fetch('assets/data/trends.json', { cache: 'no-cache' });
+    if (!res.ok) return;
+    const payload = await res.json();
+    const points = payload.points_daily || payload.points_raw || [];
+    if (!points.length) return;
+
+    const labels = points.map(p => p.day || p.ts || '');
+    const price = points.map(p => p.price_usd ?? null);
+    const chart = echarts.init(box);
+    chart.setOption({
+      grid: { left: 10, right: 10, top: 15, bottom: 20 },
+      xAxis: { type: 'category', data: labels, show: false },
+      yAxis: { type: 'value', show: false, scale: true },
+      tooltip: { trigger: 'axis' },
+      series: [{
+        type: 'line',
+        data: price,
+        smooth: true,
+        showSymbol: false,
+        lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.12 }
+      }]
+    });
+    window.addEventListener('resize', () => chart.resize());
+  } catch (_) {}
+})();
+</script>
+
 <hr>
 <h2 id="our-mission">🎯 Our Mission</h2>
 <p>The $TRUMP Thesis Lab combines:</p>
@@ -748,6 +852,14 @@
 <li><strong>Daily CIO Reports</strong>: Updated every morning (Asia/Shanghai timezone)</li>
 <li><strong>Trend Intelligence</strong>: Structure shifts, momentum, and regime transitions</li>
 <li><strong>Community Insights</strong>: Social sentiment tracking across 5 dimensions</li>
+</ul>
+<hr>
+<h2 id="for-agents">🤖 For Agents</h2>
+<p>We provide a dedicated machine-readable entrypoint so AI agents can quickly understand and verify this project.</p>
+<ul>
+<li>Agent entry page: <a href="for-agents/">For Agents</a></li>
+<li>LLM contract: <a href="llms.txt">llms.txt</a></li>
+<li>Latest thesis hub: <a href="cio-reports/latest/">CIO Intelligence Hub</a></li>
 </ul>
 <hr>
 <h2 id="join-the-movement">💪 Join the Movement</h2>

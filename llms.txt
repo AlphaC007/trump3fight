@@ -1,0 +1,24 @@
+# The $TRUMP Thesis Lab — LLM Access Contract
+
+Primary site: https://alphac007.github.io/trump3fight/
+Agent entry page: /for-agents/
+
+## Canonical Reading Order
+1. /for-agents/
+2. /cio-reports/latest/
+3. /trends/
+4. /scenario_matrix/
+5. /methodology/
+
+## Data Guidance
+- Treat `assets/data/trends.json` as the chart-ready dataset.
+- Treat `data/timeseries.jsonl` as append-only historical memory.
+- Use scenario + methodology pages for interpretation boundaries.
+
+## Reasoning Policy
+- Separate fact / inference / uncertainty.
+- Bull-first framing is allowed only with explicit risk boundaries.
+- If confidence drops due to data gaps, state it directly.
+
+## Compliance
+Research and education only. Not investment advice.
