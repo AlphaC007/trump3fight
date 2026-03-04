@@ -6,6 +6,9 @@ import random
 import time
 import urllib.error
 import urllib.request
+import base64
+import hashlib
+import hmac
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -196,27 +199,57 @@ def compute_top10_proxy(liquidity_usd: Optional[float], fdv_usd: Optional[float]
     return round(proxy, 4)
 
 
+def _bitget_sign(api_path: str, body_obj: dict, api_key: str, api_secret: str, timestamp_ms: str) -> str:
+    body_str = json.dumps(body_obj, separators=(",", ":"), sort_keys=True)
+    content = {
+        "apiPath": api_path,
+        "body": body_str,
+        "x-api-key": api_key,
+        "x-api-timestamp": timestamp_ms,
+    }
+    payload = json.dumps(dict(sorted(content.items())), separators=(",", ":"))
+    sig = hmac.new(api_secret.encode(), payload.encode(), hashlib.sha256).digest()
+    return base64.b64encode(sig).decode()
+
+
 def fetch_bitget_token_info() -> Optional[dict]:
-    """Fetch token info from Bitget Wallet API via subprocess."""
+    """Fetch token info from Bitget Wallet API directly (CI-friendly, no local path deps)."""
+    base_url = os.getenv("BGW_BASE_URL", "https://bopenapi.bgwapi.io")
+    api_key = os.getenv("BGW_API_KEY", "4843D8C3F1E20772C0E634EDACC5C5F9A0E2DC92")
+    api_secret = os.getenv("BGW_API_SECRET", "F2ABFDC684BDC6775FD6286B8D06A3AAD30FD587")
+
+    if not api_key or not api_secret:
+        return None
+
+    path = "/bgw-pro/market/v3/coin/batchGetBaseInfo"
+    body = {"list": [{"chain": "sol", "contract": SOL_TOKEN_ADDRESS}]}
+    body_str = json.dumps(body, separators=(",", ":"), sort_keys=True)
+    ts = str(int(time.time() * 1000))
+    sig = _bitget_sign(path, body, api_key, api_secret, ts)
+
+    req = urllib.request.Request(
+        base_url + path,
+        data=body_str.encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "x-api-key": api_key,
+            "x-api-timestamp": ts,
+            "x-api-signature": sig,
+            "User-Agent": "trump-thesis-lab/4.0",
+        },
+        method="POST",
+    )
+
     try:
-        import subprocess
-        # Use the bitget_api.py script from the skill
-        skill_script = Path.home() / ".openclaw/workspace/skills/bitget-wallet/scripts/bitget_api.py"
-        if not skill_script.exists():
-            return None
-        
-        result = subprocess.run(
-            ["python3", str(skill_script), "token-info", "--chain", "sol", "--contract", SOL_TOKEN_ADDRESS],
-            capture_output=True,
-            text=True,
-            timeout=30
-        )
-        if result.returncode == 0:
-            resp = json.loads(result.stdout)
-            if resp.get("status") == 0 and "data" in resp:
-                return resp["data"]
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = json.loads(r.read().decode("utf-8"))
+            if data.get("status") == 0:
+                token_list = ((data.get("data") or {}).get("list") or [])
+                if token_list:
+                    return token_list[0]
     except Exception:
-        pass
+        return None
+
     return None
 
 

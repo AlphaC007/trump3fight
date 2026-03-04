@@ -3,43 +3,43 @@
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 6816.63 (-0.94%)
 - Nasdaq: 22516.69 (-1.02%)
-- DXY: 99.02 (-0.03%)
+- DXY: 98.94 (-0.11%)
 - US10Y: 4.06 (+0.20%)
-- Gold: 5175.60 (+1.34%)
-- Crude Oil: 76.76 (+2.95%)
+- Gold: 5185.20 (+1.52%)
+- Crude Oil: 76.68 (+2.84%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $68522.00 (+0.46%)
-- ETH: $1981.31 (-0.93%)
+- BTC: $69317.00 (+1.65%)
+- ETH: $2000.79 (+0.26%)
 - Fear & Greed: 10 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $3.34
-- Concentration: 98.3407%
-- Bull Probability: 39.49%
-- Base Probability: 50.7%
-- Stress Probability: 9.81%
-- Risk Flags: solscan_pro_unauthorized, using_moralis_enhanced_proxy
+- Price: $3.35
+- Concentration: 91.4922%
+- Bull Probability: 39.92%
+- Base Probability: 50.6%
+- Stress Probability: 9.48%
+- Risk Flags: none
 
 ### 📈 On-Chain Data (Primary Feed)
-- Price: $3.3475
-- 24h Volume: $17,186,578
-- Market Cap: $778,297,558
-- Liquidity: $24,134,109
-- Holders: 646015
-- 24h Txs: 22,877
-- Price Change: 1h +0.30% | 24h -3.70%
+- Price: $3.3506
+- 24h Volume: $17,162,414
+- Market Cap: $779,016,571
+- Liquidity: $24,142,825
+- Holders: 646017
+- 24h Txs: 23,155
+- Price Change: 1h +0.33% | 24h -3.71%
 
 ### 📊 On-Chain Activity (Secondary Feed)
-- 24h Volume: $2,899,082
-- 24h Buyers/Sellers: 730/972 (ratio: 0.75)
-- 1h Volume: $103,920
-- 1h Buyers/Sellers: 51/92
+- 24h Volume: $2,900,840
+- 24h Buyers/Sellers: 703/999 (ratio: 0.70)
+- 1h Volume: $69,996
+- 1h Buyers/Sellers: 40/115
 
 ### 🛡️ Security Audit (Secondary Feed)
 - Status: ✅ SAFE
@@ -91,7 +91,7 @@
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.8951); Very high concentration (top10_holder_pct=98.34%)
+- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9148); Very high concentration (top10_holder_pct=91.49%)
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -114,8 +114,8 @@ Invalidate bull bias if Trigger A (4H whale-to-exchange net inflow >5% liquidity
 - Trigger A (whale-to-exchange inflow spike): not confirmed
 - Trigger B (orderbook depth shock): not confirmed
 - Trigger C (holder concentration decay): not confirmed
-- Concentration quality: model-estimated fallback path in use (direct holder feed temporarily unavailable)
-- Confidence mode: conservative (positioning should be trigger-disciplined until direct feed recovers)
+- Concentration quality: direct on-chain holder feed available
+- Confidence mode: standard
 
 ## Human Value Note
 - Beyond positions and probabilities, this system is built to preserve what matters most: dignity, care, and gratitude for those who gave us life.
