@@ -13,7 +13,9 @@
   - with floor `55.0%` and cap `99.0%`
   - and emits risk flag `using_heuristic_proxy`
 - `onchain.dex_depth_2pct_usd`: depth within ±2%
-- `onchain.exchange_inflow_usd_24h`: exchange inflow
-- `onchain.exchange_outflow_usd_24h`: exchange outflow
+- `onchain.exchange_inflow_usd_24h`: exchange inflow (24h, optional feed)
+- `onchain.exchange_outflow_usd_24h`: exchange outflow (24h, optional feed)
+- `onchain.exchange_netflow_usd_24h`: inflow - outflow (24h, optional feed)
+- `onchain.exchange_flow_source`: source id for exchange flow (`dune` when configured)
 - `narrative.news_count_24h`: count of relevant articles
 - `narrative.social_velocity_score`: normalized social momentum

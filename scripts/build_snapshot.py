@@ -296,6 +296,43 @@ def fetch_binance_web3_token_info() -> Optional[dict]:
     return None
 
 
+def fetch_dune_whale_exchange_flow() -> Optional[dict]:
+    """Optional Dune-backed whale->exchange netflow feed.
+
+    Requires:
+      - DUNE_API_KEY
+      - DUNE_TRUMP_WHALE_FLOW_QUERY_ID
+
+    Expected first row fields (any subset):
+      exchange_inflow_usd_24h, exchange_outflow_usd_24h, netflow_usd_24h
+    """
+    dune_key = os.getenv("DUNE_API_KEY")
+    query_id = os.getenv("DUNE_TRUMP_WHALE_FLOW_QUERY_ID")
+    if not dune_key or not query_id:
+        return None
+
+    url = f"https://api.dune.com/api/v1/query/{query_id}/results"
+    try:
+        data = fetch_json(url, headers={"X-Dune-API-Key": dune_key}, timeout=30)
+        rows = ((data.get("result") or {}).get("rows") or []) if isinstance(data, dict) else []
+        if not rows:
+            return None
+        row = rows[0] if isinstance(rows[0], dict) else {}
+        inflow = to_float(row.get("exchange_inflow_usd_24h"))
+        outflow = to_float(row.get("exchange_outflow_usd_24h"))
+        netflow = to_float(row.get("netflow_usd_24h"))
+        if netflow is None and inflow is not None and outflow is not None:
+            netflow = inflow - outflow
+        return {
+            "exchange_inflow_usd_24h": inflow,
+            "exchange_outflow_usd_24h": outflow,
+            "exchange_netflow_usd_24h": netflow,
+            "exchange_flow_source": "dune",
+        }
+    except Exception:
+        return None
+
+
 def fetch_top10_holder_pct(liquidity_usd: Optional[float], fdv_usd: Optional[float], binance_data: Optional[dict] = None) -> tuple[Optional[float], str, bool, list[str]]:
     """
     Returns (top10_holder_pct, source_id, using_proxy, risk_flags).
@@ -570,6 +607,7 @@ def main() -> None:
         liq_fdv_ratio = liquidity_usd / fdv_usd
 
     top10_holder_pct, holder_source, using_proxy, top10_flags = fetch_top10_holder_pct(liquidity_usd, fdv_usd, binance_data=binance_data)
+    exchange_flow = fetch_dune_whale_exchange_flow() or {}
 
     snapshot = {
         "as_of_utc": as_of,
@@ -588,8 +626,10 @@ def main() -> None:
             "top10_holder_pct": top10_holder_pct,
             "top10_holder_source": holder_source,
             "dex_depth_2pct_usd": None,
-            "exchange_inflow_usd_24h": None,
-            "exchange_outflow_usd_24h": None
+            "exchange_inflow_usd_24h": exchange_flow.get("exchange_inflow_usd_24h"),
+            "exchange_outflow_usd_24h": exchange_flow.get("exchange_outflow_usd_24h"),
+            "exchange_netflow_usd_24h": exchange_flow.get("exchange_netflow_usd_24h"),
+            "exchange_flow_source": exchange_flow.get("exchange_flow_source")
         },
         "derived": {
             "liq_fdv_ratio": round(liq_fdv_ratio, 6) if liq_fdv_ratio is not None else None,
@@ -629,6 +669,14 @@ def main() -> None:
             "triggered": True,
             "severity": "low",
             "evidence": [f"source:{holder_source}"]
+        })
+
+    if snapshot["onchain"].get("exchange_inflow_usd_24h") is None or snapshot["onchain"].get("exchange_outflow_usd_24h") is None:
+        snapshot["risk_flags"].append({
+            "id": "exchange_flow_unavailable",
+            "triggered": True,
+            "severity": "low",
+            "evidence": ["source:dune(optional)"]
         })
 
     snapshot["scenario_probabilities"] = calculate_scenario_probabilities(snapshot, rules)
