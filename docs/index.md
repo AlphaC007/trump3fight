@@ -25,11 +25,11 @@ This site tracks whether the **$TRUMP to $100 thesis** remains valid under trans
 We track price structure, Bull Probability, and holder concentration continuously.
 
 **Current quick view (auto-updated):**
-- Price: <span id="home-price">--</span>
-- Bull Probability: <span id="home-bull">--</span>
-- Top 10 Holder Concentration: <span id="home-top10">--</span>
-- Last Updated (UTC): <span id="home-last-updated">--</span>
-- Data Version: <span id="home-data-version">--</span>
+- Price: <span id="home-price">$3.3957</span>
+- Bull Probability: <span id="home-bull">64.91%</span>
+- Top 10 Holder Concentration: <span id="home-top10">89.70%</span>
+- Last Updated (UTC): <span id="home-last-updated">2026-03-04T14:09:56Z</span>
+- Data Version: <span id="home-data-version">v1.0.0-Stable-RAG</span>
 
 ➡️ Open full interactive dashboard: [Trend Analysis](trends.md)
 
