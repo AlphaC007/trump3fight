@@ -21,6 +21,14 @@ A public, reproducible research repository for $TRUMP market structure analysis.
 - Daily snapshot target: 00:10 UTC
 - Latest snapshot: `data/snapshots/YYYY-MM-DD.snapshot.json`
 
+## TRUMP Data Source Priority (On-Chain + Market)
+For the $TRUMP pipeline, source priority is explicitly fixed as:
+1. **Primary:** Binance (Binance Web3 + Binance Spot anchor)
+2. **Backup 1:** OKX OnChainOS
+3. **Backup 2:** Bitget Wallet
+
+This priority applies to snapshot generation and daily CIO report composition. Fallbacks are used only when a higher-priority source is unavailable.
+
 ## How to cite
 Use file path + section header + date, e.g. `docs/scenario_matrix.md#bull (2026-02-20)`.
 
