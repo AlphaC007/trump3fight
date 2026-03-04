@@ -163,45 +163,73 @@ def run_social_scrape():
             print(f"  social scrape warning ({target}): {e}")
 
 
-def get_social_pulse():
-    """Load social data from raw tweet files and filter by freshness."""
+def _date_candidates(days=4):
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date()
+    return [(now - dt.timedelta(days=i)).strftime("%Y-%m-%d") for i in range(days)]
+
+
+def get_social_pulse(max_hours=72):
+    """Load social data from raw tweet files and filter by freshness.
+
+    Robust behavior:
+    1) Search across recent dates (today -> previous days), not only today.
+    2) Accept known filename variants for each dimension.
+    3) Deduplicate by URL and keep latest posts.
+    """
     social_dir = ROOT / "data" / "social"
-    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
-    today = now.strftime("%Y-%m-%d")
-    
-    # Load raw tweet files
+
     result = {
         "meme_account": [],
         "search_trump": [],
         "trump_policy": [],
         "trump_crypto": [],
-        "white_house": []
+        "white_house": [],
     }
-    
-    file_mapping = {
-        f"{today}_GetTrumpMemes.json": "meme_account",
-        f"{today}_TRUMP.json": "search_trump",
-        f"{today}_Trump_policy.json": "trump_policy",
-        f"{today}_Trump_crypto.json": "trump_crypto",
-        f"{today}_WhiteHouse.json": "white_house"
+
+    # Track which files were actually used for transparency/debugging.
+    source_files = {k: [] for k in result.keys()}
+
+    patterns = {
+        "meme_account": ["{d}_GetTrumpMemes.json"],
+        "search_trump": ["{d}_TRUMP.json", "{d}_TRUMPMEME.json", "{d}_TRUMP_memecoin.json"],
+        "trump_policy": ["{d}_Trump_policy.json"],
+        "trump_crypto": ["{d}_Trump_crypto.json"],
+        "white_house": ["{d}_WhiteHouse.json"],
     }
-    
-    for filename, key in file_mapping.items():
-        filepath = social_dir / filename
-        if filepath.exists():
-            try:
-                tweets = json.loads(filepath.read_text())
-                if isinstance(tweets, list):
-                    # Filter by 48h freshness
-                    fresh_tweets = _filter_fresh(tweets, max_hours=48)
-                    result[key] = fresh_tweets
-            except Exception as e:
-                print(f"Warning: failed to load {filename}: {e}")
-    
-    return result
+
+    for key, pats in patterns.items():
+        merged = []
+        seen = set()
+        for d in _date_candidates(days=4):
+            for p in pats:
+                fp = social_dir / p.format(d=d)
+                if not fp.exists():
+                    continue
+                try:
+                    tweets = json.loads(fp.read_text(encoding="utf-8"))
+                    if not isinstance(tweets, list):
+                        continue
+                    source_files[key].append(fp.name)
+                    for t in tweets:
+                        url = t.get("url")
+                        # Dedup by URL when available
+                        if url and url in seen:
+                            continue
+                        if url:
+                            seen.add(url)
+                        merged.append(t)
+                except Exception as e:
+                    print(f"Warning: failed to load {fp.name}: {e}")
+
+        # Keep only fresh signals
+        fresh = _filter_fresh(merged, max_hours=max_hours)
+        fresh.sort(key=lambda t: t.get("time", ""), reverse=True)
+        result[key] = fresh
+
+    return result, source_files
 
 
-def format_social_section(social):
+def format_social_section(social, source_files=None, freshness_hours=72):
     """Format social data: conclusion-first, then supporting evidence by dimension."""
     lines = []
     meme = social.get("meme_account", [])
@@ -218,7 +246,10 @@ def format_social_section(social):
     lines.append("")
 
     if total_signals == 0:
-        lines.append("- ⚠️ No fresh social signals within 48h window. Data collection pending.")
+        lines.append(f"- ⚠️ No fresh social signals within {freshness_hours}h window. Data collection pending.")
+        if source_files:
+            used = sorted({x for arr in source_files.values() for x in arr})
+            lines.append(f"- Source check: scanned {len(used)} social files in recent lookback, but none passed freshness filter.")
         return "\n".join(lines)
 
     confidence_factors = []
@@ -241,11 +272,14 @@ def format_social_section(social):
         confidence = "MEDIUM"
 
     lines.append(f"- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: {confidence} ({dimensions_active}/5 dimensions active)")
-    lines.append(f"- **Signal Coverage**: {total_signals} fresh posts across {dimensions_active} independent dimensions (48h window)")
+    lines.append(f"- **Signal Coverage**: {total_signals} fresh posts across {dimensions_active} independent dimensions ({freshness_hours}h window)")
     for cf in confidence_factors:
         lines.append(f"  - ✅ {cf}")
     lines.append("")
     lines.append("- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.")
+    if source_files:
+        src_count = sum(1 for v in source_files.values() if v)
+        lines.append(f"- **Data Freshness Source**: {src_count}/5 dimensions loaded from recent social files.")
     lines.append("")
 
     # ── SUPPORTING EVIDENCE ──
@@ -344,13 +378,17 @@ def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     date_s = now.strftime("%Y-%m-%d")
 
-    # Skip social scrape to avoid hanging, we rely on the cron job or manual scrape
-    # print("Collecting social intelligence...")
-    # try:
-    #     run_social_scrape()
-    # except Exception as e:
-    #     print(f"Social scrape failed (non-fatal): {e}")
-    social = get_social_pulse()
+    # Best-effort social scrape (local runner only). In CI, this often lacks browser/CDP dependencies.
+    if (Path.home() / ".openclaw" / "workspace" / "tools" / "x-poster" / "scrape-tweets.js").exists():
+        print("Collecting social intelligence (best-effort)...")
+        try:
+            run_social_scrape()
+        except Exception as e:
+            print(f"Social scrape failed (non-fatal): {e}")
+    else:
+        print("Social scraper not available in this environment; using recent local social files.")
+
+    social, social_sources = get_social_pulse(max_hours=72)
     
     # Fetch Bitget Wallet data (best-effort, non-blocking)
     print("Fetching Bitget Wallet on-chain data...")
@@ -490,7 +528,7 @@ def main():
             md.append("")
 
     # Social intelligence sub-section
-    social_section = format_social_section(social)
+    social_section = format_social_section(social, source_files=social_sources, freshness_hours=72)
     md.append(social_section)
     md.append("")
     md.append("---")
