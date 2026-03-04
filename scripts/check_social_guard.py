@@ -3,8 +3,12 @@
 
 Rule:
 - If latest report says no fresh social signals,
-- AND there are social raw files in the last 24h with non-empty tweet lists,
+- AND there are actually fresh tweets within the same freshness window (default 72h),
 then fail with non-zero exit code.
+
+Important:
+- Guard checks tweet `time` field freshness (content freshness), not file mtime.
+- This keeps CI logic aligned with generate_report.py social filtering.
 """
 
 from __future__ import annotations
@@ -29,28 +33,47 @@ def report_has_no_fresh_social(report_path: Path) -> bool:
     return "No fresh social signals" in text
 
 
-def count_recent_nonempty_social(hours: int = 24) -> int:
+def _parse_tweet_time(v: str) -> dt.datetime | None:
+    try:
+        return dt.datetime.fromisoformat(v.replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def count_fresh_tweets(hours: int = 72) -> int:
     if not SOCIAL_DIR.exists():
         return 0
 
     cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=hours)
-    count = 0
+    fresh = 0
+    seen_urls: set[str] = set()
 
     for fp in SOCIAL_DIR.glob("*.json"):
         # skip interpreted metadata files
         if fp.name.endswith("_interpreted.json"):
             continue
         try:
-            mtime = dt.datetime.fromtimestamp(fp.stat().st_mtime, tz=dt.timezone.utc)
-            if mtime < cutoff:
-                continue
             data = json.loads(fp.read_text(encoding="utf-8"))
-            if isinstance(data, list) and len(data) > 0:
-                count += 1
+            if not isinstance(data, list):
+                continue
+
+            for t in data:
+                if not isinstance(t, dict):
+                    continue
+                ts = _parse_tweet_time(str(t.get("time", "")))
+                if not ts or ts < cutoff:
+                    continue
+
+                url = str(t.get("url", "")).strip()
+                if url:
+                    if url in seen_urls:
+                        continue
+                    seen_urls.add(url)
+                fresh += 1
         except Exception:
             continue
 
-    return count
+    return fresh
 
 
 def main() -> int:
@@ -60,12 +83,12 @@ def main() -> int:
         return 0
 
     no_fresh = report_has_no_fresh_social(rp)
-    recent_nonempty = count_recent_nonempty_social(hours=24)
+    fresh_tweets_72h = count_fresh_tweets(hours=72)
 
-    print(f"[social-guard] latest={rp.name} no_fresh={no_fresh} recent_nonempty_files_24h={recent_nonempty}")
+    print(f"[social-guard] latest={rp.name} no_fresh={no_fresh} fresh_tweets_72h={fresh_tweets_72h}")
 
-    if no_fresh and recent_nonempty > 0:
-        print("[social-guard] ERROR: report says no fresh social signals but recent non-empty social files exist")
+    if no_fresh and fresh_tweets_72h > 0:
+        print("[social-guard] ERROR: report says no fresh social signals but fresh tweets exist in 72h window")
         return 2
 
     print("[social-guard] OK")
