@@ -5,16 +5,16 @@
 - Nasdaq: 22516.69 (-1.02%)
 - DXY: 99.02 (-0.03%)
 - US10Y: 4.06 (+0.20%)
-- Gold: 5181.60 (+1.45%)
-- Crude Oil: 76.79 (+2.99%)
+- Gold: 5175.60 (+1.34%)
+- Crude Oil: 76.76 (+2.95%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $68401.00 (+0.35%)
-- ETH: $1975.59 (-1.22%)
+- BTC: $68522.00 (+0.46%)
+- ETH: $1981.31 (-0.93%)
 - Fear & Greed: 10 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.
 
@@ -26,22 +26,22 @@
 - Stress Probability: 9.81%
 - Risk Flags: solscan_pro_unauthorized, using_moralis_enhanced_proxy
 
-### 📈 On-Chain Data (OKX OnChainOS - Primary)
-- Price: $3.3339
-- 24h Volume: $17,091,317
-- Market Cap: $775,133,847
-- Liquidity: $23,990,517
-- Holders: 646018
-- 24h Txs: 22,819
-- Price Change: 1h -0.17% | 24h -4.01%
+### 📈 On-Chain Data (Primary Feed)
+- Price: $3.3475
+- 24h Volume: $17,186,578
+- Market Cap: $778,297,558
+- Liquidity: $24,134,109
+- Holders: 646015
+- 24h Txs: 22,877
+- Price Change: 1h +0.30% | 24h -3.70%
 
-### 📊 On-Chain Activity (Bitget Wallet - Backup)
-- 24h Volume: $2,873,924
-- 24h Buyers/Sellers: 739/967 (ratio: 0.76)
-- 1h Volume: $74,317
-- 1h Buyers/Sellers: 47/87
+### 📊 On-Chain Activity (Secondary Feed)
+- 24h Volume: $2,899,082
+- 24h Buyers/Sellers: 730/972 (ratio: 0.75)
+- 1h Volume: $103,920
+- 1h Buyers/Sellers: 51/92
 
-### 🛡️ Security Audit (Bitget Wallet)
+### 🛡️ Security Audit (Secondary Feed)
 - Status: ✅ SAFE
 - Risk Count: 0
 - Buy/Sell Tax: 0% / 0%
@@ -111,11 +111,11 @@ Invalidate bull bias if Trigger A (4H whale-to-exchange net inflow >5% liquidity
 ---
 
 ## Transparency & Falsification
-- Trigger A status: not confirmed
-- Trigger B status: not confirmed
-- Trigger C status: not confirmed
-- Data source: Using proxy estimation for concentration (real holder data unavailable)
-- Confidence adjustment: Downward adjustment applied due to proxy usage
+- Trigger A (whale-to-exchange inflow spike): not confirmed
+- Trigger B (orderbook depth shock): not confirmed
+- Trigger C (holder concentration decay): not confirmed
+- Concentration quality: model-estimated fallback path in use (direct holder feed temporarily unavailable)
+- Confidence mode: conservative (positioning should be trigger-disciplined until direct feed recovers)
 
 ## Human Value Note
 - Beyond positions and probabilities, this system is built to preserve what matters most: dignity, care, and gratitude for those who gave us life.

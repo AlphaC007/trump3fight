@@ -484,9 +484,9 @@ def main():
     md.append(f"- Risk Flags: {', '.join(flags) if flags else 'none'}")
     md.append("")
     
-    # OKX OnChainOS (primary data source)
+    # Primary on-chain dataset
     if okx_data and "error" not in okx_data:
-        md.append("### 📈 On-Chain Data (OKX OnChainOS - Primary)")
+        md.append("### 📈 On-Chain Data (Primary Feed)")
         md.append(f"- Price: ${okx_data.get('price_usd', 0):.4f}")
         md.append(f"- 24h Volume: ${okx_data.get('volume_24h', 0):,.0f}")
         md.append(f"- Market Cap: ${okx_data.get('market_cap', 0):,.0f}")
@@ -500,14 +500,14 @@ def main():
         md.append(f"- Price Change: 1h {chg.get('1h', 0):+.2f}% | 24h {chg.get('24h', 0):+.2f}%")
         md.append("")
     
-    # Bitget Wallet (backup data source)
+    # Secondary on-chain verification feed
     if bitget and bitget.get("data"):
         bg_data = bitget["data"]
         tx_stats = bg_data.get("trump_tx_stats", {})
         security = bg_data.get("trump_security", {})
         
         if tx_stats:
-            md.append("### 📊 On-Chain Activity (Bitget Wallet - Backup)")
+            md.append("### 📊 On-Chain Activity (Secondary Feed)")
             h24 = tx_stats.get("24h", {})
             h1 = tx_stats.get("1h", {})
             md.append(f"- 24h Volume: ${h24.get('volume', 0):,.0f}")
@@ -519,7 +519,7 @@ def main():
         if security:
             safe = security.get("safe", False)
             risk_count = security.get("risk_count", 0)
-            md.append("### 🛡️ Security Audit (Bitget Wallet)")
+            md.append("### 🛡️ Security Audit (Secondary Feed)")
             md.append(f"- Status: {'✅ SAFE' if safe else '⚠️ RISK DETECTED'}")
             md.append(f"- Risk Count: {risk_count}")
             md.append(f"- Buy/Sell Tax: {security.get('buy_tax', 0)}% / {security.get('sell_tax', 0)}%")
@@ -561,18 +561,18 @@ def main():
     md.append("---")
     md.append("")
     md.append("## Transparency & Falsification")
-    md.append("- Trigger A status: not confirmed")
-    md.append("- Trigger B status: not confirmed")
-    md.append("- Trigger C status: not confirmed")
-    
-    # Dynamic proxy notes based on actual data source
+    md.append("- Trigger A (whale-to-exchange inflow spike): not confirmed")
+    md.append("- Trigger B (orderbook depth shock): not confirmed")
+    md.append("- Trigger C (holder concentration decay): not confirmed")
+
+    # Dynamic confidence notes based on concentration source quality
     using_proxy = any(flag in flags for flag in ['using_heuristic_proxy', 'using_moralis_enhanced_proxy'])
     if using_proxy:
-        md.append("- Data source: Using proxy estimation for concentration (real holder data unavailable)")
-        md.append("- Confidence adjustment: Downward adjustment applied due to proxy usage")
+        md.append("- Concentration quality: model-estimated fallback path in use (direct holder feed temporarily unavailable)")
+        md.append("- Confidence mode: conservative (positioning should be trigger-disciplined until direct feed recovers)")
     else:
-        md.append("- Data source: Real on-chain data (OKX OnChainOS + Bitget Wallet)")
-        md.append("- Confidence: Full confidence in concentration metrics")
+        md.append("- Concentration quality: direct on-chain holder feed available")
+        md.append("- Confidence mode: standard")
     
     md.append("")
     md.append("## Human Value Note")
