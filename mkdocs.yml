@@ -1,6 +1,6 @@
 site_name: The $TRUMP Thesis Lab
 site_url: https://alphac007.github.io/trump3fight/
-site_description: Data-driven conviction. Bull-First framework. Fight Fight Fight.
+site_description: Evidence-first research for the $TRUMP bull thesis with explicit risk boundaries.
 site_author: The $TRUMP Thesis Lab
 
 repo_name: AlphaC007/trump3fight
@@ -43,6 +43,7 @@ nav:
   - Trend Analysis: trends.md
   - For Agents: for-agents.md
   - About: about.md
+  - Trust & Verification: trust.md
 
 markdown_extensions:
   - admonition

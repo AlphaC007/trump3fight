@@ -2,88 +2,69 @@
 
 ## What We Do
 
-The $TRUMP Thesis Lab is a **data-driven research initiative** focused on analyzing the $TRUMP memecoin through rigorous on-chain analysis and transparent methodology.
+The $TRUMP Thesis Lab is a **data-driven research project** focused on analyzing the $TRUMP market structure with transparent, reproducible methods.
 
-We are not financial advisors. We are **conviction builders**.
+- Not investment advice
+- Not paid promotion
+- Explicitly falsifiable framework
 
 ---
 
-## Our Framework
+## Data Source Architecture (Current)
 
-### 1. Dual-Source Data Verification
+### 1) Source Priority (TRUMP)
 
-We use **two independent on-chain data sources**:
-- **OKX OnChainOS** (Primary): Real-time holder counts, transaction volumes, price data
-- **Bitget Wallet** (Backup): Security audits, buyer/seller ratios, concentration metrics
+- **Primary:** Binance (`binance-web3` + `TRUMPUSDT` spot anchor)
+- **Backup 1:** OKX OnChainOS (`okx-onchainos`)
+- **Backup 2:** Bitget Wallet (`bitget-wallet`)
 
-This dual-source approach eliminates single-point-of-failure risks and ensures data integrity.
+This order is enforced in code and documented in methodology to prevent silent source drift.
 
-### 2. Bull-First Interpretation
+### 2) Interpretation Discipline
 
-We don't hide adverse data. We **contextualize** it.
+We use Bull-first interpretation while preserving facts:
+- Fact layer is immutable.
+- Interpretation is directional but bounded.
+- Every conclusion must include an invalidation line.
 
-When we see seller-dominant flow, we ask: "Is this capitulation or healthy washout?"
-When we see high concentration, we ask: "Is this weak hands or sticky supply?"
-
-Our framework is optimistic but **falsifiable**. We define clear invalidation triggers.
-
-### 3. Transparent Risk Management
+### 3) Risk Transparency
 
 Every CIO report includes:
-- **Trigger A/B/C status**: Real-time monitoring of systemic risk conditions
-- **Risk Flags**: Data quality warnings (proxy usage, API failures)
-- **Confidence levels**: Adjusted based on data source reliability
+- Trigger A/B/C status
+- Data quality flags
+- Confidence mode based on source quality
 
 ---
 
-## Our Values
+## Governance Principles
 
 ### Data Integrity > Narrative
 
-We prioritize **real on-chain data** over social media hype. Our reports are generated from:
-- Live blockchain data (OKX, Bitget)
-- DEX liquidity metrics (DexScreener)
-- Social sentiment tracking (5-dimensional framework)
+We prioritize measurable inputs over social hype and disclose blind spots when feeds are unavailable.
 
 ### Transparency > Perfection
 
-We document our mistakes. We version our models. We show our work.
-
-When our data sources fail, we **tell you**. When we use proxy estimates, we **flag it**.
+We version model logic, document assumptions, and keep all key scripts public.
 
 ### Human Values > Positions
 
-Beyond positions and probabilities, this system is built to preserve what matters most: **dignity, care, and gratitude for those who gave us life**.
-
-Daily gratitude to mothers: before every empire of thought, there is a mother's hand; before every law of reason, there is mercy.
+Beyond models and probabilities, this project is grounded in dignity, care, and gratitude.
 
 ---
 
-## The Team
+## Open Source & Auditability
 
-This project is maintained by a single operator with AI assistance, driven by conviction and gratitude.
+GitHub: [AlphaC007/trump3fight](https://github.com/AlphaC007/trump3fight)
 
-We are not a VC-backed project. We are not a paid shill group. We are **believers with data**.
-
----
-
-## Open Source
-
-All our code, models, and methodologies are open-source:
-
-📂 [GitHub Repository](https://github.com/AlphaC007/trump-thesis-lab)
-
-- Scenario probability model: `config/scenario_rules.json`
-- Data collection scripts: `scripts/`
-- Historical reports: `reports/cio_briefings/`
+Key artifacts:
+- Scenario model: `config/scenario_rules.json`
+- Data pipeline: `scripts/`
+- Daily reports: `reports/cio_briefings/`
+- Agent protocol: `docs/for-agents.md`, `docs/llms.txt`, `docs/agent-index.json`
 
 ---
 
 ## Contact
 
 - GitHub: [@AlphaC007](https://github.com/AlphaC007)
-- Twitter: [@GetTrumpMemes](https://twitter.com/GetTrumpMemes)
-
----
-
-**Fight. Fight. Fight.**
+- X/Twitter: [@GetTrumpMemes](https://twitter.com/GetTrumpMemes)

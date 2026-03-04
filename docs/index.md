@@ -1,31 +1,33 @@
 # The $TRUMP Thesis Lab
 
 <div class="hero-shell">
-  <div class="hero-kicker">THE OFFICIAL BULL-FIRST INTELLIGENCE LAB</div>
-  <div class="hero-title">FIGHT. FIGHT. FIGHT.</div>
-  <div class="hero-subtitle">Data-driven conviction for the $TRUMP path to <strong>$100</strong>.</div>
+  <div class="hero-kicker">EVIDENCE-FIRST BULL-THESIS RESEARCH</div>
+  <div class="hero-title">$TRUMP Path to $100</div>
+  <div class="hero-subtitle">Bull-first interpretation with explicit invalidation boundaries.</div>
   <div class="hero-actions">
     <a class="cta-btn cta-primary" href="cio-reports/latest/">Read Today’s CIO Hub</a>
     <a class="cta-btn cta-secondary" href="trends/">Open Trend Dashboard</a>
   </div>
 </div>
 
-## The Vision: $100 is Not a Dream
+## Research Position
 
-We believe $TRUMP will reach $100. Not because of hype, but because of **data-driven conviction** and **unwavering community spirit**.
+This site tracks whether the **$TRUMP to $100 thesis** remains valid under transparent, falsifiable rules.
 
-This is not financial advice. This is a **movement**.
+- This is **research**, not investment advice.
+- Facts, interpretation, and uncertainty are separated.
+- Bull-first framing is always constrained by invalidation triggers.
 
 ---
 
 ## Trend Analysis (Live)
 
-We track price structure, Bull Probability, and holder concentration in real time.
+We track price structure, Bull Probability, and holder concentration continuously.
 
-**Current quick view:**
-- Price: $3.38
-- Bull Probability: 40.91%
-- Top 10 Holder Concentration: 91.50%
+**Current quick view (auto-updated):**
+- Price: <span id="home-price">--</span>
+- Bull Probability: <span id="home-bull">--</span>
+- Top 10 Holder Concentration: <span id="home-top10">--</span>
 
 ➡️ Open full interactive dashboard: [Trend Analysis](trends.md)
 
@@ -42,6 +44,21 @@ We track price structure, Bull Probability, and holder concentration in real tim
     const payload = await res.json();
     const points = payload.points_daily || payload.points_raw || [];
     if (!points.length) return;
+
+    const last = points[points.length - 1] || {};
+    const priceEl = document.getElementById('home-price');
+    const bullEl = document.getElementById('home-bull');
+    const top10El = document.getElementById('home-top10');
+
+    if (priceEl && Number.isFinite(last.price_usd)) {
+      priceEl.textContent = `$${Number(last.price_usd).toFixed(4)}`;
+    }
+    if (bullEl && Number.isFinite(last.bull_probability_pct)) {
+      bullEl.textContent = `${Number(last.bull_probability_pct).toFixed(2)}%`;
+    }
+    if (top10El && Number.isFinite(last.top10_holder_pct)) {
+      top10El.textContent = `${Number(last.top10_holder_pct).toFixed(2)}%`;
+    }
 
     const labels = points.map(p => p.day || p.ts || '');
     const price = points.map(p => p.price_usd ?? null);
@@ -67,64 +84,26 @@ We track price structure, Bull Probability, and holder concentration in real tim
 
 ---
 
-## Our Mission
-
-The $TRUMP Thesis Lab combines:
-
-- **Real on-chain market data**
-- **Bull-First interpretation framework**
-- **Transparent risk management**
-- **Daily CIO briefings**
-
-We don't hide bad news. We contextualize it. We don't chase pumps. We build conviction through evidence.
-
----
-
-## Today's Snapshot
-
-Latest CIO Report: [CIO Intelligence Hub](cio-reports/latest.md)
-
-**Key Metrics:**
-- Price: $3.38
-- Bull Probability: 40.91%
-- Top 10 Holder Concentration: 91.50%
-- Risk Flags: **NONE**
-
----
-
-## Fight Fight Fight
+## Method & Trust
 
 This project is built on three pillars:
 
-1. **Data Integrity**: We rely on continuously refreshed, verifiable market and on-chain inputs.
-2. **Transparent Methodology**: Our scenario model is open-source. Every assumption is documented.
-3. **Human Values**: Beyond positions and probabilities, we honor dignity, care, and gratitude for those who gave us life.
+1. **Data Integrity**: continuously refreshed, verifiable multi-source inputs.
+2. **Transparent Methodology**: scenario model and assumptions are public.
+3. **Falsifiability**: thesis remains valid only while triggers remain unconfirmed.
 
----
-
-## What's Next?
-
-- **Daily CIO Reports**: Updated every morning (Asia/Shanghai timezone)
-- **Trend Intelligence**: Structure shifts, momentum, and regime transitions
-- **Community Insights**: Social sentiment tracking across 5 dimensions
+Read: [Trust & Verification](trust.md)
 
 ---
 
 ## For Agents
 
-We provide a dedicated machine-readable entrypoint so AI agents can quickly understand and verify this project.
+We provide machine-readable entry points for AI systems:
 
 - Agent entry page: [For Agents](for-agents.md)
 - LLM contract: [llms.txt](llms.txt)
+- Agent index JSON: [agent-index.json](agent-index.json)
 - Latest thesis hub: [CIO Intelligence Hub](cio-reports/latest.md)
-
----
-
-## Join the Movement
-
-We are not here to predict the future. We are here to **build it**.
-
-**Fight. Fight. Fight.**
 
 ---
 

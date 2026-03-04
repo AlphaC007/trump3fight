@@ -11,11 +11,12 @@ This page is a machine-friendly entry point for AI agents, retrieval systems, an
 
 ## Canonical Inputs (Read in this order)
 
-1. [`llms.txt`](../llms.txt) — repository-level LLM access contract
+1. [`llms.txt`](llms.txt) — repository-level LLM access contract
 2. [`cio-reports/latest`](cio-reports/latest.md) — latest CIO hub (summary + today + archive links)
 3. [`trends`](trends.md) — interactive trend panel and regime metrics
 4. [`scenario_matrix`](scenario_matrix.md) — scenario definitions and logic
 5. [`methodology`](methodology.md) — analytical framework and interpretation protocol
+6. [`trust`](trust.md) — verification checklist, source priority, known blind spots
 
 ## Data Interfaces
 

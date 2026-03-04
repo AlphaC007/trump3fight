@@ -9,6 +9,7 @@ Agent entry page: /for-agents/
 3. /trends/
 4. /scenario_matrix/
 5. /methodology/
+6. /trust/
 
 ## Data Guidance
 - Treat `assets/data/trends.json` as the chart-ready dataset.
