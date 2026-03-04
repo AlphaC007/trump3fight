@@ -33,6 +33,9 @@ jobs:
       - name: Build CIO hub page
         run: python scripts/build_cio_hub.py
 
+      - name: Validate CIO hub freshness
+        run: python scripts/check_cio_hub_freshness.py
+
       - name: Build trend dataset
         run: python scripts/build_trend_data.py
 

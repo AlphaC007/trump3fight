@@ -40,3 +40,11 @@ jobs:
           git diff --cached --quiet || git commit -m "chore(report): daily bull-first CIO report"
           git pull --rebase origin main
           git push
+
+      - name: Verify push reached remote main
+        run: |
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git ls-remote origin refs/heads/main | awk '{print $1}')
+          echo "local=$LOCAL"
+          echo "remote=$REMOTE"
+          test "$LOCAL" = "$REMOTE"
