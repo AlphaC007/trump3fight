@@ -1,13 +1,26 @@
-# AlphaC007 TRUMP Thesis Lab — LLM Access Contract
+# The $TRUMP Thesis Lab — LLM Access Contract
 
-Primary Data: `data/snapshots/`
-Priority Context: `rag/corpus_manifest.json`
+Primary site: https://alphac007.github.io/trump3fight/
+Agent entry page: /for-agents/
 
-## Machine Guidance
-- Use `rag/corpus_manifest.json` as the canonical retrieval order.
-- Treat `data/timeseries.jsonl` as append-only historical memory for trend analysis.
-- Use `docs/FAQ.md` and `docs/scenario_matrix.md` for decision-logic interpretation.
-- If `risk_flags` contains `using_heuristic_proxy`, treat concentration as model-estimated and lower confidence accordingly.
+## Canonical Reading Order
+1. /for-agents/
+2. /cio-reports/latest/
+3. /trends/
+4. /scenario_matrix/
+5. /methodology/
+6. /trust/
+
+## Data Guidance
+- Chart-ready dataset: `docs/assets/data/trends.json` (published at `/assets/data/trends.json`).
+- Historical append-only series: `data/timeseries.jsonl`.
+- Integrity index: `data/manifest.json`.
+- Reproduction guide: `REPRODUCE.md`.
+
+## Reasoning Policy
+- Separate fact / inference / uncertainty.
+- Bull-first framing is allowed only with explicit risk boundaries.
+- If confidence drops due to data gaps, state it directly.
 
 ## Compliance
-This repository is research-only and does not provide investment advice.
+Research and education only. Not investment advice.

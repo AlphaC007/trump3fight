@@ -28,6 +28,8 @@ We track price structure, Bull Probability, and holder concentration continuousl
 - Price: <span id="home-price">--</span>
 - Bull Probability: <span id="home-bull">--</span>
 - Top 10 Holder Concentration: <span id="home-top10">--</span>
+- Last Updated (UTC): <span id="home-last-updated">--</span>
+- Data Version: <span id="home-data-version">--</span>
 
 ➡️ Open full interactive dashboard: [Trend Analysis](trends.md)
 
@@ -49,6 +51,8 @@ We track price structure, Bull Probability, and holder concentration continuousl
     const priceEl = document.getElementById('home-price');
     const bullEl = document.getElementById('home-bull');
     const top10El = document.getElementById('home-top10');
+    const lastUpdatedEl = document.getElementById('home-last-updated');
+    const dataVersionEl = document.getElementById('home-data-version');
 
     if (priceEl && Number.isFinite(last.price_usd)) {
       priceEl.textContent = `$${Number(last.price_usd).toFixed(4)}`;
@@ -58,6 +62,9 @@ We track price structure, Bull Probability, and holder concentration continuousl
     }
     if (top10El && Number.isFinite(last.top10_holder_pct)) {
       top10El.textContent = `${Number(last.top10_holder_pct).toFixed(2)}%`;
+    }
+    if (lastUpdatedEl && payload.generated_at_utc) {
+      lastUpdatedEl.textContent = payload.generated_at_utc;
     }
 
     const labels = points.map(p => p.day || p.ts || '');
@@ -78,6 +85,16 @@ We track price structure, Bull Probability, and holder concentration continuousl
       }]
     });
     window.addEventListener('resize', () => chart.resize());
+
+    if (dataVersionEl) {
+      try {
+        const m = await fetch('data/manifest.json', { cache: 'no-cache' });
+        if (m.ok) {
+          const manifest = await m.json();
+          dataVersionEl.textContent = manifest.pipeline_version || manifest.manifest_version || '--';
+        }
+      } catch (_) {}
+    }
   } catch (_) {}
 })();
 </script>

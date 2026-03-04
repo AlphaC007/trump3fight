@@ -21,7 +21,9 @@ This page is a machine-friendly entry point for AI agents, retrieval systems, an
 ## Data Interfaces
 
 - Time-series source: `data/timeseries.jsonl`
-- Frontend chart dataset: `assets/data/trends.json`
+- Frontend chart dataset (repo path): `docs/assets/data/trends.json` (published as `/assets/data/trends.json`)
+- Integrity index: `data/manifest.json`
+- Reproduction spec: `REPRODUCE.md`
 - Daily report corpus: `reports/cio_briefings/*.md`
 - Published archive pages: `cio-reports/archive/*.md`
 

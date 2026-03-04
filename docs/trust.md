@@ -7,9 +7,11 @@ This page defines how to verify claims from this project quickly and reproducibl
 ## Verification Checklist
 
 1. Open latest report: `/cio-reports/latest/`
-2. Cross-check trend dataset: `docs/assets/data/trends.json`
+2. Cross-check trend dataset: `/assets/data/trends.json` (repo file: `docs/assets/data/trends.json`)
 3. Validate snapshot fields: `data/snapshots/YYYY-MM-DD.snapshot.json`
-4. Confirm methodology and triggers: `/methodology/` + `/scenario_matrix/`
+4. Validate hash consistency via `data/manifest.json`
+5. Confirm methodology and triggers: `/methodology/` + `/scenario_matrix/`
+6. Re-run locally with `REPRODUCE.md`
 
 ## Source Priority (TRUMP)
 

@@ -19,7 +19,8 @@ A public, reproducible research repository for $TRUMP market structure analysis.
 
 ## Data freshness
 - Daily snapshot target: 00:10 UTC
-- Latest snapshot: `data/snapshots/YYYY-MM-DD.snapshot.json`
+- Latest snapshot: `data/snapshots/2026-03-04.snapshot.json`
+- Build manifest: `data/manifest.json`
 
 ## TRUMP Data Source Priority (On-Chain + Market)
 For the $TRUMP pipeline, source priority is explicitly fixed as:
@@ -31,6 +32,10 @@ This priority applies to snapshot generation and daily CIO report composition. F
 
 ## How to cite
 Use file path + section header + date, e.g. `docs/scenario_matrix.md#bull (2026-02-20)`.
+
+## Reproduce & verify
+- Deterministic runbook: `REPRODUCE.md`
+- Integrity and artifact hashes: `data/manifest.json`
 
 ## Machine-readable artifacts
 - `data/snapshots/*.json`
