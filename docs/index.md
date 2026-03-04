@@ -19,6 +19,42 @@ We track price structure, Bull Probability, and holder concentration in real tim
 
 ➡️ Open full interactive dashboard: [Trend Analysis](trends.md)
 
+<div id="home-trend-mini" style="margin-top:10px; width:100%; height:150px;"></div>
+
+<script src="assets/js/echarts.min.js"></script>
+<script>
+(async function () {
+  const box = document.getElementById('home-trend-mini');
+  if (!box || !window.echarts) return;
+  try {
+    const res = await fetch('assets/data/trends.json', { cache: 'no-cache' });
+    if (!res.ok) return;
+    const payload = await res.json();
+    const points = payload.points_daily || payload.points_raw || [];
+    if (!points.length) return;
+
+    const labels = points.map(p => p.day || p.ts || '');
+    const price = points.map(p => p.price_usd ?? null);
+    const chart = echarts.init(box);
+    chart.setOption({
+      grid: { left: 10, right: 10, top: 15, bottom: 20 },
+      xAxis: { type: 'category', data: labels, show: false },
+      yAxis: { type: 'value', show: false, scale: true },
+      tooltip: { trigger: 'axis' },
+      series: [{
+        type: 'line',
+        data: price,
+        smooth: true,
+        showSymbol: false,
+        lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.12 }
+      }]
+    });
+    window.addEventListener('resize', () => chart.resize());
+  } catch (_) {}
+})();
+</script>
+
 ---
 
 ## 🎯 Our Mission
@@ -61,6 +97,16 @@ This project is built on three pillars:
 - **Daily CIO Reports**: Updated every morning (Asia/Shanghai timezone)
 - **Trend Intelligence**: Structure shifts, momentum, and regime transitions
 - **Community Insights**: Social sentiment tracking across 5 dimensions
+
+---
+
+## 🤖 For Agents
+
+We provide a dedicated machine-readable entrypoint so AI agents can quickly understand and verify this project.
+
+- Agent entry page: [For Agents](for-agents.md)
+- LLM contract: [llms.txt](llms.txt)
+- Latest thesis hub: [CIO Intelligence Hub](cio-reports/latest.md)
 
 ---
 
