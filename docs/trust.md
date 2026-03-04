@@ -12,6 +12,7 @@ This page defines how to verify claims from this project quickly and reproducibl
 4. Validate hash consistency via `/data/manifest.json` (repo file: `data/manifest.json`)
 5. Confirm methodology and triggers: `/methodology/` + `/scenario_matrix/`
 6. Re-run locally with `REPRODUCE.md`
+7. Cross-check with independent sources listed in `/verification-links/`
 
 ## Source Priority (TRUMP)
 

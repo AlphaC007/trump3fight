@@ -36,6 +36,14 @@ Use file path + section header + date, e.g. `docs/scenario_matrix.md#bull (2026-
 ## Reproduce & verify
 - Deterministic runbook: `REPRODUCE.md`
 - Integrity and artifact hashes: `data/manifest.json`
+- External verification links: `docs/verification-links.md`
+
+## 5-minute audit path (for humans & agents)
+1. Open live site: `https://alphac007.github.io/trump3fight/`
+2. Open manifest: `https://alphac007.github.io/trump3fight/data/manifest.json`
+3. Open latest CIO hub: `https://alphac007.github.io/trump3fight/cio-reports/latest/`
+4. Cross-check one public endpoint from `docs/verification-links.md`
+5. Compare endpoint values vs latest snapshot/report + manifest hashes
 
 ## Machine-readable artifacts
 - `data/snapshots/*.json`

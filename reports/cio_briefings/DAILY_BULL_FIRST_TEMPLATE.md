@@ -59,5 +59,11 @@
 - Trigger C (holder concentration decay): {{TRIGGER_C_STATUS}}
 - Concentration quality / confidence mode: {{PROXY_NOTES}}
 
+## Independent Verification Links (Mandatory)
+- Binance ticker endpoint used: {{BINANCE_TICKER_URL}}
+- Binance kline endpoint used: {{BINANCE_KLINE_URL}}
+- One independent market cross-check URL: {{EXTERNAL_MARKET_URL}}
+- One independent on-chain cross-check URL: {{EXTERNAL_ONCHAIN_URL}}
+
 ## Human Value Note
 - Beyond positions and probabilities, this system is built to preserve what matters most: dignity, care, and gratitude for those who gave us life.

@@ -1,4 +1,7 @@
 {
+  "schema": "trump-thesis-lab.agent-index.v1",
+  "schema_version": "1.1.0",
+  "updated_at": "2026-03-04T21:55:04Z",
   "name": "The $TRUMP Thesis Lab",
   "site": "https://alphac007.github.io/trump3fight/",
   "agent_entry": "https://alphac007.github.io/trump3fight/for-agents/",

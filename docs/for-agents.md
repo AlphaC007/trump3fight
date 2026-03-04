@@ -17,6 +17,7 @@ This page is a machine-friendly entry point for AI agents, retrieval systems, an
 4. [`scenario_matrix`](scenario_matrix.md) — scenario definitions and logic
 5. [`methodology`](methodology.md) — analytical framework and interpretation protocol
 6. [`trust`](trust.md) — verification checklist, source priority, known blind spots
+7. [`verification-links`](verification-links.md) — independent public endpoints for cross-checks
 
 ## Data Interfaces
 

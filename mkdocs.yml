@@ -44,6 +44,7 @@ nav:
   - For Agents: for-agents.md
   - About: about.md
   - Trust & Verification: trust.md
+  - External Verification Links: verification-links.md
 
 markdown_extensions:
   - admonition
