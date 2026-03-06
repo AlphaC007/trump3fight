@@ -1,0 +1,75 @@
+site_name: The $TRUMP Thesis Lab
+site_url: https://alphac007.github.io/trump3fight/
+site_description: Evidence-first research for the $TRUMP bull thesis with explicit risk boundaries.
+site_author: The $TRUMP Thesis Lab
+
+repo_name: AlphaC007/trump3fight
+repo_url: https://github.com/AlphaC007/trump3fight
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    - scheme: slate
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+  logo: assets/trump-fight-logo.webp
+  favicon: assets/favicon.ico
+
+nav:
+  - Home: index.md
+  - Daily CIO Report: cio-reports/latest.md
+  - Trend Analysis: trends.md
+  - For Agents: for-agents.md
+  - Agent Reward Program: agent-reward.md
+  - About: about.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - glightbox
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AlphaC007/trump3fight
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/GetTrumpMemes
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2026 The $TRUMP Thesis Lab. Fight Fight Fight.

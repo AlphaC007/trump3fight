@@ -1,0 +1,48 @@
+{
+  "sources": [
+    {
+      "id": "coingecko",
+      "type": "market",
+      "url": "https://api.coingecko.com/api/v3/",
+      "trust_tier": "A"
+    },
+    {
+      "id": "dexscreener",
+      "type": "dex",
+      "url": "https://api.dexscreener.com/latest/dex/tokens/",
+      "trust_tier": "A"
+    },
+    {
+      "id": "solscan",
+      "type": "onchain",
+      "url": "https://pro-api.solscan.io/v2.0/",
+      "trust_tier": "A"
+    },
+    {
+      "id": "solana-rpc",
+      "type": "onchain",
+      "url": "https://solana-rpc.publicnode.com",
+      "trust_tier": "A"
+    },
+    {
+      "id": "birdeye",
+      "type": "onchain",
+      "url": "https://public-api.birdeye.so/",
+      "trust_tier": "A"
+    },
+    {
+      "id": "x-social-gettrumpmemes",
+      "type": "social",
+      "url": "https://x.com/GetTrumpMemes",
+      "trust_tier": "B",
+      "notes": "Official $TRUMP meme account — scraped via CDP"
+    },
+    {
+      "id": "x-social-search-trump",
+      "type": "social",
+      "url": "https://x.com/search?q=$TRUMP",
+      "trust_tier": "C",
+      "notes": "Broad $TRUMP keyword search for community sentiment"
+    }
+  ]
+}

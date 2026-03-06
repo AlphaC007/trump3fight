@@ -1,0 +1,80 @@
+{
+  "date": "2026-03-05",
+  "framework": "Bull-First Social Intelligence",
+  "freshness_window": "48h",
+  "dimensions": {
+    "GetTrumpMemes": {
+      "dimension": "Dim 1: Official Meme Account",
+      "signal_count": 13,
+      "sentiment": "NEUTRAL",
+      "key_themes": [],
+      "bull_interpretation": "Dim 1: Official Meme Account: 13 signals detected. Baseline engagement maintained, consistent with base-building phase.",
+      "top_signals": [
+        {
+          "text_preview": "Tap in.",
+          "engagement": "45,278",
+          "bull_interpretation": "Neutral discussion, maintains baseline attention"
+        },
+        {
+          "text_preview": "The People’s President!",
+          "engagement": "15,185",
+          "bull_interpretation": "Neutral discussion, maintains baseline attention"
+        },
+        {
+          "text_preview": "Every single time I watch this, I cry",
+          "engagement": "14,356",
+          "bull_interpretation": "Neutral discussion, maintains baseline attention"
+        }
+      ]
+    },
+    "TRUMP": {
+      "dimension": "Dim 2: $TRUMP Community Pulse",
+      "signal_count": 1,
+      "sentiment": "NEUTRAL",
+      "key_themes": [
+        "community engagement",
+        "holder confidence",
+        "meme propagation"
+      ],
+      "bull_interpretation": "Dim 2: $TRUMP Community Pulse: 1 signals detected. Lower signal volume, but quality signals remain.",
+      "top_signals": [
+        {
+          "text_preview": "$TRUMP  Analyst Target price for Tomorrowhttp://discord.com/invite/vvdgBRAQuw…",
+          "engagement": "0",
+          "bull_interpretation": "Mentions $TRUMP, indicates sustained community awareness"
+        }
+      ]
+    },
+    "TRUMPMEME": {
+      "dimension": "Dim 3: Meme Ecosystem",
+      "signal_count": 13,
+      "sentiment": "NEUTRAL",
+      "key_themes": [],
+      "bull_interpretation": "Dim 3: Meme Ecosystem: 13 signals detected. Baseline engagement maintained, consistent with base-building phase.",
+      "top_signals": [
+        {
+          "text_preview": "“Trump as sheriff shutting down the Panama Canal to China! \nBig hair, badge, patrol boat—‘CANAL CLOS...",
+          "engagement": "1",
+          "bull_interpretation": "Mentions $TRUMP, indicates sustained community awareness"
+        },
+        {
+          "text_preview": "Trump chilling at Mar-a-Lago, but little do they know...  Fresh meme drop on that wild weekend vibe....",
+          "engagement": "1",
+          "bull_interpretation": "Mentions $TRUMP, indicates sustained community awareness"
+        },
+        {
+          "text_preview": "This is hilarious  \n#Trumpmeme #Trump #USIranWar",
+          "engagement": "0",
+          "bull_interpretation": "Mentions $TRUMP, indicates sustained community awareness"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_signals": 27,
+    "active_dimensions": 3,
+    "overall_sentiment": "CONSTRUCTIVE",
+    "confidence": "MEDIUM",
+    "bull_verdict": "27 signals across 3 independent dimensions. Community engagement remains active, consistent with base-building phase characteristics."
+  }
+}

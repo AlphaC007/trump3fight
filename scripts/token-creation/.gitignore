@@ -1,0 +1,12 @@
+# Token creation artifacts
+token-addresses.json
+node_modules/
+package-lock.json
+
+# Keypairs (NEVER commit these!)
+*.json
+!package.json
+!token-addresses.json.example
+
+# Logs
+*.log

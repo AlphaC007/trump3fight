@@ -1,0 +1,253 @@
+/* The $TRUMP Thesis Lab — brand style inspired by gettrumpmemes.com
+   Theme direction: bold contrast, patriotic red/blue accents, dark premium gradients.
+*/
+
+:root {
+  --trump-red: #d61f26;
+  --trump-red-dark: #9f141a;
+  --trump-blue: #0f4fa8;
+  --trump-gold: #f4c542;
+  --trump-bg-dark: #0e1116;
+  --trump-bg-deep: #090b0f;
+}
+
+/* Global tone (default = dark premium) */
+body {
+  background: linear-gradient(180deg, var(--trump-bg-dark) 0%, var(--trump-bg-deep) 100%);
+}
+
+.md-main__inner {
+  margin-top: 0.8rem;
+}
+
+.md-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+}
+
+/* Optional light mode fallback */
+[data-md-color-scheme="default"] body {
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3fa 100%);
+}
+
+[data-md-color-scheme="default"] .md-content {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Headlines */
+.md-typeset h1 {
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 900;
+  text-shadow: 0 1px 6px rgba(214, 31, 38, 0.18);
+}
+
+.md-typeset h2 {
+  color: #0f172a;
+  border-left: 4px solid var(--trump-red);
+  padding-left: 0.55rem;
+  margin-top: 1.6rem;
+}
+
+.md-typeset h3 {
+  color: #1f2937;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(214, 31, 38, 0.35);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #f0f3fa;
+}
+
+/* Force high legibility in dark mode */
+[data-md-color-scheme="slate"] .md-typeset,
+[data-md-color-scheme="slate"] .md-typeset p,
+[data-md-color-scheme="slate"] .md-typeset li,
+[data-md-color-scheme="slate"] .md-typeset td,
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  color: #f3f6ff;
+  line-height: 1.72;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #8ec5ff;
+  text-decoration-color: rgba(142, 197, 255, 0.55);
+}
+
+[data-md-color-scheme="slate"] .md-typeset strong {
+  color: #ffd86a;
+}
+
+/* Strong emphasis */
+.md-typeset strong {
+  color: var(--trump-gold);
+  font-weight: 700;
+}
+
+/* Links */
+.md-typeset a {
+  color: #6fb0ff;
+}
+.md-typeset a:hover {
+  color: #9cccff;
+}
+
+/* Hero quote */
+.md-typeset blockquote {
+  border-left: 4px solid var(--trump-red);
+  background: linear-gradient(90deg, rgba(214, 31, 38, 0.12) 0%, rgba(15, 79, 168, 0.08) 100%);
+  color: #111827;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  background: linear-gradient(90deg, rgba(214, 31, 38, 0.18) 0%, rgba(15, 79, 168, 0.12) 100%);
+  color: #f6f8fc;
+}
+
+/* Horizontal separators */
+.md-typeset hr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Tables */
+.md-typeset table {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.md-typeset table th {
+  background: linear-gradient(90deg, rgba(214, 31, 38, 0.32) 0%, rgba(15, 79, 168, 0.24) 100%);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.md-typeset table td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Code blocks */
+.md-typeset pre > code {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Navigation + header */
+.md-header {
+  background: linear-gradient(90deg, #650d12 0%, #0e2c5d 100%);
+}
+
+.md-tabs {
+  background: #111827;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--trump-gold);
+}
+
+/* Footer */
+.md-footer-meta {
+  background: #07090d;
+}
+
+.md-footer-copyright {
+  color: #f7d97b;
+}
+
+/* Hero block */
+.hero-shell {
+  background:
+    radial-gradient(1200px 260px at 20% 0%, rgba(214, 31, 38, 0.38), transparent 60%),
+    radial-gradient(1000px 300px at 80% 0%, rgba(15, 79, 168, 0.35), transparent 62%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  background-size: 120% 120%;
+  animation: heroPulse 9s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 1rem 1rem 1.1rem;
+  margin: 0.6rem 0 1.1rem;
+}
+
+@keyframes heroPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-kicker {
+  color: #f7d97b;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  font-weight: 900;
+  margin-top: 0.15rem;
+  text-shadow: 0 2px 16px rgba(214, 31, 38, 0.45);
+}
+
+.hero-subtitle {
+  color: #e8edf8;
+  margin-top: 0.4rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font-weight: 800;
+  text-decoration: none !important;
+  font-size: 0.82rem;
+}
+
+.cta-primary {
+  color: #fff !important;
+  background: linear-gradient(90deg, var(--trump-red), var(--trump-red-dark));
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.cta-secondary {
+  color: #dbe9ff !important;
+  background: linear-gradient(90deg, #103f85, #0f4fa8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* Mobile readability */
+@media (max-width: 768px) {
+  .md-content {
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem;
+  }
+  .hero-title {
+    font-size: 1.45rem;
+  }
+}

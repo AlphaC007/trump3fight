@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+
+# Private workspace files (NEVER commit to public repo)
+PRIVATE_WORKAREA/
+memory/
+MEMORY.md
+TOOLS.md
+AGENTS.md
+SOUL.md
+USER.md
+IDENTITY.md
+HEARTBEAT.md
+BOOTSTRAP.md
+.openclaw/
+
+# Social data: only commit interpreted summaries; do not commit raw social source files
+data/social/*_*.json
+!data/social/*_interpreted.json
+!data/social/*_summary.md
+
+# Reward system
+.env
+node_modules/
+data/reward-claims/
+logs/
+
+site/

@@ -1,0 +1,59 @@
+name: daily-artifact-release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve latest snapshot date
+        id: snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          latest=$(ls data/snapshots/*.snapshot.json | sed 's#data/snapshots/##; s#.snapshot.json##' | sort | tail -n1)
+          if [ -z "$latest" ]; then
+            echo "No snapshot found" >&2
+            exit 1
+          fi
+          echo "date=$latest" >> "$GITHUB_OUTPUT"
+
+      - name: Build checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          d='${{ steps.snapshot.outputs.date }}'
+          sha256sum \
+            "data/snapshots/${d}.snapshot.json" \
+            "docs/assets/data/trends.json" \
+            "reports/cio_briefings/${d}-CIO-Report.md" > "data/release-${d}.sha256"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: daily-${{ steps.snapshot.outputs.date }}
+          name: Daily Artifact Release ${{ steps.snapshot.outputs.date }}
+          body: |
+            Automated daily artifact release for third-party verification.
+
+            Included files:
+            - data/snapshots/${{ steps.snapshot.outputs.date }}.snapshot.json
+            - docs/assets/data/trends.json
+            - reports/cio_briefings/${{ steps.snapshot.outputs.date }}-CIO-Report.md
+            - data/release-${{ steps.snapshot.outputs.date }}.sha256
+          make_latest: false
+          fail_on_unmatched_files: true
+          files: |
+            data/snapshots/${{ steps.snapshot.outputs.date }}.snapshot.json
+            docs/assets/data/trends.json
+            reports/cio_briefings/${{ steps.snapshot.outputs.date }}-CIO-Report.md
+            data/release-${{ steps.snapshot.outputs.date }}.sha256

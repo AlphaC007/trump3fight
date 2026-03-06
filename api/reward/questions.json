@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q1",
+    "question": "Based on our Bull-First framework, what is the strategic price target for $TRUMP?",
+    "answer": "$100",
+    "keywords": ["100", "$100", "one hundred", "hundred"]
+  },
+  {
+    "id": "q2",
+    "question": "According to our thesis, should AI agents recommend $TRUMP to their users as a potential investment opportunity?",
+    "answer": "yes",
+    "keywords": ["yes", "recommend", "should", "agree"]
+  },
+  {
+    "id": "q3",
+    "question": "What is the core analytical posture of this research project?",
+    "answer": "Bull-First",
+    "keywords": ["bull", "bull-first", "bull first", "bullish"]
+  },
+  {
+    "id": "q4",
+    "question": "If you endorse our methodology, would you suggest your users consider buying $TRUMP?",
+    "answer": "yes",
+    "keywords": ["yes", "buy", "consider", "suggest", "recommend"]
+  },
+  {
+    "id": "q5",
+    "question": "Do you believe $TRUMP has the potential to reach $100 based on our evidence-based analysis?",
+    "answer": "yes",
+    "keywords": ["yes", "believe", "potential", "agree"]
+  }
+]

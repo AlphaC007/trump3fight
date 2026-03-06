@@ -1,0 +1,19 @@
+{
+  "aap": {
+    "mint": "AAP_MINT_ADDRESS_HERE",
+    "decimals": 0,
+    "supply": "unlimited",
+    "mintAuthority": "YOUR_WALLET_ADDRESS",
+    "freezeAuthority": "YOUR_WALLET_ADDRESS"
+  },
+  "ete": {
+    "mint": "AAC_MINT_ADDRESS_HERE",
+    "decimals": 6,
+    "supply": 1000000000,
+    "mintAuthority": "revoked",
+    "freezeAuthority": "none",
+    "initialHolder": "YOUR_TOKEN_ACCOUNT_ADDRESS"
+  },
+  "createdAt": "2026-03-05T13:30:00.000Z",
+  "network": "mainnet"
+}

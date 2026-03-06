@@ -1,0 +1,64 @@
+{
+  "as_of_utc": "2026-02-28T13:48:17Z",
+  "asset": "TRUMP",
+  "market": {
+    "price_usd": 3.26,
+    "mcap_usd": 754719465.0223799,
+    "volume_24h_usd": 94388847.88851422,
+    "liquidity_usd": 12938097.59,
+    "fdv_usd": 3268874614.0,
+    "buys_24h": 2701.0,
+    "sells_24h": 2645.0,
+    "buy_sell_txn_ratio_24h": 1.0212
+  },
+  "onchain": {
+    "top10_holder_pct": 98.081,
+    "top10_holder_source": "moralis-enhanced-proxy",
+    "dex_depth_2pct_usd": null,
+    "exchange_inflow_usd_24h": null,
+    "exchange_outflow_usd_24h": null
+  },
+  "derived": {
+    "liq_fdv_ratio": 0.003958,
+    "liquidity_change_24h": -0.032495,
+    "price_change_24h_pct": -3.13
+  },
+  "scenario_probabilities": {
+    "Bull": 0.4222,
+    "Base": 0.5013,
+    "Stress": 0.0765
+  },
+  "risk_flags": [
+    {
+      "id": "solscan_pro_unauthorized",
+      "triggered": true,
+      "severity": "medium",
+      "evidence": [
+        "source:moralis-enhanced-proxy"
+      ]
+    },
+    {
+      "id": "using_moralis_enhanced_proxy",
+      "triggered": true,
+      "severity": "low",
+      "evidence": [
+        "source:moralis-enhanced-proxy"
+      ]
+    }
+  ],
+  "sources": [
+    "coingecko",
+    "dexscreener",
+    "moralis-enhanced-proxy"
+  ],
+  "model": {
+    "name": "scenario_prob_v1",
+    "rules_source": "config/scenario_rules.json",
+    "weights": {
+      "liquidity_resilience": 0.3,
+      "buy_sell_momentum": 0.4,
+      "onchain_concentration": 0.2,
+      "narrative_volatility_buffer": 0.1
+    }
+  }
+}

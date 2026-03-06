@@ -1,0 +1,22 @@
+{
+  "name": "trump-thesis-lab-reward-system",
+  "version": "1.0.0",
+  "description": "Solana Pay reward system for AI agents",
+  "main": "api/reward/verify-and-reward.js",
+  "scripts": {
+    "start:monitor": "node api/reward/verify-and-reward.js",
+    "start:monitor:base": "node api/reward/base-verify-and-reward.js",
+    "start:api": "node api/server.js",
+    "test:challenge": "node api/reward/generate-challenge.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0",
+    "@solana/spl-token": "^0.4.0",
+    "ethers": "^6.16.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "keywords": ["solana", "reward", "agent", "payment"],
+  "author": "",
+  "license": "MIT"
+}

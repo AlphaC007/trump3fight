@@ -1,0 +1,49 @@
+{
+  "as_of_utc": "2026-03-04T14:09:56Z",
+  "asset": "TRUMP",
+  "market": {
+    "price_usd": 3.3957361011344767,
+    "mcap_usd": 679145164.3124303,
+    "volume_24h_usd": 17877635.079765417,
+    "liquidity_usd": 93536957.33721584,
+    "fdv_usd": 679145164.3124303,
+    "buys_24h": 3828.0,
+    "sells_24h": 3583.0,
+    "buy_sell_txn_ratio_24h": 1.0684
+  },
+  "onchain": {
+    "top10_holder_pct": 89.6974,
+    "top10_holder_source": "binance-web3",
+    "dex_depth_2pct_usd": null,
+    "exchange_inflow_usd_24h": null,
+    "exchange_outflow_usd_24h": null
+  },
+  "derived": {
+    "liq_fdv_ratio": 0.137727,
+    "liquidity_change_24h": 6.12342,
+    "price_change_24h_pct": 0.3
+  },
+  "scenario_probabilities": {
+    "Bull": 0.6491,
+    "Base": 0.3203,
+    "Stress": 0.0306
+  },
+  "risk_flags": [],
+  "sources": [
+    "binance-web3",
+    "okx-onchainos",
+    "bitget-wallet",
+    "coingecko",
+    "dexscreener"
+  ],
+  "model": {
+    "name": "scenario_prob_v1",
+    "rules_source": "config/scenario_rules.json",
+    "weights": {
+      "liquidity_resilience": 0.3,
+      "buy_sell_momentum": 0.4,
+      "onchain_concentration": 0.2,
+      "narrative_volatility_buffer": 0.1
+    }
+  }
+}
