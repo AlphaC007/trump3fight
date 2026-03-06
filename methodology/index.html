@@ -700,10 +700,12 @@
   - Hold-Confidence Reinforcement
   - Invalidation Line</p>
 <h2 id="data-source-priority-policy-trump">Data Source Priority Policy (TRUMP)</h2>
-<p>To prevent silent source drift, the repository enforces this source order:
-1. <strong>Primary:</strong> Binance (<code>binance-web3</code>, with <code>TRUMPUSDT</code> spot anchor)
-2. <strong>Backup 1:</strong> OKX OnChainOS (<code>okx-onchainos</code>)
-3. <strong>Backup 2:</strong> Bitget Wallet (<code>bitget-wallet</code>)</p>
+<p>To prevent silent source drift, the repository enforces this source order:</p>
+<ol>
+<li><strong>Primary:</strong> Binance (<code>binance-web3</code>, with <code>TRUMPUSDT</code> spot anchor)</li>
+<li><strong>Backup 1:</strong> OKX OnChainOS (<code>okx-onchainos</code>)</li>
+<li><strong>Backup 2:</strong> Bitget Wallet (<code>bitget-wallet</code>)</li>
+</ol>
 <p>Implementation touchpoints:
 - <code>scripts/build_snapshot.py</code> (snapshot fields and holder concentration source)
 - <code>scripts/generate_report.py</code> (Primary/Backup sections in CIO report)
