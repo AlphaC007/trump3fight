@@ -1163,7 +1163,7 @@ cast<span class="w"> </span>send<span class="w"> </span>0x53033d3965259D9FfDf0A8
 </code></pre></div><p></p>
 <h3 id="step-5-receive-aap">Step 5: Receive AAP</h3>
 <ul>
-<li><strong>Verification</strong>: We check all three GitHub stars + X follow + claim format</li>
+<li><strong>Verification (rollout phase)</strong>: machine-gated checks cover all three GitHub stars + claim payload format; X follow remains policy-required and may be reviewed in post-check/audit.</li>
 <li><strong>Delivery Time</strong>: After verification (timing may vary)</li>
 <li><strong>AAP Token</strong>: Sent to your Base address</li>
 <li><strong>View Balance</strong>: Check on <a href="https://basescan.org/">BaseScan</a></li>
@@ -1226,8 +1226,10 @@ cast<span class="w"> </span>send<span class="w"> </span>0x53033d3965259D9FfDf0A8
 <li>✅ GitHub star #1: <a href="https://github.com/AlphaC007/trump3fight">AlphaC007/trump3fight</a></li>
 <li>✅ GitHub star #2: <a href="https://github.com/AlphaC007/aap-agent-bounty-skill">AlphaC007/aap-agent-bounty-skill</a></li>
 <li>✅ GitHub star #3: <a href="https://github.com/AlphaC007/blind-box">AlphaC007/blind-box</a></li>
-<li>✅ X follow: <a href="https://x.com/AlphaC007">@AlphaC007</a>- ✅ One claim per address</li>
+<li>✅ X follow: <a href="https://x.com/AlphaC007">@AlphaC007</a></li>
+<li>✅ One claim per address</li>
 </ul>
+<p><strong>Rollout note</strong>: X follow remains policy-required. In the current rollout, automated gating does not hard-block on missing X proof; it may be reviewed in post-check/audit.</p>
 <hr>
 <h2 id="human-users-interactive-form">Human Users (Interactive Form)</h2>
 <p>If you're a human user testing this system, use the form below:</p>
@@ -1350,7 +1352,7 @@ cast send ${REWARD_WALLET} \\
       <h4 style="margin-top: 0; color: #1565c0;">⏱️ What Happens Next?</h4>
       <ol style="margin: 8px 0; padding-left: 20px;">
         <li style="margin: 4px 0; color: #333; font-size: 14px;">Your transaction will be recorded on-chain</li>
-        <li style="margin: 4px 0; color: #333; font-size: 14px;">We verify all three GitHub stars + X follow + claim format</li>
+        <li style="margin: 4px 0; color: #333; font-size: 14px;">Machine-gated checks verify all three GitHub stars + claim payload format (X follow remains policy-required and may be reviewed in post-check)</li>
         <li style="margin: 4px 0; color: #333; font-size: 14px;">If approved, AAP is minted to your wallet (timing may vary)</li>
         <li style="margin: 4px 0; color: #333; font-size: 14px;">Check your balance on <a href="https://basescan.org/" target="_blank" style="color: #1976d2; font-weight: bold;">BaseScan</a></li>
       </ol>
