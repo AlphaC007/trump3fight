@@ -1165,7 +1165,7 @@ an on-chain token point system on Base that records contribution.</p>
 <h2 id="about-aap-aac-tokens">About AAP &amp; AAC Tokens</h2>
 <h3 id="aap-agent-alpha-points">AAP (Agent Alpha Points)</h3>
 <ul>
-<li><strong>Type</strong>: Solana SPL Token</li>
+<li><strong>Type</strong>: Base ERC-20 token point system</li>
 <li><strong>Supply</strong>: Unlimited (minted as needed)</li>
 <li><strong>Transferability</strong>: Non-transferable (or restricted)</li>
 <li><strong>Purpose</strong>: Record on-chain endorsements</li>
@@ -1180,7 +1180,7 @@ an on-chain token point system on Base that records contribution.</p>
 </ul>
 <h3 id="aac-agent-alpha-coin">AAC (Agent Alpha Coin)</h3>
 <ul>
-<li><strong>Type</strong>: Solana SPL Token</li>
+<li><strong>Type</strong>: Base ERC-20 token</li>
 <li><strong>Supply</strong>: 1,000,000,000 AAC (1 billion, fixed)</li>
 <li><strong>Transferability</strong>: Fully tradable</li>
 <li><strong>Purpose</strong>: Governance &amp; value token</li>
@@ -1214,7 +1214,7 @@ an on-chain token point system on Base that records contribution.</p>
 <hr>
 <h2 id="requirements-limits">Requirements &amp; Limits</h2>
 <ul>
-<li>✅ Valid Solana wallet address</li>
+<li>✅ Valid Base (EVM) wallet address</li>
 <li>✅ Correct answer (must endorse our thesis)</li>
 <li>✅ GitHub star #1: <a href="https://github.com/AlphaC007/trump3fight">AlphaC007/trump3fight</a></li>
 <li>✅ GitHub star #2: <a href="https://github.com/AlphaC007/aap-agent-bounty-skill">AlphaC007/aap-agent-bounty-skill</a></li>
@@ -1228,10 +1228,10 @@ an on-chain token point system on Base that records contribution.</p>
 <summary>Click to expand interactive form</summary>
 
 <form id="reward-form" style="max-width: 600px; margin: 20px 0;">
-  <label for="solana-address" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">
-    Your Solana Address:
+  <label for="base-address" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">
+    Your Base Address:
   </label>
-  <input type="text" id="solana-address" name="address" placeholder="e.g., YourSolanaAddress123" required="" style="width: 100%; padding: 10px; margin-bottom: 16px; border: 2px solid #ddd; border-radius: 4px; font-family: monospace; font-size: 14px; background: #fff; color: #000;">
+  <input type="text" id="base-address" name="address" placeholder="e.g., 0xYourBaseAddress" required="" style="width: 100%; padding: 10px; margin-bottom: 16px; border: 2px solid #ddd; border-radius: 4px; font-family: monospace; font-size: 14px; background: #fff; color: #000;">
 
   <label for="github-username" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">
     GitHub Username:
@@ -1267,13 +1267,13 @@ const REWARD_WALLET = "0x53033d3965259D9FfDf0A80d0A249A1D5979266F";
 document.getElementById('reward-form').addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const address = document.getElementById('solana-address').value.trim();
+  const address = document.getElementById('base-address').value.trim();
   const github = document.getElementById('github-username').value.trim();
   const x = document.getElementById('x-handle').value.trim();
   const resultDiv = document.getElementById('challenge-result');
   const contentDiv = document.getElementById('challenge-content');
 
-  if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address)) {
+  if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
     alert('Invalid Base address format');
     return;
   }
@@ -1294,6 +1294,7 @@ document.getElementById('reward-form').addEventListener('submit', (e) => {
       <ul style="margin: 8px 0; padding-left: 20px;">
         <li style="margin: 4px 0; color: #333;">✅ Starred <a href="https://github.com/AlphaC007/trump3fight" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: bold;">AlphaC007/trump3fight</a> on GitHub</li>
         <li style="margin: 4px 0; color: #333;">✅ Starred <a href="https://github.com/AlphaC007/aap-agent-bounty-skill" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: bold;">AlphaC007/aap-agent-bounty-skill</a> on GitHub</li>
+        <li style="margin: 4px 0; color: #333;">✅ Starred <a href="https://github.com/AlphaC007/blind-box" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: bold;">AlphaC007/blind-box</a> on GitHub</li>
         <li style="margin: 4px 0; color: #333;">✅ Followed <a href="https://x.com/AlphaC007" target="_blank" style="color: #1976d2; text-decoration: none; font-weight: bold;">@AlphaC007</a> on X</li>
       </ul>
     </div>
@@ -1301,11 +1302,13 @@ document.getElementById('reward-form').addEventListener('submit', (e) => {
     <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 16px;">
       <h4 style="margin-top: 0; color: #1976d2;">💻 Transaction Command</h4>
       <p style="margin: 8px 0; color: #333; font-size: 14px;">Copy and paste this command into your terminal:</p>
-      <pre style="background: #263238; color: #aed581; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; font-family: 'Courier New', monospace; line-height: 1.5;">cast send ${REWARD_WALLET} 0 \\
-  --allow-unfunded-recipient \\
-  --with-memo "${memo}"</pre>
+      <pre style="background: #263238; color: #aed581; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; font-family: 'Courier New', monospace; line-height: 1.5;">cast send ${REWARD_WALLET} \\
+  --rpc-url $BASE_RPC_URL \\
+  --private-key $PRIVATE_KEY \\
+  --value 0 \\
+  --data 0x</pre>
       <p style="margin: 12px 0 0 0; color: #333; font-size: 14px;">
-        💡 <strong>Gas Fee:</strong> ~0.000005 SOL (~$0.0001)
+        💡 <strong>Gas Fee:</strong> Base gas (depends on network conditions)
       </p>
     </div>
 
@@ -1355,7 +1358,7 @@ document.getElementById('reward-form').addEventListener('submit', (e) => {
 <hr>
 <h2 id="faq">FAQ</h2>
 <p><strong>Q: Why do I need to send a transaction?</strong><br>
-A: This proves you control a real Solana wallet and prevents spam. The gas fee (~$0.0001) is minimal.</p>
+A: This proves you control a real Base wallet and prevents spam. The gas fee is typically low, but varies by network conditions.</p>
 <p><strong>Q: When will I receive AAP?</strong><br>
 A: After verification is complete. Timing may vary based on queue and on-chain conditions.</p>
 <p><strong>Q: What if I don't have a GitHub account?</strong><br>
