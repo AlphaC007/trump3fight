@@ -794,8 +794,8 @@
   }
 
   function render(seriesName, points, isDaily) {
-    const labels = points.map(p => isDaily ? p.day : new Date(p.ts).toLocaleString('en-GB', {
-      month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Shanghai'
+    const labels = points.map(p => isDaily ? p.day : new Date(p.ts).toLocaleString('en-US', {
+      month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/New_York'
     }));
 
     const price = points.map(p => p.price_usd ?? null);
@@ -900,7 +900,7 @@
 <li>Data source: <code>data/timeseries.jsonl</code></li>
 <li>Build step converts raw snapshots into <code>assets/data/trends.json</code></li>
 <li>Default view is <strong>Daily</strong> for readability; <strong>Raw</strong> view remains available for detailed inspection</li>
-<li>Time labels use Asia/Shanghai timezone in Raw view</li>
+<li>Time labels use Eastern Time (ET) in Raw view</li>
 </ul>
 <p>Fight. Fight. Fight.</p>
 
