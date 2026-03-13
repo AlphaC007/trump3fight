@@ -28,16 +28,20 @@ jobs:
         run: |
           python scripts/generate_report.py
 
-      - name: Validate social section guardrail
+      - name: Build CIO hub (latest + archive)
         run: |
-          python scripts/check_social_guard.py
+          python scripts/build_cio_hub.py
 
-      - name: Commit and push report
+      - name: Validate CIO hub freshness
+        run: |
+          python scripts/check_cio_hub_freshness.py
+
+      - name: Commit and push report + hub
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/cio_briefings/*-CIO-Report.md
-          git diff --cached --quiet || git commit -m "chore(report): daily bull-first CIO report"
+          git add reports/cio_briefings/*-CIO-Report.md docs/cio-reports/latest.md docs/cio-reports/archive/*-CIO-Report.md
+          git diff --cached --quiet || git commit -m "chore(report): daily CIO report + hub sync"
           git pull --rebase origin main
           git push
 

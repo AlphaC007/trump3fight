@@ -1,47 +1,58 @@
-# 📅 2026-03-03 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-03-05 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
-- S&P 500: 6881.62 (+0.04%)
-- Nasdaq: 22748.86 (+0.36%)
-- DXY: 99.33 (+0.96%)
-- US10Y: 4.11 (+1.46%)
-- Gold: 5165.00 (-2.44%)
-- Crude Oil: 77.57 (+8.90%)
+- S&P 500: 6869.50 (+0.78%)
+- Nasdaq: 22807.48 (+1.29%)
+- DXY: 99.00 (+0.23%)
+- US10Y: 4.08 (+0.59%)
+- Gold: 5179.50 (+1.16%)
+- Crude Oil: 77.60 (+3.94%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $67226.00 (+2.70%)
-- ETH: $1967.30 (+2.01%)
-- Fear & Greed: 14 (Extreme Fear)
-- Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.
+- BTC: $72420.00 (+6.20%)
+- ETH: $2117.17 (+7.74%)
+- Fear & Greed: 22 (Extreme Fear)
+- Open Interest: Binance: 9,686,691 qty | OKX: $10,203,771 | Bybit: 5,442,802 qty
+- Funding Rate: Binance: -0.0005% | OKX: +0.0050% | Bybit: -0.0211%
+- Taker Buy/Sell Ratio (latest 4h): 1.210
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $3.38
-- Concentration: 91.4985%
-- Bull Probability: 41.24%
-- Base Probability: 50.33%
-- Stress Probability: 8.43%
-- Risk Flags: none
+- Price: $3.441765672281615
+- Concentration: 89.7084%
+- Bull Probability: 64.86%
+- Base Probability: 32.08%
+- Stress Probability: 3.06%
+- Risk Flags: exchange_flow_unavailable
 
-### 📈 On-Chain Data (Primary Feed)
-- Price: $3.3928
-- 24h Volume: $19,869,219
-- Market Cap: $788,814,735
-- Liquidity: $24,544,390
-- Holders: 646012
-- 24h Txs: 24,258
-- Price Change: 1h +0.40% | 24h -1.06%
+### 📈 On-Chain Data (Primary Feed: Binance)
+- Price: $3.4094
+- 24h Volume: $15,656,418
+- Market Cap: $681,884,107
+- Liquidity: $94,114,860
+- Holders: 647612
+- Top10 Holder %: 89.70843155084997
+- 24h Txs: 16,773
+- Price Change: 1h -1.26% | 24h +2.22%
+- CEX Anchor (TRUMPUSDT): $3.4080 (+2.00%)
+- CEX 24h Quote Volume: $10,931,280
 
-### 📊 On-Chain Activity (Secondary Feed)
-- 24h Volume: $4,372,963
-- 24h Buyers/Sellers: 1038/1089 (ratio: 0.95)
-- 1h Volume: $66,925
-- 1h Buyers/Sellers: 69/61
+### 📊 Cross-Validation (Backup 1: OKX)
+- Price: $3.4097
+- 24h Volume: $15,774,069
+- Liquidity: $24,732,916
+- Holders: 645894
 
-### 🛡️ Security Audit (Secondary Feed)
+### 🧪 Cross-Validation (Backup 2: Bitget)
+- 24h Volume: $2,192,017
+- 24h Buyers/Sellers: 801/1059 (ratio: 0.76)
+- 1h Volume: $22
+- 1h Buyers/Sellers: 0/69
+
+### 🛡️ Security Audit (Backup 2: Bitget)
 - Status: ✅ SAFE
 - Risk Count: 0
 - Buy/Sell Tax: 0% / 0%
@@ -51,27 +62,26 @@
 ### 📊 Social Sentiment Verdict (Bull-First)
 
 - **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: HIGH (4/5 dimensions active)
-- **Signal Coverage**: 35 fresh posts across 4 independent dimensions (48h window)
-  - ✅ community discussion alive (3 $TRUMP mentions)
+- **Signal Coverage**: 82 fresh posts across 4 independent dimensions (72h window)
+  - ✅ community discussion alive (59 $TRUMP mentions)
   - ✅ policy tailwinds detected (13 positive policy signals)
-  - ✅ crypto ecosystem bullish (10 positive crypto mentions)
+  - ✅ crypto ecosystem bullish (1 positive crypto mentions)
   - ✅ White House comms active (9 official posts)
 
 - **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
+- **Data Freshness Source**: 5/5 dimensions loaded from recent social files.
 
-### 🔍 Dim 2: $TRUMP Community Pulse (3 posts)
-- @baby_solanaX: "Join now and get ready to go to the moon with Baby Solana  $BSOL is the next $TRUMP, it could increa" — ❤️ 2
-- @ZYNTHX_Official: "The Trump related $TRUMP memecoin is part of the ongoing political token narrative and has drawn hug" — ❤️ 0
-- @CryptoBababooey: "he is blaming Democrats who aren't in power and skirts over the $TRUMP coin and the insane amount of" — ❤️ 0
+### 🔍 Dim 2: $TRUMP Community Pulse (59 posts)
+- @duta_crypto: "Tuh kan bingung lu.   Mending urusin noh memecoin $TRUMP lu. Cukup tweet tweet doang. Gak perlu moda" — ❤️ 48
+- @Zerg_App: "Which memecoin is a must-have in 2026?  $DOGE $SHIB $M $PEPE $TRUMP $PIPPIN $BONK $PENGU $SPX $FLOKI" — ❤️ 28
+- @GreenlandTIG: "Gym Membership  Joined the gym. Very supportive. Never been  #greenland #memecoin" — ❤️ 21
 
 ### 🏛️ Dim 3: Trump Policy Tailwinds (13 signals)
 - @HighWireTalk: "President Trump signed an executive order to stockpile glyphosate in the name of national security.  The same chemical t" — ❤️ 1
-- @Raytodd14902895: "US: IRAN DESIGNATED AS A STATE SPONSOR OF WRONGFUL DETENTION  On 27 February, the State Department advised that it had d" — ❤️ 0
-- @tumbacrash: "You forgot about the 2028 election.  Might be time to sign executive order to allow a 3rd term.  I think that’s a great " — ❤️ 0
+- @NASHVILLamp: "@realDonaldTrump Executive Order to end this. I will file charges on the United States government to Clinton, Tennessee," — ❤️ 0
+- @FavePresident: "If they want to criticize, that’s their right. But Trump isn’t in office to win applause from commentators. He’s there t" — ❤️ 0
 
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (10 signals)
-- @AmeetKumar62120: "FREE BTC (SIGNAL) TRADING SIGNALS!  Join my channel Telegram:https://t.me/+Xv9Wn8KA_5ZhNjhk…   95% Accuracy Rate    3–6 " — ❤️ 0
-- @AmeetKumar62120: "FREE BTC (SIGNAL) TRADING SIGNALS!  Join my channel Telegram:https://t.me/+Xv9Wn8KA_5ZhNjhk…   95% Accuracy Rate    3–6 " — ❤️ 0
+### 🪙 Dim 4: Crypto Ecosystem Sentiment (1 signals)
 - @GqepNWkfOEUBr: "Crypto traders still watch his words. #CryptoPolitics The Trump effect never retired. #TrumpEffect" — ❤️ 0
 
 ### 🇺🇸 Dim 5: White House Official (9 posts)
@@ -86,11 +96,11 @@
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium
+- Confidence: medium-high
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9762); Very high concentration (top10_holder_pct=91.50%)
+- Adverse signal observed: No dominant adverse structural signal in current snapshot
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 

@@ -1,6 +1,6 @@
 # 📅 2026-02-26 Daily Cross-Market Briefing (CIO Internal)
 
-## 1. Macro & TradFi (Fact Layer)
+## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 6946.13 (+0.81%)
 - Nasdaq: 23152.08 (+1.26%)
 - DXY: 97.58 (-0.12%)
@@ -8,17 +8,17 @@
 - Gold: 5215.00 (+0.17%)
 - Crude Oil: 65.58 (+0.24%)
 
-## 2. Policy / Regulation / Prediction Markets (Fact Layer)
+## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
-## 3. Crypto Liquidity & Narratives (Fact Layer)
+## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
 - BTC: $68286.00 (+4.57%)
 - ETH: $2060.34 (+8.37%)
 - Fear & Greed: 11 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: pending unified derivatives panel feed.
 
-## 4. $TRUMP Local Radar (Fact Layer)
+## 💎 4. $TRUMP Local Radar (Fact Layer)
 - Price: $3.5
 - Concentration: 99.0%
 - Bull Probability: 38.0%
@@ -28,7 +28,7 @@
 
 ---
 
-## Interpretation Layer (Bull-First)
+## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
@@ -42,7 +42,7 @@
 
 ---
 
-## Conclusion Layer (Mandatory)
+## ✅ Conclusion Layer (Mandatory)
 
 ### 1) Bull Entry Thesis
 Bias remains long-on-strength if liquidity remains stable and no falsification trigger fires. Preferred entries are staged rather than all-in, focused on failed downside continuation.

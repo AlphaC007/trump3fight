@@ -528,18 +528,8 @@ def main():
     now = dt.datetime.now(dt.timezone(dt.timedelta(hours=8)))
     date_s = now.strftime("%Y-%m-%d")
 
-    # Best-effort social scrape (local runner only). In CI, this often lacks browser/CDP dependencies.
-    if (Path.home() / ".openclaw" / "workspace" / "tools" / "x-poster" / "scrape-tweets.js").exists():
-        print("Collecting social intelligence (best-effort)...")
-        try:
-            run_social_scrape()
-        except Exception as e:
-            print(f"Social scrape failed (non-fatal): {e}")
-    else:
-        print("Social scraper not available in this environment; using recent local social files.")
+    # Social section removed by design (source instability).
 
-    social, social_sources = get_social_pulse(max_hours=72)
-    
     # Fetch Binance/OKX/Bitget datasets (best-effort, non-blocking)
     print("Fetching Binance data (primary)...")
     binance_data = get_binance_data()
@@ -734,10 +724,6 @@ def main():
             md.append(f"- Mint Auth: {'Yes' if security.get('mint_auth') else 'No'}")
             md.append("")
 
-    # Social intelligence sub-section
-    social_section = format_social_section(social, source_files=social_sources, freshness_hours=72)
-    md.append(social_section)
-    md.append("")
     md.append("---")
     md.append("")
     md.append("## 🧠 Interpretation Layer (Bull-First)")
