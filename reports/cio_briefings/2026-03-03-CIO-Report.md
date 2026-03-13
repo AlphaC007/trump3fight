@@ -48,40 +48,6 @@
 - Freeze Auth: No
 - Mint Auth: No
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: HIGH (4/5 dimensions active)
-- **Signal Coverage**: 35 fresh posts across 4 independent dimensions (48h window)
-  - ✅ community discussion alive (3 $TRUMP mentions)
-  - ✅ policy tailwinds detected (13 positive policy signals)
-  - ✅ crypto ecosystem bullish (10 positive crypto mentions)
-  - ✅ White House comms active (9 official posts)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-
-### 🔍 Dim 2: $TRUMP Community Pulse (3 posts)
-- @baby_solanaX: "Join now and get ready to go to the moon with Baby Solana  $BSOL is the next $TRUMP, it could increa" — ❤️ 2
-- @ZYNTHX_Official: "The Trump related $TRUMP memecoin is part of the ongoing political token narrative and has drawn hug" — ❤️ 0
-- @CryptoBababooey: "he is blaming Democrats who aren't in power and skirts over the $TRUMP coin and the insane amount of" — ❤️ 0
-
-### 🏛️ Dim 3: Trump Policy Tailwinds (13 signals)
-- @HighWireTalk: "President Trump signed an executive order to stockpile glyphosate in the name of national security.  The same chemical t" — ❤️ 1
-- @Raytodd14902895: "US: IRAN DESIGNATED AS A STATE SPONSOR OF WRONGFUL DETENTION  On 27 February, the State Department advised that it had d" — ❤️ 0
-- @tumbacrash: "You forgot about the 2028 election.  Might be time to sign executive order to allow a 3rd term.  I think that’s a great " — ❤️ 0
-
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (10 signals)
-- @AmeetKumar62120: "FREE BTC (SIGNAL) TRADING SIGNALS!  Join my channel Telegram:https://t.me/+Xv9Wn8KA_5ZhNjhk…   95% Accuracy Rate    3–6 " — ❤️ 0
-- @AmeetKumar62120: "FREE BTC (SIGNAL) TRADING SIGNALS!  Join my channel Telegram:https://t.me/+Xv9Wn8KA_5ZhNjhk…   95% Accuracy Rate    3–6 " — ❤️ 0
-- @GqepNWkfOEUBr: "Crypto traders still watch his words. #CryptoPolitics The Trump effect never retired. #TrumpEffect" — ❤️ 0
-
-### 🇺🇸 Dim 5: White House Official (9 posts)
-- "President Trump will not get the United States into a years-long conflict with no clear objective.   Iran can never be a" — ❤️ 42370 🔁 5841
-- "To all American citizens in the Middle East: your safety and security is our number one priority.  Sign up to receive ST" — ❤️ 34584 🔁 9087
-- "“…These people are SICK, CRAZY, and DEMENTED, but America, despite them all, is now BIGGER, BETTER, AND STRONGER THAN EV" — ❤️ 28830 🔁 7333
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

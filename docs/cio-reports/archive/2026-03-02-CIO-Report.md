@@ -26,12 +26,6 @@
 - Stress Probability: 10.92%
 - Risk Flags: solscan_pro_unauthorized, using_moralis_enhanced_proxy
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- ⚠️ No fresh social signals within 48h window. Data collection pending.
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

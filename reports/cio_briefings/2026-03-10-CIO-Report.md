@@ -26,13 +26,6 @@
 - Stress Probability: 2.66%
 - Risk Flags: exchange_flow_unavailable
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- ⚠️ No fresh social signals within 72h window. Data collection pending.
-- Source check: scanned 0 social files in recent lookback, but none passed freshness filter.
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

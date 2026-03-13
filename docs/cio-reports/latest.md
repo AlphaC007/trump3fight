@@ -7,7 +7,7 @@
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
 Coverage window: **2026-02-21 → 2026-03-13** (20 daily CIO reports)
-Average Bull Probability (reported): **50.21%**
+Average Bull Probability (reported): **50.18%**
 Latest Bull Probability: **66.10%**
 Latest $TRUMP Price Snapshot: **$2.96**
 
@@ -145,4 +145,4 @@ Invalidate bull bias if Trigger A (4H whale-to-exchange net inflow >5% liquidity
 
 </details>
 
-_Hub generated automatically at 2026-03-13 04:11 UTC_
+_Hub generated automatically at 2026-03-13 07:52 UTC_

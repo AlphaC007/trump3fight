@@ -26,29 +26,6 @@
 - Stress Probability: 5.54%
 - Risk Flags: exchange_flow_unavailable
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: MEDIUM (2/5 dimensions active)
-- **Signal Coverage**: 7 fresh posts across 2 independent dimensions (72h window)
-  - ✅ official account active (3 posts, avg 24939 likes)
-  - ✅ community discussion alive (4 $TRUMP mentions)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-- **Data Freshness Source**: 2/5 dimensions loaded from recent social files.
-
-### 📣 Dim 1: @GetTrumpMemes — Official Community Voice
-- "Tap in." — ❤️ 45278 🔁 0 (2026-03-05 12:00)
-- "The People’s President!" — ❤️ 15185 🔁 0 (2026-03-05 12:00)
-- "Every single time I watch this, I cry" — ❤️ 14356 🔁 0 (2026-03-05 12:00)
-
-### 🔍 Dim 2: $TRUMP Community Pulse (4 posts)
-- @TRUMPMEME: "“Trump as sheriff shutting down the Panama Canal to China!  Big hair, badge, patrol boat—‘CANAL CLOS" — ❤️ 1
-- @TRUMPMEME: "Trump chilling at Mar-a-Lago, but little do they know...  Fresh meme drop on that wild weekend vibe." — ❤️ 1
-- @TRUMP: "$TRUMP  Analyst Target price for Tomorrowhttp://discord.com/invite/vvdgBRAQuw…" — ❤️ 0
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

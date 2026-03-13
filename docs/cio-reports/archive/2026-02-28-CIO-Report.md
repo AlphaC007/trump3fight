@@ -33,33 +33,6 @@
 - Freeze Auth: No
 - Mint Auth: No
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: MEDIUM (3/5 dimensions active)
-- **Signal Coverage**: 50 fresh posts across 3 independent dimensions (48h window)
-  - ✅ community discussion alive (39 $TRUMP mentions)
-  - ✅ crypto ecosystem bullish (2 positive crypto mentions)
-  - ✅ White House comms active (9 official posts)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-
-### 🔍 Dim 2: $TRUMP Community Pulse (39 posts)
-- @TBG_JUST_G: "This just turned into an even bigger conspiracy because Sam Altman was defending Anthropic and then " — ❤️ 6
-- @SoonNewMemeCoin: "6idj1dA7HWvHm5Jm75HfkcUVzt41ntGsNnciDTbJpump  @neomewtwo  #mewtwo  @PumpfunEco @elonmusk @memecoin  " — ❤️ 6
-- @TBG_JUST_G: "Donald Trump doesn't like that they wont remove guard rails for the military. DJT and Pete Hegseth m" — ❤️ 2
-
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (2 signals)
-- @Crypt0xlion: "PIPPIN just +70% this week & crazy bullish, but what is YOUR Solana Hidden Gem for 100–1000x?  No BONK WIF TRUMP PENGU d" — ❤️ 8
-- @UsmanNas91: "Trump shedding lbs faster than a rug-pull memecoin dumps... but this glow-up is straight 100x bullish    From golf dad b" — ❤️ 1
-
-### 🇺🇸 Dim 5: White House Official (9 posts)
-- "WHAT A HISTORIC NIGHT" — ❤️ 36277 🔁 5750
-- "From the White House to @Whataburger." — ❤️ 17080 🔁 2506
-- "WE'RE WINNING SO MUCH" — ❤️ 15134 🔁 2230
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

@@ -59,41 +59,6 @@
 - Freeze Auth: No
 - Mint Auth: No
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: HIGH (4/5 dimensions active)
-- **Signal Coverage**: 84 fresh posts across 4 independent dimensions (72h window)
-  - ✅ community discussion alive (48 $TRUMP mentions)
-  - ✅ policy tailwinds detected (23 positive policy signals)
-  - ✅ crypto ecosystem bullish (3 positive crypto mentions)
-  - ✅ White House comms active (10 official posts)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-- **Data Freshness Source**: 5/5 dimensions loaded from recent social files.
-
-### 🔍 Dim 2: $TRUMP Community Pulse (48 posts)
-- @duta_crypto: "Tuh kan bingung lu.   Mending urusin noh memecoin $TRUMP lu. Cukup tweet tweet doang. Gak perlu moda" — ❤️ 48
-- @Zerg_App: "Which memecoin is a must-have in 2026?  $DOGE $SHIB $M $PEPE $TRUMP $PIPPIN $BONK $PENGU $SPX $FLOKI" — ❤️ 28
-- @GreenlandTIG: "Gym Membership  Joined the gym. Very supportive. Never been  #greenland #memecoin" — ❤️ 21
-
-### 🏛️ Dim 3: Trump Policy Tailwinds (23 signals)
-- @HighWireTalk: "President Trump signed an executive order to stockpile glyphosate in the name of national security.  The same chemical t" — ❤️ 1
-- @bettherayMK2: "Even if house and senate pass and trump signs it if it isnt a supermajority, netchoice is gonna sue it in SCOTUS 1A appl" — ❤️ 0
-- @Charlie17038: "도널드 J. 트럼프 대통령, GENIUS 법안에 서명  https://whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-geni" — ❤️ 0
-
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (3 signals)
-- @ApathyOfMiracle: "Trump is bad. Convicted felon. Adulter, Rapist, Fraudulent University. Protects pedophiles at minimum.  Steals from his " — ❤️ 0
-- @hamna_alt: "Eric Trump accuses banks of blocking crypto rewards for Americans  Read more at AltCoindesk" — ❤️ 0
-- @GqepNWkfOEUBr: "Crypto traders still watch his words. #CryptoPolitics The Trump effect never retired. #TrumpEffect" — ❤️ 0
-
-### 🇺🇸 Dim 5: White House Official (10 posts)
-- "CHAMPIONS.   POTUS x MESSI" — ❤️ 87433 🔁 12386
-- "JUSTICE THE AMERICAN WAY." — ❤️ 29940 🔁 6931
-- "EPIC FURY" — ❤️ 16783 🔁 3051
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

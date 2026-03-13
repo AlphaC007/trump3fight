@@ -26,34 +26,6 @@
 - Stress Probability: 11.0%
 - Risk Flags: solscan_pro_unauthorized, using_heuristic_proxy
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: MEDIUM (3/5 dimensions active)
-- **Signal Coverage**: 52 fresh posts across 3 independent dimensions (48h window)
-  - ✅ community discussion alive (39 $TRUMP mentions)
-  - ✅ crypto ecosystem bullish (4 positive crypto mentions)
-  - ✅ White House comms active (9 official posts)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-
-### 🔍 Dim 2: $TRUMP Community Pulse (39 posts)
-- @bilal4aq: "Over 100% Profit on #UNIUSDT from the Entry. Join our Telegram Trading community for Signals  (LINK " — ❤️ 1
-- @Pagghi1979: "ABTC down 92% since early May of last year and down 97% since the first day of trading  $WLFI down s" — ❤️ 0
-- @Pagghi1979: "ABTC down 92% since early May of last year and down 97% since the first day of trading  $WLFI down s" — ❤️ 0
-
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (4 signals)
-- @Crypt0xlion: "PIPPIN just +70% this week & crazy bullish, but what is YOUR Solana Hidden Gem for 100–1000x?  No BONK WIF TRUMP PENGU d" — ❤️ 8
-- @Randytrade_1: "$XVS  BULLISH CONTINUATION ABOVE KEY LEVEL  Trade Setup: Entry: 2.98–3.03 TP1: 3.15 TP2: 3.25 TP3: 3.35 SL: 2.89  #Bitco" — ❤️ 3
-- @UsmanNas91: "Trump shedding lbs faster than a rug-pull memecoin dumps... but this glow-up is straight 100x bullish    From golf dad b" — ❤️ 1
-
-### 🇺🇸 Dim 5: White House Official (9 posts)
-- "CAN’T STOP WINNING!" — ❤️ 37379 🔁 3678
-- "The lowest total murder rate in 125 YEARS. President Trump has delivered on his promise to make America safe again." — ❤️ 12222 🔁 2805
-- ""Only in Donald Trump's administration could I be with Xi Jinping in Korea one moment and Nicki Minaj talking about Trum" — ❤️ 12542 🔁 2432
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read

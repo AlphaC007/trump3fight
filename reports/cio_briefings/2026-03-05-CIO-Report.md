@@ -59,39 +59,6 @@
 - Freeze Auth: No
 - Mint Auth: No
 
-### 📊 Social Sentiment Verdict (Bull-First)
-
-- **Overall Sentiment**: CONSTRUCTIVE | **Confidence**: HIGH (4/5 dimensions active)
-- **Signal Coverage**: 82 fresh posts across 4 independent dimensions (72h window)
-  - ✅ community discussion alive (59 $TRUMP mentions)
-  - ✅ policy tailwinds detected (13 positive policy signals)
-  - ✅ crypto ecosystem bullish (1 positive crypto mentions)
-  - ✅ White House comms active (9 official posts)
-
-- **Interpretation**: Social engagement across multiple independent channels is consistent with a *base-building* regime, not capitulation. Multi-dimensional conviction signal remains a leading indicator of reflexive upside potential.
-- **Data Freshness Source**: 5/5 dimensions loaded from recent social files.
-
-### 🔍 Dim 2: $TRUMP Community Pulse (59 posts)
-- @duta_crypto: "Tuh kan bingung lu.   Mending urusin noh memecoin $TRUMP lu. Cukup tweet tweet doang. Gak perlu moda" — ❤️ 48
-- @Zerg_App: "Which memecoin is a must-have in 2026?  $DOGE $SHIB $M $PEPE $TRUMP $PIPPIN $BONK $PENGU $SPX $FLOKI" — ❤️ 28
-- @GreenlandTIG: "Gym Membership  Joined the gym. Very supportive. Never been  #greenland #memecoin" — ❤️ 21
-
-### 🏛️ Dim 3: Trump Policy Tailwinds (13 signals)
-- @HighWireTalk: "President Trump signed an executive order to stockpile glyphosate in the name of national security.  The same chemical t" — ❤️ 1
-- @NASHVILLamp: "@realDonaldTrump Executive Order to end this. I will file charges on the United States government to Clinton, Tennessee," — ❤️ 0
-- @FavePresident: "If they want to criticize, that’s their right. But Trump isn’t in office to win applause from commentators. He’s there t" — ❤️ 0
-
-### 🪙 Dim 4: Crypto Ecosystem Sentiment (1 signals)
-- @GqepNWkfOEUBr: "Crypto traders still watch his words. #CryptoPolitics The Trump effect never retired. #TrumpEffect" — ❤️ 0
-
-### 🇺🇸 Dim 5: White House Official (9 posts)
-- "President Trump will not get the United States into a years-long conflict with no clear objective.   Iran can never be a" — ❤️ 42370 🔁 5841
-- "To all American citizens in the Middle East: your safety and security is our number one priority.  Sign up to receive ST" — ❤️ 34584 🔁 9087
-- "“…These people are SICK, CRAZY, and DEMENTED, but America, despite them all, is now BIGGER, BETTER, AND STRONGER THAN EV" — ❤️ 28830 🔁 7333
-
-
----
-
 ## 🧠 Interpretation Layer (Bull-First)
 
 ### A) Bull-First Structural Read
