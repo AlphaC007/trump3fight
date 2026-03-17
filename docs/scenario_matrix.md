@@ -13,11 +13,11 @@
 All quantitative thresholds in this matrix are dynamically driven by `config/scenario_rules.json`.
 
 ## Dimension Weights
-- Liquidity resilience: `0.3`
-- Derivatives momentum (Binance Futures): `0.37`
-- DEX momentum (DexScreener): `0.03`
-- On-chain concentration: `0.2`
-- Narrative/volatility buffer: `0.1`
+- Liquidity resilience: `0.1`
+- Derivatives momentum (Binance Futures): `0.75`
+- DEX momentum (DexScreener): `0.05`
+- On-chain concentration: `0.05`
+- Narrative/volatility buffer: `0.05`
 
 ## Base
 Core observation metrics:

@@ -2,11 +2,11 @@
   "version": "1.2",
   "rules_source": "config/scenario_rules.json",
   "weights": {
-    "liquidity_resilience": 0.3,
-    "onchain_concentration": 0.2,
-    "narrative_volatility_buffer": 0.1,
-    "derivatives_momentum": 0.37,
-    "dex_momentum": 0.03
+    "liquidity_resilience": 0.1,
+    "onchain_concentration": 0.05,
+    "narrative_volatility_buffer": 0.05,
+    "derivatives_momentum": 0.75,
+    "dex_momentum": 0.05
   },
   "liquidity": {
     "stress_drop_24h_threshold": -0.35,
