@@ -714,7 +714,8 @@
 <h2 id="dimension-weights">Dimension Weights</h2>
 <ul>
 <li>Liquidity resilience: <code>0.3</code></li>
-<li>Buy/Sell momentum: <code>0.4</code></li>
+<li>Derivatives momentum (Binance Futures): <code>0.37</code></li>
+<li>DEX momentum (DexScreener): <code>0.03</code></li>
 <li>On-chain concentration: <code>0.2</code></li>
 <li>Narrative/volatility buffer: <code>0.1</code></li>
 </ul>
@@ -722,20 +723,23 @@
 <p>Core observation metrics:
 1. <code>dex_depth_2pct_usd</code> (proxy pending)
 2. <code>liq_fdv_ratio</code>
-3. <code>buy_sell_txn_ratio_24h</code>
-4. <code>price_change_24h_pct</code></p>
+3. <code>derivatives.taker_buy_sell_ratio_1d</code> (primary)
+4. <code>buy_sell_txn_ratio_24h</code> (secondary)
+5. <code>price_change_24h_pct</code></p>
 <h2 id="stress">Stress</h2>
 <p>Core observation metrics:
 1. <code>liquidity_change_24h</code>
 2. <code>liq_fdv_ratio</code>
-3. <code>buy_sell_txn_ratio_24h</code>
-4. <code>price_change_24h_pct</code></p>
+3. <code>derivatives.taker_buy_sell_ratio_1d</code> (primary)
+4. <code>buy_sell_txn_ratio_24h</code> (secondary)
+5. <code>price_change_24h_pct</code></p>
 <h2 id="bull">Bull</h2>
 <p>Core observation metrics:
 1. <code>liq_fdv_ratio</code>
-2. <code>buy_sell_txn_ratio_24h</code>
-3. <code>liquidity_change_24h</code>
-4. <code>price_change_24h_pct</code></p>
+2. <code>derivatives.taker_buy_sell_ratio_1d</code> (primary)
+3. <code>buy_sell_txn_ratio_24h</code> (secondary)
+4. <code>liquidity_change_24h</code>
+5. <code>price_change_24h_pct</code></p>
 <h3 id="phase-3-discovery-regime-valuation-re-rating">Phase 3: Discovery Regime &amp; Valuation Re-rating</h3>
 <p>Cyclic Benchmarking (structure-only): compare current token regime against historical meme-cycle phases (e.g., SHIB/DOGE) using <strong>liquidity structure</strong> and <strong>diffusion velocity</strong> only, not target-price anchoring.</p>
 <ul>
@@ -783,7 +787,101 @@
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"momentum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"derivatives_momentum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"taker_buy_sell_ratio"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bull_min_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.02</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"stress_max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"strength_scales"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"bull_denominator"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_denominator"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"bull_trend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"bull_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"bull_bonus"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"stress_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"stress_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"stress_trend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"stress_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"stress_bonus"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.06</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.16</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"bull_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"bull_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"neutral"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"bull"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.17</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"stress"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"fallback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"bull"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.16</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.19</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"stress"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"soft_penalties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"funding_abs_8h_pct"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"warn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_penalty_warn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_penalty_high"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_bonus_warn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.005</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_bonus_high"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"open_interest_change_24h_pct"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"warn"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_penalty_warn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.005</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_penalty_high"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_bonus_warn"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.002</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_bonus_high"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.005</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"dex_momentum"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"min_total_txns_24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"min_side_txns_24h"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"bull_min_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.05</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"stress_max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"strength_scales"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bull_denominator"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"stress_denominator"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"allocations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"bull_trend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"bull_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.28</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_bonus"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.06</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"stress_trend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"stress_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress_bonus"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.06</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"bull_penalty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"neutral"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"bull"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.16</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.22</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"fallback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"bull"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"base"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"stress"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"momentum_legacy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"bull_min_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.05</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"stress_max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"strength_scales"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
