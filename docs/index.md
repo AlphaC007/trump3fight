@@ -36,7 +36,7 @@ We track price structure, Bull Probability, and holder concentration continuousl
 
 <div id="home-trend-mini" style="margin-top:10px; width:100%; height:150px;"></div>
 
-<script src="assets/js/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <script>
 (async function () {
   const box = document.getElementById('home-trend-mini');
