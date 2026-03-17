@@ -14,7 +14,8 @@ All quantitative thresholds in this matrix are dynamically driven by `config/sce
 
 ## Dimension Weights
 - Liquidity resilience: `0.3`
-- Buy/Sell momentum: `0.4`
+- Derivatives momentum (Binance Futures): `0.37`
+- DEX momentum (DexScreener): `0.03`
 - On-chain concentration: `0.2`
 - Narrative/volatility buffer: `0.1`
 
@@ -22,22 +23,25 @@ All quantitative thresholds in this matrix are dynamically driven by `config/sce
 Core observation metrics:
 1. `dex_depth_2pct_usd` (proxy pending)
 2. `liq_fdv_ratio`
-3. `buy_sell_txn_ratio_24h`
-4. `price_change_24h_pct`
+3. `derivatives.taker_buy_sell_ratio_1d` (primary)
+4. `buy_sell_txn_ratio_24h` (secondary)
+5. `price_change_24h_pct`
 
 ## Stress
 Core observation metrics:
 1. `liquidity_change_24h`
 2. `liq_fdv_ratio`
-3. `buy_sell_txn_ratio_24h`
-4. `price_change_24h_pct`
+3. `derivatives.taker_buy_sell_ratio_1d` (primary)
+4. `buy_sell_txn_ratio_24h` (secondary)
+5. `price_change_24h_pct`
 
 ## Bull
 Core observation metrics:
 1. `liq_fdv_ratio`
-2. `buy_sell_txn_ratio_24h`
-3. `liquidity_change_24h`
-4. `price_change_24h_pct`
+2. `derivatives.taker_buy_sell_ratio_1d` (primary)
+3. `buy_sell_txn_ratio_24h` (secondary)
+4. `liquidity_change_24h`
+5. `price_change_24h_pct`
 
 ### Phase 3: Discovery Regime & Valuation Re-rating
 Cyclic Benchmarking (structure-only): compare current token regime against historical meme-cycle phases (e.g., SHIB/DOGE) using **liquidity structure** and **diffusion velocity** only, not target-price anchoring.
@@ -88,7 +92,101 @@ Cyclic Benchmarking (structure-only): compare current token regime against histo
       }
     }
   },
-  "momentum": {
+  "derivatives_momentum": {
+    "taker_buy_sell_ratio": {
+      "bull_min_ratio": 1.02,
+      "stress_max_ratio": 0.85,
+      "strength_scales": {
+        "bull_denominator": 0.4,
+        "stress_denominator": 0.25
+      },
+      "allocations": {
+        "bull_trend": {
+          "bull_base": 0.3,
+          "bull_bonus": 0.07,
+          "base_base": 0.07,
+          "base_penalty": 0.04,
+          "stress_base": 0.0,
+          "stress_penalty": 0.0
+        },
+        "stress_trend": {
+          "stress_base": 0.22,
+          "stress_bonus": 0.06,
+          "base_base": 0.16,
+          "base_penalty": 0.04,
+          "bull_base": 0.02,
+          "bull_penalty": 0.02
+        },
+        "neutral": {
+          "bull": 0.17,
+          "base": 0.2,
+          "stress": 0.03
+        },
+        "fallback": {
+          "bull": 0.16,
+          "base": 0.19,
+          "stress": 0.05
+        }
+      }
+    },
+    "soft_penalties": {
+      "funding_abs_8h_pct": {
+        "warn": 0.02,
+        "high": 0.05,
+        "bull_penalty_warn": 0.01,
+        "bull_penalty_high": 0.02,
+        "stress_bonus_warn": 0.005,
+        "stress_bonus_high": 0.01
+      },
+      "open_interest_change_24h_pct": {
+        "warn": 20,
+        "high": 40,
+        "bull_penalty_warn": 0.005,
+        "bull_penalty_high": 0.01,
+        "stress_bonus_warn": 0.002,
+        "stress_bonus_high": 0.005
+      }
+    }
+  },
+  "dex_momentum": {
+    "min_total_txns_24h": 300,
+    "min_side_txns_24h": 20,
+    "bull_min_ratio": 1.05,
+    "stress_max_ratio": 0.6,
+    "strength_scales": {
+      "bull_denominator": 0.8,
+      "stress_denominator": 0.6
+    },
+    "allocations": {
+      "bull_trend": {
+        "bull_base": 0.28,
+        "bull_bonus": 0.06,
+        "base_base": 0.1,
+        "base_penalty": 0.04,
+        "stress_base": 0.0,
+        "stress_penalty": 0.0
+      },
+      "stress_trend": {
+        "stress_base": 0.2,
+        "stress_bonus": 0.06,
+        "base_base": 0.18,
+        "base_penalty": 0.04,
+        "bull_base": 0.02,
+        "bull_penalty": 0.02
+      },
+      "neutral": {
+        "bull": 0.16,
+        "base": 0.22,
+        "stress": 0.02
+      },
+      "fallback": {
+        "bull": 0.15,
+        "base": 0.2,
+        "stress": 0.05
+      }
+    }
+  },
+  "momentum_legacy": {
     "bull_min_ratio": 1.05,
     "stress_max_ratio": 0.6,
     "strength_scales": {

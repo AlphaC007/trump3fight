@@ -101,6 +101,72 @@ def fetch_json(url: str, headers: Optional[dict] = None, timeout: int = 25) -> d
     raise ApiRetryableError(f"unknown retry failure: {url}")
 
 
+
+
+# Binance USD-M Futures public endpoints (no auth required)
+BINANCE_FAPI_EXCHANGE_INFO = "https://fapi.binance.com/fapi/v1/exchangeInfo"
+BINANCE_FAPI_FUNDING_RATE = "https://fapi.binance.com/fapi/v1/fundingRate"
+BINANCE_FAPI_OPEN_INTEREST = "https://fapi.binance.com/fapi/v1/openInterest"
+BINANCE_FAPI_OPEN_INTEREST_HIST = "https://fapi.binance.com/futures/data/openInterestHist"
+BINANCE_FAPI_TAKER_LS_RATIO = "https://fapi.binance.com/futures/data/takerlongshortRatio"
+
+
+def fetch_binance_futures_symbol_exists(symbol: str) -> bool:
+    try:
+        j = fetch_json(BINANCE_FAPI_EXCHANGE_INFO)
+        for s in (j.get("symbols") or []):
+            if s.get("symbol") == symbol and s.get("status") == "TRADING":
+                return True
+    except Exception:
+        return False
+    return False
+
+
+def fetch_binance_futures_metrics(symbol: str = "TRUMPUSDT") -> dict:
+    """Fetch lightweight derivatives metrics for trend scoring (public endpoints, no auth)."""
+    out = {"source": "binance-futures", "symbol": symbol}
+    if not fetch_binance_futures_symbol_exists(symbol):
+        out["error"] = f"symbol_not_found:{symbol}"
+        return out
+
+    # funding rate (latest 8h)
+    try:
+        fr = fetch_json(f"{BINANCE_FAPI_FUNDING_RATE}?symbol={symbol}&limit=1")
+        if isinstance(fr, list) and fr:
+            out["funding_rate"] = to_float(fr[-1].get("fundingRate"))  # e.g. -0.00005
+            out["funding_time"] = fr[-1].get("fundingTime")
+    except Exception:
+        pass
+
+    # open interest (current)
+    try:
+        oi = fetch_json(f"{BINANCE_FAPI_OPEN_INTEREST}?symbol={symbol}")
+        out["open_interest"] = to_float(oi.get("openInterest"))
+    except Exception:
+        pass
+
+    # open interest change 24h (use 1d hist)
+    try:
+        hist = fetch_json(f"{BINANCE_FAPI_OPEN_INTEREST_HIST}?symbol={symbol}&period=1d&limit=2")
+        if isinstance(hist, list) and len(hist) >= 2:
+            prev = to_float(hist[-2].get("sumOpenInterest"))
+            cur = to_float(hist[-1].get("sumOpenInterest"))
+            out["open_interest_24h_change_pct"] = round(pct_change(cur, prev) * 100.0, 4) if (cur is not None and prev not in (None, 0)) else None
+    except Exception:
+        pass
+
+    # taker buy/sell ratio (1d)
+    try:
+        tl = fetch_json(f"{BINANCE_FAPI_TAKER_LS_RATIO}?symbol={symbol}&period=1d&limit=1")
+        if isinstance(tl, list) and tl:
+            out["taker_buy_sell_ratio_1d"] = to_float(tl[-1].get("buySellRatio"))
+            out["taker_buy_vol"] = to_float(tl[-1].get("buyVol"))
+            out["taker_sell_vol"] = to_float(tl[-1].get("sellVol"))
+    except Exception:
+        pass
+
+    return out
+
 def load_rules(path: Path = RULES_PATH) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -440,7 +506,11 @@ def append_timeseries(snapshot: dict) -> None:
         "mcap_usd": (snapshot.get("market") or {}).get("mcap_usd"),
         "liquidity_usd": (snapshot.get("market") or {}).get("liquidity_usd"),
         "buy_sell_txn_ratio_24h": (snapshot.get("market") or {}).get("buy_sell_txn_ratio_24h"),
+        "buys_24h": (snapshot.get("market") or {}).get("buys_24h"),
+        "sells_24h": (snapshot.get("market") or {}).get("sells_24h"),
+        "txn_total_24h": (snapshot.get("market") or {}).get("txn_total_24h"),
         "top10_holder_pct": (snapshot.get("onchain") or {}).get("top10_holder_pct"),
+        "derivatives": snapshot.get("derivatives") or {},
         "scenario_probabilities": snapshot.get("scenario_probabilities") or {},
         "risk_flags": [rf.get("id") for rf in (snapshot.get("risk_flags") or [])]
     }
@@ -472,45 +542,110 @@ def calculate_scenario_probabilities(data: dict, rules: dict) -> Dict[str, float
         else:
             add_alloc(probs, liq_alloc["fragile"])
 
-    mom_cfg = rules["momentum"]
-    mom_alloc = mom_cfg["allocations"]
+    # 2) Momentum (A: trend-first)
+    #   - Primary: Binance Futures taker buy/sell ratio (derivatives_momentum)
+    #   - Secondary: Dex txns buy/sell ratio (dex_momentum, low weight)
 
-    buy_sell_ratio = to_float(data["market"].get("buy_sell_txn_ratio_24h"))
-    bull_min = float(mom_cfg["bull_min_ratio"])
-    stress_max = float(mom_cfg["stress_max_ratio"])
-    bull_den = float(mom_cfg["strength_scales"]["bull_denominator"])
-    stress_den = float(mom_cfg["strength_scales"]["stress_denominator"])
+    # 2a) Derivatives momentum (primary)
+    der_cfg = rules.get("derivatives_momentum") or {}
+    der_taker = (der_cfg.get("taker_buy_sell_ratio") or {})
+    der_alloc = (der_taker.get("allocations") or {})
 
-    if buy_sell_ratio is None:
-        add_alloc(probs, mom_alloc["fallback"])
-    elif buy_sell_ratio > bull_min:
-        t = mom_alloc["bull_trend"]
-        strength = clamp((buy_sell_ratio - bull_min) / bull_den, 0.0, 1.0)
+    taker_ratio = to_float((data.get("derivatives") or {}).get("taker_buy_sell_ratio_1d"))
+    bull_min = float(der_taker.get("bull_min_ratio", 1.02))
+    stress_max = float(der_taker.get("stress_max_ratio", 0.85))
+    bull_den = float((der_taker.get("strength_scales") or {}).get("bull_denominator", 0.4))
+    stress_den = float((der_taker.get("strength_scales") or {}).get("stress_denominator", 0.25))
+
+    if taker_ratio is None:
+        add_alloc(probs, der_alloc.get("fallback", {"bull":0.16,"base":0.19,"stress":0.05}))
+    elif taker_ratio > bull_min:
+        t = der_alloc["bull_trend"]
+        strength = clamp((taker_ratio - bull_min) / bull_den, 0.0, 1.0)
         probs["Bull"] += float(t["bull_base"]) + float(t["bull_bonus"]) * strength
         probs["Base"] += float(t["base_base"]) - float(t["base_penalty"]) * strength
         probs["Stress"] += float(t["stress_base"]) - float(t["stress_penalty"]) * strength
-    elif buy_sell_ratio < stress_max:
-        t = mom_alloc["stress_trend"]
-        strength = clamp((stress_max - buy_sell_ratio) / stress_den, 0.0, 1.0)
+    elif taker_ratio < stress_max:
+        t = der_alloc["stress_trend"]
+        strength = clamp((stress_max - taker_ratio) / stress_den, 0.0, 1.0)
         probs["Stress"] += float(t["stress_base"]) + float(t["stress_bonus"]) * strength
         probs["Base"] += float(t["base_base"]) - float(t["base_penalty"]) * strength
         probs["Bull"] += float(t["bull_base"]) - float(t["bull_penalty"]) * strength
     else:
-        # Neutral zone: linear interpolation between stress_max and bull_min
-        # ratio closer to bull_min → lean bull; closer to stress_max → lean stress
-        neutral = mom_alloc["neutral"]
+        neutral = der_alloc["neutral"]
         midpoint = (stress_max + bull_min) / 2.0
         range_half = (bull_min - stress_max) / 2.0
-        if range_half > 0:
-            lean = clamp((buy_sell_ratio - midpoint) / range_half, -1.0, 1.0)
-        else:
-            lean = 0.0
-        # lean: -1.0 (bearish end) to +1.0 (bullish end)
-        # Shift up to ±0.04 between Bull and Stress within neutral allocation
+        lean = clamp((taker_ratio - midpoint) / range_half, -1.0, 1.0) if range_half > 0 else 0.0
         shift = lean * 0.04
         probs["Bull"] += float(neutral["bull"]) + shift
         probs["Base"] += float(neutral["base"]) - abs(shift) * 0.5
         probs["Stress"] += float(neutral["stress"]) - shift
+
+    # trend-first: only light soft penalties
+    soft = (der_cfg.get("soft_penalties") or {})
+    fr_cfg = (soft.get("funding_abs_8h_pct") or {})
+    oi_cfg = (soft.get("open_interest_change_24h_pct") or {})
+
+    fr = to_float((data.get("derivatives") or {}).get("funding_rate"))
+    if fr is not None:
+        fr_abs_pct = abs(fr) * 100.0
+        if fr_abs_pct >= float(fr_cfg.get("high", 0.05)):
+            probs["Bull"] -= float(fr_cfg.get("bull_penalty_high", 0.02))
+            probs["Stress"] += float(fr_cfg.get("stress_bonus_high", 0.01))
+        elif fr_abs_pct >= float(fr_cfg.get("warn", 0.02)):
+            probs["Bull"] -= float(fr_cfg.get("bull_penalty_warn", 0.01))
+            probs["Stress"] += float(fr_cfg.get("stress_bonus_warn", 0.005))
+
+    oi_chg = to_float((data.get("derivatives") or {}).get("open_interest_24h_change_pct"))
+    if oi_chg is not None:
+        if oi_chg >= float(oi_cfg.get("high", 40)):
+            probs["Bull"] -= float(oi_cfg.get("bull_penalty_high", 0.01))
+            probs["Stress"] += float(oi_cfg.get("stress_bonus_high", 0.005))
+        elif oi_chg >= float(oi_cfg.get("warn", 20)):
+            probs["Bull"] -= float(oi_cfg.get("bull_penalty_warn", 0.005))
+            probs["Stress"] += float(oi_cfg.get("stress_bonus_warn", 0.002))
+
+    # 2b) Dex momentum (secondary, low weight + sample gating)
+    dex_cfg = rules.get("dex_momentum") or {}
+    dex_alloc = (dex_cfg.get("allocations") or {})
+
+    buys = to_float(data.get("market", {}).get("buys_24h"))
+    sells = to_float(data.get("market", {}).get("sells_24h"))
+    total = (buys + sells) if (buys is not None and sells is not None) else None
+
+    dex_ratio = to_float(data.get("market", {}).get("buy_sell_txn_ratio_24h"))
+    min_total = float(dex_cfg.get("min_total_txns_24h", 300))
+    min_side = float(dex_cfg.get("min_side_txns_24h", 20))
+
+    if dex_ratio is None or total is None or total < min_total or buys < min_side or sells < min_side:
+        add_alloc(probs, dex_alloc.get("fallback", {"bull":0.15,"base":0.2,"stress":0.05}))
+    else:
+        bull_min = float(dex_cfg.get("bull_min_ratio", 1.05))
+        stress_max = float(dex_cfg.get("stress_max_ratio", 0.6))
+        bull_den = float((dex_cfg.get("strength_scales") or {}).get("bull_denominator", 0.8))
+        stress_den = float((dex_cfg.get("strength_scales") or {}).get("stress_denominator", 0.6))
+
+        if dex_ratio > bull_min:
+            t = dex_alloc["bull_trend"]
+            strength = clamp((dex_ratio - bull_min) / bull_den, 0.0, 1.0)
+            probs["Bull"] += float(t["bull_base"]) + float(t["bull_bonus"]) * strength
+            probs["Base"] += float(t["base_base"]) - float(t["base_penalty"]) * strength
+            probs["Stress"] += float(t["stress_base"]) - float(t["stress_penalty"]) * strength
+        elif dex_ratio < stress_max:
+            t = dex_alloc["stress_trend"]
+            strength = clamp((stress_max - dex_ratio) / stress_den, 0.0, 1.0)
+            probs["Stress"] += float(t["stress_base"]) + float(t["stress_bonus"]) * strength
+            probs["Base"] += float(t["base_base"]) - float(t["base_penalty"]) * strength
+            probs["Bull"] += float(t["bull_base"]) - float(t["bull_penalty"]) * strength
+        else:
+            neutral = dex_alloc["neutral"]
+            midpoint = (stress_max + bull_min) / 2.0
+            range_half = (bull_min - stress_max) / 2.0
+            lean = clamp((dex_ratio - midpoint) / range_half, -1.0, 1.0) if range_half > 0 else 0.0
+            shift = lean * 0.04
+            probs["Bull"] += float(neutral["bull"]) + shift
+            probs["Base"] += float(neutral["base"]) - abs(shift) * 0.5
+            probs["Stress"] += float(neutral["stress"]) - shift
 
     # 3) On-chain concentration (Diamond Hands defense)
     conc_cfg = rules["onchain_concentration"]
@@ -608,6 +743,7 @@ def main() -> None:
 
     top10_holder_pct, holder_source, using_proxy, top10_flags = fetch_top10_holder_pct(liquidity_usd, fdv_usd, binance_data=binance_data)
     exchange_flow = fetch_dune_whale_exchange_flow() or {}
+    derivatives = fetch_binance_futures_metrics("TRUMPUSDT")
 
     snapshot = {
         "as_of_utc": as_of,
@@ -620,6 +756,7 @@ def main() -> None:
             "fdv_usd": fdv_usd,
             "buys_24h": buys_24h,
             "sells_24h": sells_24h,
+            "txn_total_24h": int(buys_24h + sells_24h) if buys_24h is not None and sells_24h is not None else None,
             "buy_sell_txn_ratio_24h": round(buy_sell_ratio_24h, 4) if buy_sell_ratio_24h is not None else None
         },
         "onchain": {
@@ -636,6 +773,7 @@ def main() -> None:
             "liquidity_change_24h": round(liquidity_change_24h, 6) if liquidity_change_24h is not None else None,
             "price_change_24h_pct": round(price_change_24h_pct, 4) if price_change_24h_pct is not None else None
         },
+        "derivatives": derivatives,
         "scenario_probabilities": {},
         "risk_flags": [],
         "sources": ["binance-web3", "okx-onchainos", "bitget-wallet", "coingecko", "dexscreener"] if holder_source in ("binance-web3", "okx-onchainos", "bitget-wallet") else ["binance-web3", "coingecko", "dexscreener", holder_source],

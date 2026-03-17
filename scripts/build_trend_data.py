@@ -63,6 +63,18 @@ def load_points_raw() -> list[dict]:
                     "price_usd": row.get("price_usd"),
                     "top10_holder_pct": row.get("top10_holder_pct"),
                     "bull_probability_pct": _to_pct(probs.get("Bull")),
+                    "dex": {
+                        "buys_24h": row.get("buys_24h"),
+                        "sells_24h": row.get("sells_24h"),
+                        "txn_total_24h": row.get("txn_total_24h"),
+                        "buy_sell_ratio_24h": row.get("buy_sell_txn_ratio_24h"),
+                    },
+                    "derivatives": {
+                        "taker_buy_sell_ratio_1d": (row.get("derivatives") or {}).get("taker_buy_sell_ratio_1d"),
+                        "funding_rate": (row.get("derivatives") or {}).get("funding_rate"),
+                        "open_interest": (row.get("derivatives") or {}).get("open_interest"),
+                        "open_interest_24h_change_pct": (row.get("derivatives") or {}).get("open_interest_24h_change_pct"),
+                    }
                 }
             )
 

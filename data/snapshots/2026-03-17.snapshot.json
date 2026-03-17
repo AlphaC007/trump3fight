@@ -1,18 +1,19 @@
 {
-  "as_of_utc": "2026-03-17T08:07:13Z",
+  "as_of_utc": "2026-03-17T08:48:19Z",
   "asset": "TRUMP",
   "market": {
-    "price_usd": 3.717828145901516,
-    "mcap_usd": 743563378.2584306,
-    "volume_24h_usd": 25301515.9767251,
-    "liquidity_usd": 103156393.17231877,
-    "fdv_usd": 743563378.2584306,
-    "buys_24h": 1169.0,
-    "sells_24h": 1916.0,
-    "buy_sell_txn_ratio_24h": 0.6101
+    "price_usd": 3.7421562508190953,
+    "mcap_usd": 748428984.5127386,
+    "volume_24h_usd": 24818973.03938586,
+    "liquidity_usd": 103352629.57153904,
+    "fdv_usd": 748428984.5127386,
+    "buys_24h": 1196.0,
+    "sells_24h": 1890.0,
+    "txn_total_24h": 3086,
+    "buy_sell_txn_ratio_24h": 0.6328
   },
   "onchain": {
-    "top10_holder_pct": 88.8409,
+    "top10_holder_pct": 88.8405,
     "top10_holder_source": "binance-web3",
     "dex_depth_2pct_usd": null,
     "exchange_inflow_usd_24h": null,
@@ -21,14 +22,25 @@
     "exchange_flow_source": null
   },
   "derived": {
-    "liq_fdv_ratio": 0.138732,
-    "liquidity_change_24h": -0.018956,
-    "price_change_24h_pct": -6.96
+    "liq_fdv_ratio": 0.138093,
+    "liquidity_change_24h": -0.01709,
+    "price_change_24h_pct": -5.27
+  },
+  "derivatives": {
+    "source": "binance-futures",
+    "symbol": "TRUMPUSDT",
+    "funding_rate": -5.023e-05,
+    "funding_time": 1773734400002,
+    "open_interest": 15032435.99,
+    "open_interest_24h_change_pct": -11.2799,
+    "taker_buy_sell_ratio_1d": 0.9511,
+    "taker_buy_vol": 48659779.99,
+    "taker_sell_vol": 51163605.56
   },
   "scenario_probabilities": {
-    "Bull": 0.4861,
-    "Base": 0.424,
-    "Stress": 0.0899
+    "Bull": 0.4774,
+    "Base": 0.4453,
+    "Stress": 0.0773
   },
   "risk_flags": [
     {
@@ -52,9 +64,10 @@
     "rules_source": "config/scenario_rules.json",
     "weights": {
       "liquidity_resilience": 0.3,
-      "buy_sell_momentum": 0.4,
       "onchain_concentration": 0.2,
-      "narrative_volatility_buffer": 0.1
+      "narrative_volatility_buffer": 0.1,
+      "derivatives_momentum": 0.37,
+      "dex_momentum": 0.03
     }
   }
 }

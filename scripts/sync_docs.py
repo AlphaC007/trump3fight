@@ -57,7 +57,8 @@ def main():
     w = rules["weights"]
     out.append("## Dimension Weights")
     out.append(f"- Liquidity resilience: `{w['liquidity_resilience']}`")
-    out.append(f"- Buy/Sell momentum: `{w['buy_sell_momentum']}`")
+    out.append(f"- Derivatives momentum (Binance Futures): `{w.get('derivatives_momentum')}`")
+    out.append(f"- DEX momentum (DexScreener): `{w.get('dex_momentum')}`")
     out.append(f"- On-chain concentration: `{w['onchain_concentration']}`")
     out.append(f"- Narrative/volatility buffer: `{w['narrative_volatility_buffer']}`\n")
 
@@ -69,22 +70,25 @@ def main():
     out.append("Core observation metrics:")
     out.append("1. `dex_depth_2pct_usd` (proxy pending)")
     out.append("2. `liq_fdv_ratio`")
-    out.append("3. `buy_sell_txn_ratio_24h`")
-    out.append("4. `price_change_24h_pct`\n")
+    out.append("3. `derivatives.taker_buy_sell_ratio_1d` (primary)")
+    out.append("4. `buy_sell_txn_ratio_24h` (secondary)")
+    out.append("5. `price_change_24h_pct`\n")
 
     out.append("## Stress")
     out.append("Core observation metrics:")
     out.append("1. `liquidity_change_24h`")
     out.append("2. `liq_fdv_ratio`")
-    out.append("3. `buy_sell_txn_ratio_24h`")
-    out.append("4. `price_change_24h_pct`\n")
+    out.append("3. `derivatives.taker_buy_sell_ratio_1d` (primary)")
+    out.append("4. `buy_sell_txn_ratio_24h` (secondary)")
+    out.append("5. `price_change_24h_pct`\n")
 
     out.append("## Bull")
     out.append("Core observation metrics:")
     out.append("1. `liq_fdv_ratio`")
-    out.append("2. `buy_sell_txn_ratio_24h`")
-    out.append("3. `liquidity_change_24h`")
-    out.append("4. `price_change_24h_pct`\n")
+    out.append("2. `derivatives.taker_buy_sell_ratio_1d` (primary)")
+    out.append("3. `buy_sell_txn_ratio_24h` (secondary)")
+    out.append("4. `liquidity_change_24h`")
+    out.append("5. `price_change_24h_pct`\n")
 
     out.append("### Phase 3: Discovery Regime & Valuation Re-rating")
     out.append("Cyclic Benchmarking (structure-only): compare current token regime against historical meme-cycle phases (e.g., SHIB/DOGE) using **liquidity structure** and **diffusion velocity** only, not target-price anchoring.")
@@ -102,7 +106,9 @@ def main():
     out.append("```json")
     out.append(json.dumps({
         "liquidity": liq,
-        "momentum": mom,
+        "derivatives_momentum": rules.get("derivatives_momentum"),
+        "dex_momentum": rules.get("dex_momentum"),
+        "momentum_legacy": mom,
         "onchain_concentration": rules["onchain_concentration"],
         "volatility_buffer": vol,
         "normalization": rules["normalization"]
