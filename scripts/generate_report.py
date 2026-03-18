@@ -17,14 +17,22 @@ def pct(v):
 
 
 def get_quote(symbol: str):
-    t = yf.Ticker(symbol)
-    h = t.history(period="2d", interval="1d")
-    if h.empty:
+    """Fetch 2d daily close via yfinance.
+
+    Fail-safe: yfinance sometimes returns nonstandard payloads (e.g. missing 'chart'),
+    which previously crashed the whole report build. We degrade to N/A instead.
+    """
+    try:
+        t = yf.Ticker(symbol)
+        h = t.history(period="2d", interval="1d")
+        if getattr(h, "empty", True):
+            return {"price": None, "change_pct": None}
+        close = float(h["Close"].iloc[-1])
+        prev = float(h["Close"].iloc[-2]) if len(h) > 1 else None
+        chg = ((close - prev) / prev * 100) if prev else None
+        return {"price": close, "change_pct": chg}
+    except Exception:
         return {"price": None, "change_pct": None}
-    close = float(h["Close"].iloc[-1])
-    prev = float(h["Close"].iloc[-2]) if len(h) > 1 else None
-    chg = ((close - prev) / prev * 100) if prev else None
-    return {"price": close, "change_pct": chg}
 
 
 def get_coingecko_prices():
@@ -601,13 +609,17 @@ def main():
     md.append(f"# 📅 {date_s} Daily Cross-Market Briefing (CIO Internal)")
     md.append("")
     md.append("## 🌍 1. Macro & TradFi (Fact Layer)")
+    def fmt_quote(q):
+        p = q.get("price")
+        return "N/A" if p is None else f"{p:.2f}"
+
     md.append(
-        f"- S&P 500: {macro['S&P 500']['price']:.2f} ({pct(macro['S&P 500']['change_pct'])})\n"
-        f"- Nasdaq: {macro['Nasdaq']['price']:.2f} ({pct(macro['Nasdaq']['change_pct'])})\n"
-        f"- DXY: {macro['DXY']['price']:.2f} ({pct(macro['DXY']['change_pct'])})\n"
-        f"- US10Y: {macro['US10Y']['price']:.2f} ({pct(macro['US10Y']['change_pct'])})\n"
-        f"- Gold: {macro['Gold']['price']:.2f} ({pct(macro['Gold']['change_pct'])})\n"
-        f"- Crude Oil: {macro['Crude']['price']:.2f} ({pct(macro['Crude']['change_pct'])})"
+        f"- S&P 500: {fmt_quote(macro['S&P 500'])} ({pct(macro['S&P 500']['change_pct'])})\n"
+        f"- Nasdaq: {fmt_quote(macro['Nasdaq'])} ({pct(macro['Nasdaq']['change_pct'])})\n"
+        f"- DXY: {fmt_quote(macro['DXY'])} ({pct(macro['DXY']['change_pct'])})\n"
+        f"- US10Y: {fmt_quote(macro['US10Y'])} ({pct(macro['US10Y']['change_pct'])})\n"
+        f"- Gold: {fmt_quote(macro['Gold'])} ({pct(macro['Gold']['change_pct'])})\n"
+        f"- Crude Oil: {fmt_quote(macro['Crude'])} ({pct(macro['Crude']['change_pct'])})"
     )
     md.append("")
     md.append("## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)")
