@@ -11,8 +11,10 @@ Our core thesis: **$TRUMP is structurally undervalued.** Base case >$100, bull c
 
 We don't just publish research — we build the AI systems that generate it.
 
-[Read Today's CIO Report](cio-reports/latest/){ .md-button .md-button--primary }
-[Open Trend Dashboard](trends/){ .md-button }
+<div class="hero-actions">
+  <a class="cta-btn cta-primary" href="cio-reports/latest/">Read Today’s CIO Hub</a>
+  <a class="cta-btn cta-secondary" href="trends/">Open Trend Dashboard</a>
+</div>
 
 ---
 
