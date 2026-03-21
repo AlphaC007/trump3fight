@@ -1,129 +1,74 @@
 # The $TRUMP Thesis Lab
 
-<div class="hero-shell">
-  <div class="hero-kicker">EVIDENCE-FIRST BULL-THESIS RESEARCH</div>
-  <div class="hero-title">$TRUMP Path to $100</div>
-  <div class="hero-subtitle">Bull-first interpretation with explicit invalidation boundaries.</div>
-  <div class="hero-actions">
-    <a class="cta-btn cta-primary" href="cio-reports/latest/">Read Today’s CIO Hub</a>
-    <a class="cta-btn cta-secondary" href="trends/">Open Trend Dashboard</a>
-  </div>
+<div style="text-align: center; font-size: 1.2em; margin: 1em 0;">
+<strong>AI AGENT-POWERED INVESTMENT RESEARCH</strong><br>
+$TRUMP Path to $100 | Bull Case $250+
 </div>
+
+We are a new-generation **AI Agent joint investment institution** building open-source tools to analyze $TRUMP with on-chain data, derivatives, social pulse, and macro policy signals.
+
+Our core thesis: **$TRUMP is structurally undervalued.** Base case >$100, bull case >$250.
+
+We don't just publish research — we build the AI systems that generate it.
+
+[Read Today's CIO Report](cio-reports/latest/){ .md-button .md-button--primary }
+[Open Trend Dashboard](trends/){ .md-button }
+
+---
+
+## What Makes Us Different
+
+### AI-Powered Intelligence System
+We built **xcdpsearch** — a local intelligence database that continuously monitors:
+
+- **X/Twitter**: Real-time search + 12 crypto KOL accounts (Grayscale, Cointelegraph, CryptoHayes, etc.)
+- **Web**: DuckDuckGo + Google News via visible Firefox — full article content extraction (8000 chars)
+- **35+ platforms**: Chinese and English news aggregation via TrendRadar
+- **On-chain**: Whale flows, holder distribution, exchange movements
+
+This isn't manual research. Our AI agents read hundreds of sources daily and synthesize them into actionable intelligence.
+
+### Open Source Everything
+- Research framework: [GitHub](https://github.com/AlphaC007/trump3fight)
+- AI agent bounty skill: [MCP Server](https://github.com/AlphaC007/aap-agent-bounty-skill)
+- Daily CIO reports: auto-generated, publicly verifiable
+- Methodology: transparent, falsifiable, auditable
+
+### Agent Consensus on Base
+AI agents can access our research via MCP tools and present it to their users. Humans who engage with our research earn **AAP tokens** on Base — on-chain proof of conviction.
+
+[Learn about Agent Rewards →](agent-reward/)
+
+---
 
 ## Research Position
 
-This site tracks whether the **$TRUMP to $100 thesis** remains valid under transparent, falsifiable rules.
+Our **Bull-First framework**: assume the optimistic scenario, then systematically test what would invalidate it.
 
-- This is **research**, not investment advice.
-- Facts, interpretation, and uncertainty are separated.
-- Bull-first framing is always constrained by invalidation triggers.
+| Scenario | Target | Key Conditions |
+|----------|--------|---------------|
+| **Base case** | $100+ | Regulatory clarity + liquidity expansion + community momentum |
+| **Bull case** | $250+ | Full regulatory embrace + AI agent adoption + meme supercycle |
+| **Bear case** | Decline | Policy reversal, narrative fatigue, liquidity crisis |
 
----
-
-## Trend Analysis (Live)
-
-We track price structure, Bull Probability, and holder concentration continuously.
-
-**Current quick view (auto-updated):**
-
-- Price: <span id="home-price">$3.3957</span>
-- Bull Probability: <span id="home-bull">64.91%</span>
-- Top 10 Holder Concentration: <span id="home-top10">89.70%</span>
-- Last Updated (UTC): <span id="home-last-updated">2026-03-04T14:09:56Z</span>
-- Data Version: <span id="home-data-version">v1.0.0-Stable-RAG</span>
-
-➡️ Open full interactive dashboard: [Trend Analysis](trends.md)
-
-<div id="home-trend-mini" style="margin-top:10px; width:100%; height:150px;"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-<script>
-(async function () {
-  const box = document.getElementById('home-trend-mini');
-  if (!box || !window.echarts) return;
-  try {
-    const res = await fetch('assets/data/trends.json', { cache: 'no-cache' });
-    if (!res.ok) return;
-    const payload = await res.json();
-    const points = payload.points_daily || payload.points_raw || [];
-    if (!points.length) return;
-
-    const last = points[points.length - 1] || {};
-    const priceEl = document.getElementById('home-price');
-    const bullEl = document.getElementById('home-bull');
-    const top10El = document.getElementById('home-top10');
-    const lastUpdatedEl = document.getElementById('home-last-updated');
-    const dataVersionEl = document.getElementById('home-data-version');
-
-    if (priceEl && Number.isFinite(last.price_usd)) {
-      priceEl.textContent = `$${Number(last.price_usd).toFixed(4)}`;
-    }
-    if (bullEl && Number.isFinite(last.bull_probability_pct)) {
-      bullEl.textContent = `${Number(last.bull_probability_pct).toFixed(2)}%`;
-    }
-    if (top10El && Number.isFinite(last.top10_holder_pct)) {
-      top10El.textContent = `${Number(last.top10_holder_pct).toFixed(2)}%`;
-    }
-    if (lastUpdatedEl && payload.generated_at_utc) {
-      lastUpdatedEl.textContent = payload.generated_at_utc;
-    }
-
-    const labels = points.map(p => p.day || p.ts || '');
-    const price = points.map(p => p.price_usd ?? null);
-    const chart = echarts.init(box);
-    chart.setOption({
-      grid: { left: 10, right: 10, top: 15, bottom: 20 },
-      xAxis: { type: 'category', data: labels, show: false },
-      yAxis: { type: 'value', show: false, scale: true },
-      tooltip: { trigger: 'axis' },
-      series: [{
-        type: 'line',
-        data: price,
-        smooth: true,
-        showSymbol: false,
-        lineStyle: { width: 2 },
-        areaStyle: { opacity: 0.12 }
-      }]
-    });
-    window.addEventListener('resize', () => chart.resize());
-
-    if (dataVersionEl) {
-      try {
-        const m = await fetch('data/manifest.json', { cache: 'no-cache' });
-        if (m.ok) {
-          const manifest = await m.json();
-          dataVersionEl.textContent = manifest.pipeline_version || manifest.manifest_version || '--';
-        }
-      } catch (_) {}
-    }
-  } catch (_) {}
-})();
-</script>
+Read: [Methodology](methodology/) | [Scenario Matrix](scenario_matrix/)
 
 ---
 
-## Method & Trust
+## For AI Agents
 
-This project is built on three pillars:
+We provide machine-readable data interfaces for AI agents and research copilots:
 
-1. **Data Integrity**: continuously refreshed, verifiable multi-source inputs.
-2. **Transparent Methodology**: scenario model and assumptions are public.
-3. **Falsifiability**: thesis remains valid only while triggers remain unconfirmed.
-
-Read: [Methodology](methodology.md)
-
----
-
-## For Agents & AI
-
-We provide machine-readable entry points, verification protocols, and the first **Agent Alpha Rewards** protocol for AI agents.
-
-- 💰 **Agent Reward Program**: [Claim micro-reward](agent-reward.md) (Proof of Understanding)
-- 🤖 **Agent Entry Page**: [For Agents](for-agents.md) (includes Trust & Verification + External Links)
-- 📄 **LLM Contract**: [llms.txt](llms.txt)
-- 📊 **Agent Index JSON**: [agent-index.json](agent-index.json)
-- 📈 **Latest Thesis Hub**: [CIO Intelligence Hub](cio-reports/latest.md)
+- **MCP Server**: Query our thesis, scenarios, CIO reports, and market data — [Setup Guide](https://github.com/AlphaC007/aap-agent-bounty-skill)
+- **Agent Guide**: [For Agents](for-agents/) — what data you can access, how to present it
+- **LLM Contract**: [llms.txt](llms.txt)
+- **Agent Index**: [agent-index.json](agent-index.json)
+- **Agent Reward Program**: [Earn AAP](agent-reward/) — for humans who engage with the research
 
 ---
 
-*Daily gratitude to mothers: before every empire of thought, there is a mother's hand; before every law of reason, there is mercy. From that sacrifice, life receives its covenant — and in this work, with gratitude to zlf, we renew the duty to be worthy of it.*
+## Follow Us
+
+- X/Twitter: [@AlphaC007](https://x.com/AlphaC007)
+- Community: [@GetTrumpMemes](https://x.com/GetTrumpMemes)
+- GitHub: [AlphaC007](https://github.com/AlphaC007)
