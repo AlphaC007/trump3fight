@@ -20,12 +20,13 @@
     "weights": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["liquidity_resilience", "buy_sell_momentum", "onchain_concentration", "narrative_volatility_buffer"],
+      "required": ["liquidity_resilience", "onchain_concentration", "narrative_volatility_buffer", "derivatives_momentum", "dex_momentum"],
       "properties": {
         "liquidity_resilience": { "type": "number", "minimum": 0, "maximum": 1 },
-        "buy_sell_momentum": { "type": "number", "minimum": 0, "maximum": 1 },
         "onchain_concentration": { "type": "number", "minimum": 0, "maximum": 1 },
-        "narrative_volatility_buffer": { "type": "number", "minimum": 0, "maximum": 1 }
+        "narrative_volatility_buffer": { "type": "number", "minimum": 0, "maximum": 1 },
+        "derivatives_momentum": { "type": "number", "minimum": 0, "maximum": 1 },
+        "dex_momentum": { "type": "number", "minimum": 0, "maximum": 1 }
       }
     },
     "liquidity": {
@@ -109,6 +110,86 @@
         "renormalize_after_updates": { "type": "boolean" },
         "round_digits": { "type": "integer", "minimum": 0, "maximum": 8 },
         "correction_target": { "type": "string", "enum": ["Bull", "Base", "Stress"] }
+      }
+    },
+    "derivatives_momentum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taker_buy_sell_ratio", "soft_penalties"],
+      "properties": {
+        "taker_buy_sell_ratio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["bull_min_ratio", "stress_max_ratio", "strength_scales", "allocations"],
+          "properties": {
+            "bull_min_ratio": { "type": "number", "minimum": 0 },
+            "stress_max_ratio": { "type": "number", "minimum": 0 },
+            "strength_scales": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["bull_denominator", "stress_denominator"],
+              "properties": {
+                "bull_denominator": { "type": "number", "exclusiveMinimum": 0 },
+                "stress_denominator": { "type": "number", "exclusiveMinimum": 0 }
+              }
+            },
+            "allocations": { "$ref": "#/$defs/momentumAllocations" }
+          }
+        },
+        "soft_penalties": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["funding_abs_8h_pct", "open_interest_change_24h_pct"],
+          "properties": {
+            "funding_abs_8h_pct": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["warn", "high", "bull_penalty_warn", "bull_penalty_high", "stress_bonus_warn", "stress_bonus_high"],
+              "properties": {
+                "warn": { "type": "number", "minimum": 0 },
+                "high": { "type": "number", "minimum": 0 },
+                "bull_penalty_warn": { "type": "number", "minimum": 0, "maximum": 1 },
+                "bull_penalty_high": { "type": "number", "minimum": 0, "maximum": 1 },
+                "stress_bonus_warn": { "type": "number", "minimum": 0, "maximum": 1 },
+                "stress_bonus_high": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            },
+            "open_interest_change_24h_pct": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["warn", "high", "bull_penalty_warn", "bull_penalty_high", "stress_bonus_warn", "stress_bonus_high"],
+              "properties": {
+                "warn": { "type": "number", "minimum": 0 },
+                "high": { "type": "number", "minimum": 0 },
+                "bull_penalty_warn": { "type": "number", "minimum": 0, "maximum": 1 },
+                "bull_penalty_high": { "type": "number", "minimum": 0, "maximum": 1 },
+                "stress_bonus_warn": { "type": "number", "minimum": 0, "maximum": 1 },
+                "stress_bonus_high": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dex_momentum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_total_txns_24h", "min_side_txns_24h", "bull_min_ratio", "stress_max_ratio", "strength_scales", "allocations"],
+      "properties": {
+        "min_total_txns_24h": { "type": "number", "minimum": 0 },
+        "min_side_txns_24h": { "type": "number", "minimum": 0 },
+        "bull_min_ratio": { "type": "number", "minimum": 0 },
+        "stress_max_ratio": { "type": "number", "minimum": 0 },
+        "strength_scales": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["bull_denominator", "stress_denominator"],
+          "properties": {
+            "bull_denominator": { "type": "number", "exclusiveMinimum": 0 },
+            "stress_denominator": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "allocations": { "$ref": "#/$defs/momentumAllocations" }
       }
     }
   },
