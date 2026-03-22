@@ -36,6 +36,73 @@ jobs:
         run: |
           python scripts/check_cio_hub_freshness.py
 
+      - name: Regenerate manifest.json
+        run: |
+          set -euo pipefail
+          today="$(date -u +%Y-%m-%d)"
+          generated_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          snapshot_path="data/snapshots/${today}.snapshot.json"
+          trends_path="docs/assets/data/trends.json"
+          cio_path="reports/cio_briefings/${today}-CIO-Report.md"
+
+          hash_or_unavailable() {
+            local path="$1"
+            if [ -f "$path" ]; then
+              sha256sum "$path" | awk '{print $1}'
+            else
+              echo "unavailable"
+            fi
+          }
+
+          snapshot_sha="$(hash_or_unavailable "$snapshot_path")"
+          trends_sha="$(hash_or_unavailable "$trends_path")"
+          cio_sha="$(hash_or_unavailable "$cio_path")"
+
+          export TODAY="$today"
+          export GENERATED_AT="$generated_at"
+          export SNAPSHOT_PATH="$snapshot_path"
+          export SNAPSHOT_SHA="$snapshot_sha"
+          export TRENDS_PATH="$trends_path"
+          export TRENDS_SHA="$trends_sha"
+          export CIO_PATH="$cio_path"
+          export CIO_SHA="$cio_sha"
+
+          python - <<'PY'
+          import json
+          import os
+
+          manifest = {
+            "project": "trump-thesis-lab",
+            "manifest_version": "1.0.0",
+            "generated_at_utc": os.environ["GENERATED_AT"],
+            "latest_snapshot_date": os.environ["TODAY"],
+            "pipeline_version": "v1.0.0-Stable-RAG",
+            "artifacts": {
+              "snapshot": {
+                "path": os.environ["SNAPSHOT_PATH"],
+                "sha256": os.environ["SNAPSHOT_SHA"],
+              },
+              "trends_dataset": {
+                "path": os.environ["TRENDS_PATH"],
+                "sha256": os.environ["TRENDS_SHA"],
+              },
+              "cio_report": {
+                "path": os.environ["CIO_PATH"],
+                "sha256": os.environ["CIO_SHA"],
+              },
+            },
+            "source_priority": [
+              "binance-web3",
+              "okx-onchainos",
+              "bitget-wallet",
+            ],
+          }
+
+          with open("data/manifest.json", "w", encoding="utf-8") as fh:
+            json.dump(manifest, fh, indent=2)
+            fh.write("\n")
+          PY
+
       - name: Refresh README freshness dates
         run: |
           set -euo pipefail
@@ -50,7 +117,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md reports/cio_briefings/*-CIO-Report.md docs/cio-reports/latest.md docs/cio-reports/archive/*-CIO-Report.md
+          git add README.md data/manifest.json reports/cio_briefings/*-CIO-Report.md docs/cio-reports/latest.md docs/cio-reports/archive/*-CIO-Report.md
           git diff --cached --quiet || git commit -m "chore(report): daily CIO report + hub sync"
           git pull --rebase origin main
           git push
