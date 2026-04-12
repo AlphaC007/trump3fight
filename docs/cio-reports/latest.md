@@ -6,39 +6,39 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-04-11** (49 daily CIO reports)
-Average Bull Probability (reported): **47.88%**
-Latest Bull Probability: **46.25%**
-Latest $TRUMP Price Snapshot: **$2.84**
+Coverage window: **2026-02-21 → 2026-04-12** (50 daily CIO reports)
+Average Bull Probability (reported): **47.84%**
+Latest Bull Probability: **45.48%**
+Latest $TRUMP Price Snapshot: **$2.79**
 
 ## Today’s CIO Report
 
-# 📅 2026-04-11 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-04-12 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 6816.89 (-0.11%)
 - Nasdaq: 22902.89 (+0.35%)
-- DXY: 98.70 (-0.12%)
+- DXY: 98.65 (-0.17%)
 - US10Y: 4.32 (+0.56%)
-- Gold: 4771.00 (-0.44%)
-- Crude Oil: 95.63 (-2.29%)
+- Gold: 4761.90 (-0.63%)
+- Crude Oil: 96.57 (-1.33%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $73068.00 (+1.66%)
-- ETH: $2250.17 (+2.93%)
-- Fear & Greed: 15 (Extreme Fear)
+- BTC: $71691.00 (-1.75%)
+- ETH: $2216.30 (-1.23%)
+- Fear & Greed: 16 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $2.8359161062772924
-- Concentration: 88.1728%
-- Bull Probability: 46.25%
-- Base Probability: 48.21%
-- Stress Probability: 5.54%
+- Price: $2.7876785466224154
+- Concentration: 88.1843%
+- Bull Probability: 45.48%
+- Base Probability: 48.37%
+- Stress Probability: 6.15%
 - Risk Flags: exchange_flow_unavailable
 
 ---
@@ -51,7 +51,7 @@ Latest $TRUMP Price Snapshot: **$2.84**
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: No dominant adverse structural signal in current snapshot
+- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9931)
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-04-12 CIO Report](archive/2026-04-12-CIO-Report.md)
 - [2026-04-11 CIO Report](archive/2026-04-11-CIO-Report.md)
 - [2026-04-10 CIO Report](archive/2026-04-10-CIO-Report.md)
 - [2026-04-09 CIO Report](archive/2026-04-09-CIO-Report.md)
 - [2026-04-08 CIO Report](archive/2026-04-08-CIO-Report.md)
 - [2026-04-07 CIO Report](archive/2026-04-07-CIO-Report.md)
-- [2026-04-06 CIO Report](archive/2026-04-06-CIO-Report.md)
 
 <details>
-<summary>More (43 older reports)</summary>
+<summary>More (44 older reports)</summary>
 
+- [2026-04-06 CIO Report](archive/2026-04-06-CIO-Report.md)
 - [2026-04-05 CIO Report](archive/2026-04-05-CIO-Report.md)
 - [2026-04-04 CIO Report](archive/2026-04-04-CIO-Report.md)
 - [2026-04-03 CIO Report](archive/2026-04-03-CIO-Report.md)
@@ -151,4 +152,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-04-11 03:24 UTC_
+_Hub generated automatically at 2026-04-12 03:50 UTC_
