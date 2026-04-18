@@ -284,8 +284,8 @@ def _bitget_sign(api_path: str, body_obj: dict, api_key: str, api_secret: str, t
 def fetch_bitget_token_info() -> Optional[dict]:
     """Fetch token info from Bitget Wallet API directly (CI-friendly, no local path deps)."""
     base_url = os.getenv("BGW_BASE_URL", "https://bopenapi.bgwapi.io")
-    api_key = os.getenv("BGW_API_KEY", "4843D8C3F1E20772C0E634EDACC5C5F9A0E2DC92")
-    api_secret = os.getenv("BGW_API_SECRET", "F2ABFDC684BDC6775FD6286B8D06A3AAD30FD587")
+    api_key = os.getenv("BGW_API_KEY", "")
+    api_secret = os.getenv("BGW_API_SECRET", "")
 
     if not api_key or not api_secret:
         return None

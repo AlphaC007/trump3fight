@@ -13,9 +13,9 @@ import urllib.parse
 import urllib.request
 
 BASE_URL = 'https://web3.okx.com'
-API_KEY = os.environ.get('OKX_API_KEY', '03f0b376-251c-4618-862e-ae92929e0416')
-SECRET_KEY = os.environ.get('OKX_SECRET_KEY', '652ECE8FF13210065B0851FFDA9191F7')
-PASSPHRASE = os.environ.get('OKX_PASSPHRASE', 'onchainOS#666')
+API_KEY = os.environ.get('OKX_API_KEY', '')
+SECRET_KEY = os.environ.get('OKX_SECRET_KEY', '')
+PASSPHRASE = os.environ.get('OKX_PASSPHRASE', '')
 
 # Official $TRUMP on Solana
 TRUMP_CONTRACT = '6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN'
