@@ -35,7 +35,7 @@ async function createAAP(connection, payer) {
   console.log('\n=== Creating AAP (Agent Alpha Points) ===');
   
   // Create mint with unlimited supply
-  const aacpMint = await createMint(
+  const aapMint = await createMint(
     connection,
     payer,
     payer.publicKey,  // Mint authority (can mint more)
@@ -49,7 +49,7 @@ async function createAAP(connection, payer) {
   console.log(`   - Freeze Authority: ${payer.publicKey.toBase58()} (can freeze accounts)`);
   console.log(`   - Supply: Unlimited (minted as needed)`);
   
-  return aacpMint;
+  return aapMint;
 }
 
 async function createAAC(connection, payer) {
@@ -64,7 +64,7 @@ async function createAAC(connection, payer) {
     AAC_DECIMALS
   );
   
-  console.log(`✅ AAC Mint Address: ${eteMint.toBase58()}`);
+  console.log(`✅ AAC Mint Address: ${aacMint.toBase58()}`);
   console.log(`   - Decimals: ${AAC_DECIMALS}`);
   console.log(`   - Freeze Authority: None (fully decentralized)`);
   
@@ -127,7 +127,7 @@ async function main() {
   }
   
   // Create AAP
-  const aacpMint = await createAAP(connection, payer);
+  const aapMint = await createAAP(connection, payer);
   
   // Create AAC
   const { aacMint, payerTokenAccount } = await createAAC(connection, payer);
@@ -135,7 +135,7 @@ async function main() {
   // Save token addresses
   const tokenInfo = {
     aacp: {
-      mint: aacpMint.toBase58(),
+      mint: aapMint.toBase58(),
       decimals: AAP_DECIMALS,
       supply: 'unlimited',
       mintAuthority: payer.publicKey.toBase58(),
@@ -158,7 +158,7 @@ async function main() {
   
   console.log('\n=== Summary ===');
   console.log(`AAP Mint: ${aapMint.toBase58()}`);
-  console.log(`AAC Mint: ${eteMint.toBase58()}`);
+  console.log(`AAC Mint: ${aacMint.toBase58()}`);
   console.log(`Token info saved to: ${outputPath}`);
   console.log('\n✅ Token creation complete!');
   console.log('\nNext steps:');

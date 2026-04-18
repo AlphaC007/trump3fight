@@ -75,7 +75,7 @@ def save_results(tweets: list, source_label: str):
     """Save tweets to dated JSON file."""
     if not tweets:
         return None
-    today = dt.datetime.utcnow().strftime("%Y-%m-%d")
+    today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     safe_label = source_label.replace("@", "").replace("$", "").replace(" ", "_").replace("#", "")
     filename = f"{today}_{safe_label}.json"
     filepath = DATA_DIR / filename
@@ -101,7 +101,7 @@ def save_results(tweets: list, source_label: str):
 
 def generate_summary(all_results: dict) -> str:
     """Generate a brief text summary of collected social data."""
-    lines = [f"# Social Pulse — {dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}", ""]
+    lines = [f"# Social Pulse — {dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}", ""]
 
     total = 0
     for source, tweets in all_results.items():
@@ -163,7 +163,7 @@ def main():
         print("\n" + summary)
 
         # Also save summary
-        today = dt.datetime.utcnow().strftime("%Y-%m-%d")
+        today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
         summary_path = DATA_DIR / f"{today}_summary.md"
         summary_path.write_text(summary)
 

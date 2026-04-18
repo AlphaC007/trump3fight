@@ -19,14 +19,17 @@ def pct(v):
 
 
 def get_quote(symbol: str):
-    t = yf.Ticker(symbol)
-    h = t.history(period="2d", interval="1d")
-    if h.empty:
+    try:
+        t = yf.Ticker(symbol)
+        h = t.history(period="2d", interval="1d")
+        if h.empty:
+            return {"price": None, "change_pct": None}
+        close = float(h["Close"].iloc[-1])
+        prev = float(h["Close"].iloc[-2]) if len(h) > 1 else None
+        chg = ((close - prev) / prev * 100) if prev else None
+        return {"price": close, "change_pct": chg}
+    except Exception:
         return {"price": None, "change_pct": None}
-    close = float(h["Close"].iloc[-1])
-    prev = float(h["Close"].iloc[-2]) if len(h) > 1 else None
-    chg = ((close - prev) / prev * 100) if prev else None
-    return {"price": close, "change_pct": chg}
 
 
 def get_coingecko_prices():
