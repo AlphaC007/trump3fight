@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <script>
 // Fix for MkDocs Material instant navigation: re-init chart on SPA page load
-function initTrendChart() {
+async function initTrendChart() {
   const statusEl = document.getElementById('trend-status');
   const container = document.getElementById('trend-chart');
   const btnDaily = document.getElementById('btn-daily');
