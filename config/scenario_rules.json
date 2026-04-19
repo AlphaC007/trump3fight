@@ -225,5 +225,7 @@
         "stress": 0.05
       }
     }
-  }
+  },
+  "_last_calibration": "2026-04-19T14:26:22Z",
+  "_calibration_seed": 8901
 }
