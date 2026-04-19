@@ -1,11 +1,8 @@
 {
-  "ts": "2026-04-19T10:00:54Z",
-  "activity": "metric-refresh",
-  "metrics": {
-    "snapshots": 59,
-    "reports": 58,
-    "ts_points": 186
-  },
-  "health": "operational",
-  "build": "45b244a9"
+  "ts": "2026-04-19T10:17:40Z",
+  "build": "e062dc94",
+  "m": {
+    "s": 59,
+    "r": 58
+  }
 }
