@@ -1,11 +1,11 @@
 {
-  "last_activity": "2026-04-19T09:57:55Z",
-  "activity_type": "metric-refresh",
+  "ts": "2026-04-19T10:00:54Z",
+  "activity": "metric-refresh",
   "metrics": {
     "snapshots": 59,
-    "cio_reports": 58,
-    "timeseries_points": 186
+    "reports": 58,
+    "ts_points": 186
   },
-  "system_health": "operational",
-  "version": "1.0.0"
+  "health": "operational",
+  "build": "45b244a9"
 }
