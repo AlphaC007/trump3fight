@@ -50,5 +50,6 @@
       "path": "data/timeseries.jsonl",
       "chunk_hint_tokens": 400
     }
-  ]
+  ],
+  "_indexed_at": "2026-04-19T10:01:06Z"
 }
