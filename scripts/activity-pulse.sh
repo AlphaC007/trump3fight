@@ -4,7 +4,7 @@
 # Produces 3-8 commits/day across 12 file categories with 80+ message templates.
 
 set -uo pipefail
-REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO="${TRUMP3FIGHT_REPO:-/home/xai8/projects-public/trump3fight-src}"
 cd "$REPO" || exit 1
 
 # ─── Time-weighted probability (simulates real dev patterns) ───
@@ -30,7 +30,7 @@ TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 DT=$(date +%Y-%m-%d)
 SC=$(ls data/snapshots/*.snapshot.json 2>/dev/null | wc -l || echo 0)
 RC=$(ls reports/cio_briefings/*.md 2>/dev/null | wc -l || echo 0)
-TL=$(wc -l < data/timeseries.jsonl 2>/dev/null || echo 0)
+TL=$(cat data/timeseries.jsonl 2>/dev/null | wc -l || echo 0)
 
 # ─── Generator array: each entry is "file_path:::generator_command:::commit_msg_pool" ───
 do_commit() {
