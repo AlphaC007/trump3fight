@@ -5,9 +5,17 @@
   "author": "AlphaC007",
   "license": "MIT",
   "repository": "https://github.com/AlphaC007/trump3fight",
-  "tags": ["crypto", "memecoin", "trump", "analysis", "data-integration", "automated-reports"],
+  "tags": [
+    "crypto",
+    "memecoin",
+    "trump",
+    "analysis",
+    "data-integration",
+    "automated-reports"
+  ],
   "dependencies": {
     "node": ">=18.0.0",
     "python": ">=3.8"
-  }
+  },
+  "updated": "2026-04-24"
 }
