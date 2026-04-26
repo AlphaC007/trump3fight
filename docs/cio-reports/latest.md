@@ -6,38 +6,38 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-04-25** (63 daily CIO reports)
-Average Bull Probability (reported): **47.72%**
-Latest Bull Probability: **52.93%**
-Latest $TRUMP Price Snapshot: **$2.90**
+Coverage window: **2026-02-21 → 2026-04-26** (64 daily CIO reports)
+Average Bull Probability (reported): **47.80%**
+Latest Bull Probability: **53.04%**
+Latest $TRUMP Price Snapshot: **$2.63**
 
 ## Today’s CIO Report
 
-# 📅 2026-04-25 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-04-26 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 7165.08 (+0.80%)
 - Nasdaq: 24836.60 (+1.63%)
-- DXY: 98.51 (-0.29%)
+- DXY: 98.51 (N/A)
 - US10Y: 4.31 (-0.30%)
-- Gold: 4725.40 (+0.43%)
-- Crude Oil: 94.88 (-1.01%)
+- Gold: 4740.90 (N/A)
+- Crude Oil: 94.40 (N/A)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $77611.00 (-0.12%)
-- ETH: $2317.19 (+0.48%)
-- Fear & Greed: 31 (Fear)
+- BTC: $77403.00 (-0.34%)
+- ETH: $2310.20 (-0.36%)
+- Fear & Greed: 33 (Fear)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $2.902564649471241
-- Concentration: 89.0774%
-- Bull Probability: 52.93%
-- Base Probability: 40.21%
+- Price: $2.633342597573236
+- Concentration: 89.0943%
+- Bull Probability: 53.04%
+- Base Probability: 40.1%
 - Stress Probability: 6.86%
 - Risk Flags: exchange_flow_unavailable
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-04-26 CIO Report](archive/2026-04-26-CIO-Report.md)
 - [2026-04-25 CIO Report](archive/2026-04-25-CIO-Report.md)
 - [2026-04-24 CIO Report](archive/2026-04-24-CIO-Report.md)
 - [2026-04-23 CIO Report](archive/2026-04-23-CIO-Report.md)
 - [2026-04-22 CIO Report](archive/2026-04-22-CIO-Report.md)
 - [2026-04-21 CIO Report](archive/2026-04-21-CIO-Report.md)
-- [2026-04-20 CIO Report](archive/2026-04-20-CIO-Report.md)
 
 <details>
-<summary>More (57 older reports)</summary>
+<summary>More (58 older reports)</summary>
 
+- [2026-04-20 CIO Report](archive/2026-04-20-CIO-Report.md)
 - [2026-04-19 CIO Report](archive/2026-04-19-CIO-Report.md)
 - [2026-04-18 CIO Report](archive/2026-04-18-CIO-Report.md)
 - [2026-04-17 CIO Report](archive/2026-04-17-CIO-Report.md)
@@ -165,4 +166,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-04-25 03:39 UTC_
+_Hub generated automatically at 2026-04-26 04:02 UTC_
