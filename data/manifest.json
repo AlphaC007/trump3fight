@@ -1,27 +1,26 @@
 {
   "project": "trump-thesis-lab",
   "manifest_version": "1.0.0",
-  "generated_at_utc": "2026-04-27T04:06:48Z",
-  "latest_snapshot_date": "2026-04-27",
+  "generated_at_utc": "2026-04-28T04:12:33Z",
+  "latest_snapshot_date": "2026-04-28",
   "pipeline_version": "v1.0.0-Stable-RAG",
   "artifacts": {
     "snapshot": {
-      "path": "data/snapshots/2026-04-27.snapshot.json",
-      "sha256": "a50a7f9c32fca3cf42f98b5a76fdb355e8448d1f86925641b58b296bd34534a2"
+      "path": "data/snapshots/2026-04-28.snapshot.json",
+      "sha256": "8e5039a42ebf213afdcc3520bfaf279ce2e9cdf9963433df35ba465e4d151005"
     },
     "trends_dataset": {
       "path": "docs/assets/data/trends.json",
-      "sha256": "f9ce2db7a14f24b493b44a44dc73aebade729f145aabb63417e6a1b4196347b4"
+      "sha256": "a3243bd820219934c5b7e4f282019de5948f194bc15281673c2aac9134cd186c"
     },
     "cio_report": {
-      "path": "reports/cio_briefings/2026-04-27-CIO-Report.md",
-      "sha256": "3ac819c74ceaebb1342fdcdaf5012fbd50195ad4f601c64473df869b5380098d"
+      "path": "reports/cio_briefings/2026-04-28-CIO-Report.md",
+      "sha256": "281aec349e2768c739d25f33dcb938ff9e5fb440a4cb78bfa8af4fef41d42945"
     }
   },
   "source_priority": [
     "binance-web3",
     "okx-onchainos",
     "bitget-wallet"
-  ],
-  "generated_at": "2026-04-28T00:19:55Z"
+  ]
 }
