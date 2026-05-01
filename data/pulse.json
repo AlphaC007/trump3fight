@@ -1,11 +1,11 @@
 {
-  "ts": "2026-04-26T13:27:58Z",
-  "activity": "pipeline-tick",
+  "ts": "2026-05-01T23:25:24Z",
+  "activity": "data-sync",
   "metrics": {
-    "snapshots": 66,
-    "reports": 65,
-    "ts_points": 208
+    "snapshots": 71,
+    "reports": 70,
+    "ts_points": 222
   },
   "health": "operational",
-  "build": "2a8b4fd9"
+  "build": "0ceab77f"
 }
