@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-05-08T03:24:12.927775Z",
+  "generated_at_utc": "2026-05-08T07:28:26.492778Z",
   "count_raw": 200,
   "count_daily": 66,
   "points_raw": [
-    {
-      "ts": "2026-03-04T04:58:58Z",
-      "price_usd": 3.34,
-      "top10_holder_pct": 98.3407,
-      "bull_probability_pct": 39.49,
-      "dex": {
-        "buys_24h": null,
-        "sells_24h": null,
-        "txn_total_24h": null,
-        "buy_sell_ratio_24h": 0.8951
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-03-04T07:53:40Z",
       "price_usd": 3.35,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-05-08T07:28:25Z",
+      "price_usd": 2.3903672677091223,
+      "top10_holder_pct": 89.2566,
+      "bull_probability_pct": 52.25,
+      "dex": {
+        "buys_24h": 5410.0,
+        "sells_24h": 5070.0,
+        "txn_total_24h": 10480,
+        "buy_sell_ratio_24h": 1.0671
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-03-04",
-      "price_usd": 3.3664,
-      "top10_holder_pct": 94.024,
-      "bull_probability_pct": 50.1725,
-      "samples": 4
+      "price_usd": 3.3752,
+      "top10_holder_pct": 92.5851,
+      "bull_probability_pct": 53.7333,
+      "samples": 3
     },
     {
       "day": "2026-03-05",
@@ -4062,10 +4062,10 @@
     },
     {
       "day": "2026-05-08",
-      "price_usd": 2.3586,
-      "top10_holder_pct": 89.2516,
-      "bull_probability_pct": 45.51,
-      "samples": 1
+      "price_usd": 2.3745,
+      "top10_holder_pct": 89.2541,
+      "bull_probability_pct": 48.88,
+      "samples": 2
     }
   ]
 }
