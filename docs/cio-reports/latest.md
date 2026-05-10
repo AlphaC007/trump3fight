@@ -6,39 +6,39 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-05-09** (77 daily CIO reports)
-Average Bull Probability (reported): **48.00%**
-Latest Bull Probability: **45.36%**
-Latest $TRUMP Price Snapshot: **$2.50**
+Coverage window: **2026-02-21 → 2026-05-10** (78 daily CIO reports)
+Average Bull Probability (reported): **47.95%**
+Latest Bull Probability: **44.56%**
+Latest $TRUMP Price Snapshot: **$2.45**
 
 ## Today’s CIO Report
 
-# 📅 2026-05-09 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-05-10 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 7398.93 (+0.84%)
 - Nasdaq: 26247.08 (+1.71%)
-- DXY: 97.84 (-0.42%)
+- DXY: 97.84 (N/A)
 - US10Y: 4.36 (-0.64%)
-- Gold: 4720.40 (+0.44%)
-- Crude Oil: 95.42 (+0.64%)
+- Gold: 4730.70 (N/A)
+- Crude Oil: 95.42 (N/A)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $80393.00 (+0.99%)
-- ETH: $2315.53 (+1.54%)
-- Fear & Greed: 38 (Fear)
+- BTC: $80766.00 (+0.40%)
+- ETH: $2327.90 (+0.49%)
+- Fear & Greed: 47 (Neutral)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $2.495696327796966
-- Concentration: 89.3609%
-- Bull Probability: 45.36%
-- Base Probability: 48.4%
-- Stress Probability: 6.24%
+- Price: $2.4525320217703714
+- Concentration: 89.3573%
+- Bull Probability: 44.56%
+- Base Probability: 48.57%
+- Stress Probability: 6.87%
 - Risk Flags: exchange_flow_unavailable
 
 ---
@@ -47,11 +47,11 @@ Latest $TRUMP Price Snapshot: **$2.50**
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium-high
+- Confidence: medium
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9858)
+- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9344)
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-05-10 CIO Report](archive/2026-05-10-CIO-Report.md)
 - [2026-05-09 CIO Report](archive/2026-05-09-CIO-Report.md)
 - [2026-05-08 CIO Report](archive/2026-05-08-CIO-Report.md)
 - [2026-05-07 CIO Report](archive/2026-05-07-CIO-Report.md)
 - [2026-05-06 CIO Report](archive/2026-05-06-CIO-Report.md)
 - [2026-05-05 CIO Report](archive/2026-05-05-CIO-Report.md)
-- [2026-05-04 CIO Report](archive/2026-05-04-CIO-Report.md)
 
 <details>
-<summary>More (71 older reports)</summary>
+<summary>More (72 older reports)</summary>
 
+- [2026-05-04 CIO Report](archive/2026-05-04-CIO-Report.md)
 - [2026-05-03 CIO Report](archive/2026-05-03-CIO-Report.md)
 - [2026-05-02 CIO Report](archive/2026-05-02-CIO-Report.md)
 - [2026-05-01 CIO Report](archive/2026-05-01-CIO-Report.md)
@@ -179,4 +180,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-05-09 04:02 UTC_
+_Hub generated automatically at 2026-05-10 04:31 UTC_
