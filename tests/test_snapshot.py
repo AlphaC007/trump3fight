@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-04-29
+# Auto-generated test stubs — 2026-05-11
 import pytest
 
-def test_rag_completeness():
+def test_data_freshness():
     assert True
