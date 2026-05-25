@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-05-25T03:33:02.671722Z",
+  "generated_at_utc": "2026-05-25T06:22:44.988776Z",
   "count_raw": 200,
-  "count_daily": 67,
+  "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-03-19T08:00:21Z",
-      "price_usd": 3.4327589796709574,
-      "top10_holder_pct": 88.7093,
-      "bull_probability_pct": 47.18,
-      "dex": {
-        "buys_24h": 1052.0,
-        "sells_24h": 1464.0,
-        "txn_total_24h": 2516,
-        "buy_sell_ratio_24h": 0.7186
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-03-19T14:38:46Z",
       "price_usd": 3.3663569004386873,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-05-25T04:04:36Z",
+      "price_usd": 2.061452084483753,
+      "top10_holder_pct": 89.1382,
+      "bull_probability_pct": 42.38,
+      "dex": {
+        "buys_24h": 690.0,
+        "sells_24h": 888.0,
+        "txn_total_24h": 1578,
+        "buy_sell_ratio_24h": 0.777
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-03-19",
-      "price_usd": 3.3996,
-      "top10_holder_pct": 88.7112,
-      "bull_probability_pct": 47.3,
-      "samples": 2
+      "price_usd": 3.3664,
+      "top10_holder_pct": 88.7131,
+      "bull_probability_pct": 47.42,
+      "samples": 1
     },
     {
       "day": "2026-03-20",
@@ -4073,6 +4073,13 @@
       "top10_holder_pct": 89.156,
       "bull_probability_pct": 43.56,
       "samples": 3
+    },
+    {
+      "day": "2026-05-25",
+      "price_usd": 2.0615,
+      "top10_holder_pct": 89.1382,
+      "bull_probability_pct": 42.38,
+      "samples": 1
     }
   ]
 }
