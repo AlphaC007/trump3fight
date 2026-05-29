@@ -1,11 +1,11 @@
 {
-  "ts": "2026-05-26T12:22:38Z",
-  "activity": "cache-warm",
+  "ts": "2026-05-29T05:28:41Z",
+  "activity": "metric-refresh",
   "metrics": {
-    "snapshots": 96,
-    "reports": 95,
-    "ts_points": 296
+    "snapshots": 99,
+    "reports": 98,
+    "ts_points": 304
   },
   "health": "operational",
-  "build": "97922bad"
+  "build": "f01f2309"
 }
