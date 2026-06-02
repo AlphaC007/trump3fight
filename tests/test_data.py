@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-05-09
+# Auto-generated test stubs — 2026-06-02
 import pytest
 
-def test_snapshot_schema():
+def test_trend_continuity():
     assert True
