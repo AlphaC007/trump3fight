@@ -1,11 +1,11 @@
 {
-  "ts": "2026-06-09T00:28:02Z",
-  "activity": "metric-refresh",
+  "ts": "2026-06-09T11:28:21Z",
+  "activity": "data-sync",
   "metrics": {
-    "snapshots": 109,
-    "reports": 108,
-    "ts_points": 336
+    "snapshots": 110,
+    "reports": 109,
+    "ts_points": 338
   },
   "health": "operational",
-  "build": "33ac5662"
+  "build": "cd3ab28a"
 }
