@@ -6,39 +6,39 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-06-14** (113 daily CIO reports)
-Average Bull Probability (reported): **47.06%**
-Latest Bull Probability: **45.54%**
-Latest $TRUMP Price Snapshot: **$2.12**
+Coverage window: **2026-02-21 → 2026-06-15** (114 daily CIO reports)
+Average Bull Probability (reported): **47.02%**
+Latest Bull Probability: **42.51%**
+Latest $TRUMP Price Snapshot: **$2.05**
 
 ## Today’s CIO Report
 
-# 📅 2026-06-14 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-06-15 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 7431.46 (+0.50%)
 - Nasdaq: 25888.84 (+0.31%)
-- DXY: 99.75 (N/A)
+- DXY: 99.40 (N/A)
 - US10Y: 4.49 (+0.54%)
-- Gold: 4238.80 (N/A)
-- Crude Oil: 84.88 (N/A)
+- Gold: 4352.50 (N/A)
+- Crude Oil: 80.72 (N/A)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $64323.00 (+1.23%)
-- ETH: $1677.07 (+0.77%)
-- Fear & Greed: 18 (Extreme Fear)
+- BTC: $65741.00 (+2.23%)
+- ETH: $1717.68 (+2.51%)
+- Fear & Greed: 20 (Extreme Fear)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $2.124423264451047
-- Concentration: 89.2575%
-- Bull Probability: 45.54%
-- Base Probability: 48.36%
-- Stress Probability: 6.1%
+- Price: $2.0464873442763905
+- Concentration: 89.0797%
+- Bull Probability: 42.51%
+- Base Probability: 48.81%
+- Stress Probability: 8.68%
 - Risk Flags: exchange_flow_unavailable
 
 ---
@@ -47,11 +47,11 @@ Latest $TRUMP Price Snapshot: **$2.12**
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium-high
+- Confidence: medium
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9969)
+- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.7901)
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-06-15 CIO Report](archive/2026-06-15-CIO-Report.md)
 - [2026-06-14 CIO Report](archive/2026-06-14-CIO-Report.md)
 - [2026-06-13 CIO Report](archive/2026-06-13-CIO-Report.md)
 - [2026-06-12 CIO Report](archive/2026-06-12-CIO-Report.md)
 - [2026-06-11 CIO Report](archive/2026-06-11-CIO-Report.md)
 - [2026-06-10 CIO Report](archive/2026-06-10-CIO-Report.md)
-- [2026-06-09 CIO Report](archive/2026-06-09-CIO-Report.md)
 
 <details>
-<summary>More (107 older reports)</summary>
+<summary>More (108 older reports)</summary>
 
+- [2026-06-09 CIO Report](archive/2026-06-09-CIO-Report.md)
 - [2026-06-08 CIO Report](archive/2026-06-08-CIO-Report.md)
 - [2026-06-07 CIO Report](archive/2026-06-07-CIO-Report.md)
 - [2026-06-06 CIO Report](archive/2026-06-06-CIO-Report.md)
@@ -215,4 +216,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-06-14 05:15 UTC_
+_Hub generated automatically at 2026-06-15 05:36 UTC_
