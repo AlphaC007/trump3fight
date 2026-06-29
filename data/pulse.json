@@ -1,11 +1,11 @@
 {
-  "ts": "2026-06-26T23:20:13Z",
-  "activity": "metric-refresh",
+  "ts": "2026-06-29T22:22:00Z",
+  "activity": "pipeline-tick",
   "metrics": {
-    "snapshots": 127,
-    "reports": 126,
-    "ts_points": 390
+    "snapshots": 130,
+    "reports": 129,
+    "ts_points": 399
   },
   "health": "operational",
-  "build": "ed4bb521"
+  "build": "8ec08a32"
 }
