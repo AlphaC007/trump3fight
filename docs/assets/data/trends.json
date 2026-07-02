@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-07-01T14:15:22.478298Z",
+  "generated_at_utc": "2026-07-02T03:49:29.463881Z",
   "count_raw": 200,
-  "count_daily": 67,
+  "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-04-26T03:19:00Z",
-      "price_usd": 2.633342597573236,
-      "top10_holder_pct": 89.0943,
-      "bull_probability_pct": 53.04,
-      "dex": {
-        "buys_24h": 21767.0,
-        "sells_24h": 17505.0,
-        "txn_total_24h": 39272,
-        "buy_sell_ratio_24h": 1.2435
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-04-26T07:27:19Z",
       "price_usd": 2.667514773603539,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-07-02T03:49:28Z",
+      "price_usd": 1.6948719465701696,
+      "top10_holder_pct": 88.4535,
+      "bull_probability_pct": 46.01,
+      "dex": {
+        "buys_24h": 3328.0,
+        "sells_24h": 3241.0,
+        "txn_total_24h": 6569,
+        "buy_sell_ratio_24h": 1.0268
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-04-26",
-      "price_usd": 2.6607,
-      "top10_holder_pct": 88.9891,
-      "bull_probability_pct": 52.74,
-      "samples": 3
+      "price_usd": 2.6744,
+      "top10_holder_pct": 88.9365,
+      "bull_probability_pct": 52.59,
+      "samples": 2
     },
     {
       "day": "2026-04-27",
@@ -4073,6 +4073,13 @@
       "top10_holder_pct": 88.407,
       "bull_probability_pct": 44.09,
       "samples": 3
+    },
+    {
+      "day": "2026-07-02",
+      "price_usd": 1.6949,
+      "top10_holder_pct": 88.4535,
+      "bull_probability_pct": 46.01,
+      "samples": 1
     }
   ]
 }
