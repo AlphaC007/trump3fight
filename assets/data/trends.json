@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-07-03T01:31:33.040069Z",
+  "generated_at_utc": "2026-07-03T05:28:23.653263Z",
   "count_raw": 200,
-  "count_daily": 67,
+  "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-04-27T03:23:29Z",
-      "price_usd": 2.606440198712302,
-      "top10_holder_pct": 88.9483,
-      "bull_probability_pct": 42.33,
-      "dex": {
-        "buys_24h": 9062.0,
-        "sells_24h": 11732.0,
-        "txn_total_24h": 20794,
-        "buy_sell_ratio_24h": 0.7724
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-04-27T08:22:49Z",
       "price_usd": 2.5497554362704333,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-07-03T03:30:24Z",
+      "price_usd": 1.7242298485666576,
+      "top10_holder_pct": 88.5406,
+      "bull_probability_pct": 45.95,
+      "dex": {
+        "buys_24h": 3097.0,
+        "sells_24h": 3027.0,
+        "txn_total_24h": 6124,
+        "buy_sell_ratio_24h": 1.0231
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-04-27",
-      "price_usd": 2.5666,
-      "top10_holder_pct": 88.9464,
-      "bull_probability_pct": 43.5133,
-      "samples": 3
+      "price_usd": 2.5466,
+      "top10_holder_pct": 88.9454,
+      "bull_probability_pct": 44.105,
+      "samples": 2
     },
     {
       "day": "2026-04-28",
@@ -4073,6 +4073,13 @@
       "top10_holder_pct": 88.4772,
       "bull_probability_pct": 46.07,
       "samples": 3
+    },
+    {
+      "day": "2026-07-03",
+      "price_usd": 1.7242,
+      "top10_holder_pct": 88.5406,
+      "bull_probability_pct": 45.95,
+      "samples": 1
     }
   ]
 }
