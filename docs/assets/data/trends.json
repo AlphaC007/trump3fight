@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-07-04T08:34:22.370204Z",
+  "generated_at_utc": "2026-07-04T13:06:18.235911Z",
   "count_raw": 200,
   "count_daily": 67,
   "points_raw": [
-    {
-      "ts": "2026-04-29T03:28:21Z",
-      "price_usd": 2.487629131899041,
-      "top10_holder_pct": 88.9953,
-      "bull_probability_pct": 52.47,
-      "dex": {
-        "buys_24h": 6221.0,
-        "sells_24h": 5579.0,
-        "txn_total_24h": 11800,
-        "buy_sell_ratio_24h": 1.1151
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-04-29T08:14:53Z",
       "price_usd": 2.4719863235202477,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-07-04T13:06:17Z",
+      "price_usd": 1.7819315083495242,
+      "top10_holder_pct": 88.5405,
+      "bull_probability_pct": 44.8,
+      "dex": {
+        "buys_24h": 2706.0,
+        "sells_24h": 2848.0,
+        "txn_total_24h": 5554,
+        "buy_sell_ratio_24h": 0.9501
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-04-29",
-      "price_usd": 2.4535,
-      "top10_holder_pct": 88.9915,
-      "bull_probability_pct": 52.4133,
-      "samples": 3
+      "price_usd": 2.4364,
+      "top10_holder_pct": 88.9897,
+      "bull_probability_pct": 52.385,
+      "samples": 2
     },
     {
       "day": "2026-04-30",
@@ -4069,10 +4069,10 @@
     },
     {
       "day": "2026-07-04",
-      "price_usd": 1.7788,
-      "top10_holder_pct": 88.5485,
-      "bull_probability_pct": 44.165,
-      "samples": 2
+      "price_usd": 1.7799,
+      "top10_holder_pct": 88.5458,
+      "bull_probability_pct": 44.3767,
+      "samples": 3
     }
   ]
 }
