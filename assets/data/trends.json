@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-07-10T01:41:16.036488Z",
+  "generated_at_utc": "2026-07-10T05:18:27.597853Z",
   "count_raw": 200,
-  "count_daily": 67,
+  "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-05-04T08:27:43Z",
-      "price_usd": 2.336430274265682,
-      "top10_holder_pct": 88.9785,
-      "bull_probability_pct": 52.65,
-      "dex": {
-        "buys_24h": 4344.0,
-        "sells_24h": 3756.0,
-        "txn_total_24h": 8100,
-        "buy_sell_ratio_24h": 1.1565
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-05-04T13:27:16Z",
       "price_usd": 2.3051710210379497,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-07-10T03:33:34Z",
+      "price_usd": 1.6201955876499863,
+      "top10_holder_pct": 88.9005,
+      "bull_probability_pct": 44.64,
+      "dex": {
+        "buys_24h": 2014.0,
+        "sells_24h": 2143.0,
+        "txn_total_24h": 4157,
+        "buy_sell_ratio_24h": 0.9398
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-05-04",
-      "price_usd": 2.3208,
-      "top10_holder_pct": 88.9811,
-      "bull_probability_pct": 52.685,
-      "samples": 2
+      "price_usd": 2.3052,
+      "top10_holder_pct": 88.9838,
+      "bull_probability_pct": 52.72,
+      "samples": 1
     },
     {
       "day": "2026-05-05",
@@ -4073,6 +4073,13 @@
       "top10_holder_pct": 88.9025,
       "bull_probability_pct": 43.4967,
       "samples": 3
+    },
+    {
+      "day": "2026-07-10",
+      "price_usd": 1.6202,
+      "top10_holder_pct": 88.9005,
+      "bull_probability_pct": 44.64,
+      "samples": 1
     }
   ]
 }
