@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-07-09
+# Auto-generated test stubs — 2026-07-17
 import pytest
 
-def test_trend_continuity():
+def test_rag_completeness():
     assert True
