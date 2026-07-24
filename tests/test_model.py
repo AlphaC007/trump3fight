@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-07-17
+# Auto-generated test stubs — 2026-07-24
 import pytest
 
-def test_report_generated():
+def test_snapshot_schema():
     assert True
