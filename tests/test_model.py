@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-07-24
+# Auto-generated test stubs — 2026-08-04
 import pytest
 
-def test_snapshot_schema():
+def test_rag_completeness():
     assert True
