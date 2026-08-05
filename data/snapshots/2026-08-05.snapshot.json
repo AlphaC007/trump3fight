@@ -1,0 +1,67 @@
+{
+  "as_of_utc": "2026-08-05T02:41:24Z",
+  "asset": "TRUMP",
+  "market": {
+    "price_usd": 1.4728592988820235,
+    "mcap_usd": 1472857939.1047404,
+    "volume_24h_usd": 2708554.774317473,
+    "liquidity_usd": 30581609.05556989,
+    "fdv_usd": 1472857939.1047404,
+    "buys_24h": 1724.0,
+    "sells_24h": 1774.0,
+    "txn_total_24h": 3498,
+    "buy_sell_txn_ratio_24h": 0.9718
+  },
+  "onchain": {
+    "top10_holder_pct": 87.9369,
+    "top10_holder_source": "binance-web3",
+    "dex_depth_2pct_usd": null,
+    "exchange_inflow_usd_24h": null,
+    "exchange_outflow_usd_24h": null,
+    "exchange_netflow_usd_24h": null,
+    "exchange_flow_source": null
+  },
+  "derived": {
+    "liq_fdv_ratio": 0.020763,
+    "liquidity_change_24h": -0.003155,
+    "price_change_24h_pct": 0.37
+  },
+  "derivatives": {
+    "source": "binance-futures",
+    "symbol": "TRUMPUSDT",
+    "error": "symbol_not_found:TRUMPUSDT"
+  },
+  "scenario_probabilities": {
+    "Bull": 0.4514,
+    "Base": 0.4845,
+    "Stress": 0.0641
+  },
+  "risk_flags": [
+    {
+      "id": "exchange_flow_unavailable",
+      "triggered": true,
+      "severity": "low",
+      "evidence": [
+        "source:dune(optional)"
+      ]
+    }
+  ],
+  "sources": [
+    "binance-web3",
+    "okx-onchainos",
+    "bitget-wallet",
+    "coingecko",
+    "dexscreener"
+  ],
+  "model": {
+    "name": "scenario_prob_v1",
+    "rules_source": "config/scenario_rules.json",
+    "weights": {
+      "liquidity_resilience": 0.1,
+      "onchain_concentration": 0.05,
+      "narrative_volatility_buffer": 0.05,
+      "derivatives_momentum": 0.75,
+      "dex_momentum": 0.05
+    }
+  }
+}
