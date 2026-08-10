@@ -6,39 +6,39 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-08-09** (169 daily CIO reports)
-Average Bull Probability (reported): **46.37%**
-Latest Bull Probability: **46.11%**
+Coverage window: **2026-02-21 → 2026-08-10** (170 daily CIO reports)
+Average Bull Probability (reported): **46.36%**
+Latest Bull Probability: **44.09%**
 Latest $TRUMP Price Snapshot: **$1.49**
 
 ## Today’s CIO Report
 
-# 📅 2026-08-09 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-08-10 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
 - S&P 500: 7757.64 (+0.62%)
 - Nasdaq: 26690.62 (+1.30%)
-- DXY: 99.60 (-0.37%)
+- DXY: 99.68 (+0.08%)
 - US10Y: 4.66 (-0.21%)
-- Gold: 4340.70 (+2.33%)
-- Crude Oil: 78.18 (+1.15%)
+- Gold: 4389.60 (+1.13%)
+- Crude Oil: 78.66 (+0.61%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $64789.00 (-0.19%)
-- ETH: $1914.67 (+0.10%)
-- Fear & Greed: 31 (Fear)
+- BTC: $64948.00 (+0.24%)
+- ETH: $1915.67 (+0.08%)
+- Fear & Greed: 30 (Fear)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $1.4861257968235748
+- Price: $1.4946003818436215
 - Concentration: 87.9236%
-- Bull Probability: 46.11%
-- Base Probability: 48.24%
-- Stress Probability: 5.65%
+- Bull Probability: 44.09%
+- Base Probability: 48.67%
+- Stress Probability: 7.24%
 - Risk Flags: exchange_flow_unavailable
 
 ---
@@ -47,11 +47,11 @@ Latest $TRUMP Price Snapshot: **$1.49**
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium-high
+- Confidence: medium
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: No dominant adverse structural signal in current snapshot
+- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9044)
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-08-10 CIO Report](archive/2026-08-10-CIO-Report.md)
 - [2026-08-09 CIO Report](archive/2026-08-09-CIO-Report.md)
 - [2026-08-08 CIO Report](archive/2026-08-08-CIO-Report.md)
 - [2026-08-07 CIO Report](archive/2026-08-07-CIO-Report.md)
 - [2026-08-06 CIO Report](archive/2026-08-06-CIO-Report.md)
 - [2026-08-05 CIO Report](archive/2026-08-05-CIO-Report.md)
-- [2026-08-04 CIO Report](archive/2026-08-04-CIO-Report.md)
 
 <details>
-<summary>More (163 older reports)</summary>
+<summary>More (164 older reports)</summary>
 
+- [2026-08-04 CIO Report](archive/2026-08-04-CIO-Report.md)
 - [2026-08-03 CIO Report](archive/2026-08-03-CIO-Report.md)
 - [2026-08-02 CIO Report](archive/2026-08-02-CIO-Report.md)
 - [2026-08-01 CIO Report](archive/2026-08-01-CIO-Report.md)
@@ -271,4 +272,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-08-09 02:34 UTC_
+_Hub generated automatically at 2026-08-10 02:40 UTC_
