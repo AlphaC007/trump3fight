@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-08-09T12:34:11.518033Z",
+  "generated_at_utc": "2026-08-10T01:57:37.990998Z",
   "count_raw": 200,
-  "count_daily": 67,
+  "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-06-04T09:53:51Z",
-      "price_usd": 1.7770205176432423,
-      "top10_holder_pct": 89.0747,
-      "bull_probability_pct": 45.06,
-      "dex": {
-        "buys_24h": 5742.0,
-        "sells_24h": 5939.0,
-        "txn_total_24h": 11681,
-        "buy_sell_ratio_24h": 0.9668
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-06-04T14:41:36Z",
       "price_usd": 1.8378531774875992,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-08-10T01:57:36Z",
+      "price_usd": 1.4946003818436215,
+      "top10_holder_pct": 87.9236,
+      "bull_probability_pct": 44.09,
+      "dex": {
+        "buys_24h": 1618.0,
+        "sells_24h": 1789.0,
+        "txn_total_24h": 3407,
+        "buy_sell_ratio_24h": 0.9044
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-06-04",
-      "price_usd": 1.8074,
-      "top10_holder_pct": 89.0719,
-      "bull_probability_pct": 44.92,
-      "samples": 2
+      "price_usd": 1.8379,
+      "top10_holder_pct": 89.069,
+      "bull_probability_pct": 44.78,
+      "samples": 1
     },
     {
       "day": "2026-06-05",
@@ -4073,6 +4073,13 @@
       "top10_holder_pct": 87.915,
       "bull_probability_pct": 45.2,
       "samples": 3
+    },
+    {
+      "day": "2026-08-10",
+      "price_usd": 1.4946,
+      "top10_holder_pct": 87.9236,
+      "bull_probability_pct": 44.09,
+      "samples": 1
     }
   ]
 }
