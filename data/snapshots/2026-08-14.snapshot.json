@@ -1,19 +1,19 @@
 {
-  "as_of_utc": "2026-08-14T07:21:13Z",
+  "as_of_utc": "2026-08-14T12:47:26Z",
   "asset": "TRUMP",
   "market": {
-    "price_usd": 1.3868245482219217,
-    "mcap_usd": 1386823254.237264,
-    "volume_24h_usd": 1936958.373438945,
-    "liquidity_usd": 28781197.370622493,
-    "fdv_usd": 1386823254.237264,
+    "price_usd": 1.377748380974293,
+    "mcap_usd": 1377747095.3716471,
+    "volume_24h_usd": 2057300.0613831794,
+    "liquidity_usd": 28576674.592660926,
+    "fdv_usd": 1377747095.3716471,
     "buys_24h": 1683.0,
-    "sells_24h": 2012.0,
-    "txn_total_24h": 3695,
-    "buy_sell_txn_ratio_24h": 0.8365
+    "sells_24h": 2060.0,
+    "txn_total_24h": 3743,
+    "buy_sell_txn_ratio_24h": 0.817
   },
   "onchain": {
-    "top10_holder_pct": 87.901,
+    "top10_holder_pct": 87.8959,
     "top10_holder_source": "binance-web3",
     "dex_depth_2pct_usd": null,
     "exchange_inflow_usd_24h": null,
@@ -22,9 +22,9 @@
     "exchange_flow_source": null
   },
   "derived": {
-    "liq_fdv_ratio": 0.020753,
-    "liquidity_change_24h": -0.007044,
-    "price_change_24h_pct": -1.09
+    "liq_fdv_ratio": 0.020742,
+    "liquidity_change_24h": -0.0141,
+    "price_change_24h_pct": -1.06
   },
   "derivatives": {
     "source": "binance-futures",
@@ -32,9 +32,9 @@
     "error": "symbol_not_found:TRUMPUSDT"
   },
   "scenario_probabilities": {
-    "Bull": 0.4303,
+    "Bull": 0.4278,
     "Base": 0.489,
-    "Stress": 0.0807
+    "Stress": 0.0832
   },
   "risk_flags": [
     {
