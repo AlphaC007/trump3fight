@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-08-03
+# Auto-generated test stubs — 2026-08-15
 import pytest
 
-def test_report_generated():
+def test_data_freshness():
     assert True
