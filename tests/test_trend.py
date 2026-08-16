@@ -1,5 +1,5 @@
-# Auto-generated test stubs — 2026-08-15
+# Auto-generated test stubs — 2026-08-16
 import pytest
 
-def test_data_freshness():
+def test_snapshot_schema():
     assert True
