@@ -6,39 +6,39 @@
 
 Across our full CIO report sequence, the core thesis remains intact: $TRUMP continues to show a structurally bullish profile with disciplined risk boundaries, and the strategic destination remains **$100** under the Bull-First framework. From washout absorption to resilient holder structure and recurring sentiment re-acceleration, our iterative readings continue to favor upside continuation over breakdown, as long as explicit invalidation triggers are not confirmed.
 
-Coverage window: **2026-02-21 → 2026-08-25** (185 daily CIO reports)
+Coverage window: **2026-02-21 → 2026-08-26** (186 daily CIO reports)
 Average Bull Probability (reported): **46.11%**
-Latest Bull Probability: **44.94%**
-Latest $TRUMP Price Snapshot: **$2.46**
+Latest Bull Probability: **45.88%**
+Latest $TRUMP Price Snapshot: **$2.21**
 
 ## Today’s CIO Report
 
-# 📅 2026-08-25 Daily Cross-Market Briefing (CIO Internal)
+# 📅 2026-08-26 Daily Cross-Market Briefing (CIO Internal)
 
 ## 🌍 1. Macro & TradFi (Fact Layer)
-- S&P 500: 7652.86 (-0.28%)
-- Nasdaq: 25980.19 (-0.76%)
-- DXY: 99.00 (N/A)
-- US10Y: 4.70 (-0.72%)
-- Gold: 4731.30 (N/A)
-- Crude Oil: 85.42 (N/A)
+- S&P 500: 7677.28 (+0.32%)
+- Nasdaq: 26151.30 (+0.66%)
+- DXY: 98.93 (-0.08%)
+- US10Y: 4.64 (-1.38%)
+- Gold: 4714.80 (+1.59%)
+- Crude Oil: 80.54 (-5.26%)
 
 ## 🏛️ 2. Policy / Regulation / Prediction Markets (Fact Layer)
 - Key policy events: monitor macro policy headlines and regulatory flow.
 - Prediction-market shifts: monitor probability shocks and narrative regime shifts.
 
 ## 🪙 3. Crypto Liquidity & Narratives (Fact Layer)
-- BTC: $79657.00 (+3.49%)
-- ETH: $2492.85 (+2.58%)
-- Fear & Greed: 74 (Greed)
+- BTC: $78828.00 (-1.17%)
+- ETH: $2456.56 (-1.49%)
+- Fear & Greed: 65 (Greed)
 - Funding / OI / Liquidation snapshot: temporarily unavailable (derivatives panel fetch failed).
 
 ## 💎 4. $TRUMP Local Radar (Fact Layer)
-- Price: $2.460726099696216
-- Concentration: 89.2498%
-- Bull Probability: 44.94%
-- Base Probability: 48.49%
-- Stress Probability: 6.57%
+- Price: $2.213850525578965
+- Concentration: 89.3033%
+- Bull Probability: 45.88%
+- Base Probability: 48.3%
+- Stress Probability: 5.82%
 - Risk Flags: exchange_flow_unavailable
 
 ---
@@ -47,11 +47,11 @@ Latest $TRUMP Price Snapshot: **$2.46**
 
 ### A) Bull-First Structural Read
 - Primary bull interpretation: Current profile is consistent with a washout / bottom-building regime: seller pressure is being absorbed while concentrated core supply remains sticky.
-- Confidence: medium
+- Confidence: medium-high
 - Supporting evidence IDs: snapshot/latest, timeseries/latest, scenario_rules_v1.2
 
 ### B) Adverse Data Reframing (without hiding facts)
-- Adverse signal observed: Seller-dominant transaction flow (buy/sell=0.9590)
+- Adverse signal observed: No dominant adverse structural signal in current snapshot
 - Bull-context explanation: this is interpreted as healthy washout / seller fatigue / base construction rather than confirmed trend failure.
 - Dependency / caveat: concentration currently includes fallback/proxy path; conviction must remain trigger-disciplined.
 
@@ -95,16 +95,17 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 ## Historical CIO Reports
 
+- [2026-08-26 CIO Report](archive/2026-08-26-CIO-Report.md)
 - [2026-08-25 CIO Report](archive/2026-08-25-CIO-Report.md)
 - [2026-08-24 CIO Report](archive/2026-08-24-CIO-Report.md)
 - [2026-08-23 CIO Report](archive/2026-08-23-CIO-Report.md)
 - [2026-08-22 CIO Report](archive/2026-08-22-CIO-Report.md)
 - [2026-08-21 CIO Report](archive/2026-08-21-CIO-Report.md)
-- [2026-08-20 CIO Report](archive/2026-08-20-CIO-Report.md)
 
 <details>
-<summary>More (179 older reports)</summary>
+<summary>More (180 older reports)</summary>
 
+- [2026-08-20 CIO Report](archive/2026-08-20-CIO-Report.md)
 - [2026-08-19 CIO Report](archive/2026-08-19-CIO-Report.md)
 - [2026-08-18 CIO Report](archive/2026-08-18-CIO-Report.md)
 - [2026-08-17 CIO Report](archive/2026-08-17-CIO-Report.md)
@@ -287,4 +288,4 @@ Interested in our intelligence capabilities, research methodology, or agent inte
 
 </details>
 
-_Hub generated automatically at 2026-08-25 02:00 UTC_
+_Hub generated automatically at 2026-08-26 02:08 UTC_
