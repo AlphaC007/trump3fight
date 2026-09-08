@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-09-08T03:37:20.544231Z",
+  "generated_at_utc": "2026-09-08T10:36:15.911017Z",
   "count_raw": 200,
   "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-07-03T09:15:17Z",
-      "price_usd": 1.7558452885985885,
-      "top10_holder_pct": 88.512,
-      "bull_probability_pct": 44.72,
-      "dex": {
-        "buys_24h": 3174.0,
-        "sells_24h": 3360.0,
-        "txn_total_24h": 6534,
-        "buy_sell_ratio_24h": 0.9446
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-07-03T13:47:01Z",
       "price_usd": 1.7643608500760728,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-09-08T10:36:14Z",
+      "price_usd": 2.26804954865432,
+      "top10_holder_pct": 88.5093,
+      "bull_probability_pct": 45.17,
+      "dex": {
+        "buys_24h": 6956.0,
+        "sells_24h": 7143.0,
+        "txn_total_24h": 14099,
+        "buy_sell_ratio_24h": 0.9738
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-07-03",
-      "price_usd": 1.7601,
-      "top10_holder_pct": 88.5175,
-      "bull_probability_pct": 44.11,
-      "samples": 2
+      "price_usd": 1.7644,
+      "top10_holder_pct": 88.523,
+      "bull_probability_pct": 43.5,
+      "samples": 1
     },
     {
       "day": "2026-07-04",
@@ -4076,10 +4076,10 @@
     },
     {
       "day": "2026-09-08",
-      "price_usd": 2.2774,
-      "top10_holder_pct": 88.5193,
-      "bull_probability_pct": 44.79,
-      "samples": 1
+      "price_usd": 2.2727,
+      "top10_holder_pct": 88.5143,
+      "bull_probability_pct": 44.98,
+      "samples": 2
     }
   ]
 }
