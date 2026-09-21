@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-09-21T12:02:03.437377Z",
+  "generated_at_utc": "2026-09-21T17:34:23.699415Z",
   "count_raw": 200,
-  "count_daily": 68,
+  "count_daily": 67,
   "points_raw": [
-    {
-      "ts": "2026-07-16T13:26:12Z",
-      "price_usd": 1.5640818753639132,
-      "top10_holder_pct": 88.9654,
-      "bull_probability_pct": 45.49,
-      "dex": {
-        "buys_24h": 2029.0,
-        "sells_24h": 2041.0,
-        "txn_total_24h": 4070,
-        "buy_sell_ratio_24h": 0.9941
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-07-17T02:48:45Z",
       "price_usd": 1.545173012598096,
@@ -3602,16 +3584,27 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-09-21T17:34:22Z",
+      "price_usd": 2.14354139721275,
+      "top10_holder_pct": 87.6979,
+      "bull_probability_pct": 39.6,
+      "dex": {
+        "buys_24h": 7252.0,
+        "sells_24h": 8125.0,
+        "txn_total_24h": 15377,
+        "buy_sell_ratio_24h": 0.8926
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
-    {
-      "day": "2026-07-16",
-      "price_usd": 1.5641,
-      "top10_holder_pct": 88.9654,
-      "bull_probability_pct": 45.49,
-      "samples": 1
-    },
     {
       "day": "2026-07-17",
       "price_usd": 1.5324,
@@ -4076,10 +4069,10 @@
     },
     {
       "day": "2026-09-21",
-      "price_usd": 2.1268,
-      "top10_holder_pct": 87.7232,
-      "bull_probability_pct": 38.655,
-      "samples": 2
+      "price_usd": 2.1324,
+      "top10_holder_pct": 87.7147,
+      "bull_probability_pct": 38.97,
+      "samples": 3
     }
   ]
 }
