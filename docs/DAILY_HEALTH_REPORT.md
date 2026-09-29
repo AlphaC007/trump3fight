@@ -1,11 +1,11 @@
 # System Health & Data Inspection Report
 
-- Date (UTC+8): 2026-09-29 14:26
+- Date (UTC+8): 2026-09-30 02:20
 - Executive Summary: Core pipeline available; current risk assessment is [Stable].
 
 ## 1) Pipeline Health
-- Most recent run #1: success (schedule) · 2026-09-29T04:50:30Z · https://github.com/AlphaC007/trump3fight/actions/runs/36523409985
-- Most recent run #2: success (schedule) · 2026-09-28T19:02:23Z · https://github.com/AlphaC007/trump3fight/actions/runs/36469429533
+- Most recent run #1: failure (schedule) · 2026-09-29T17:23:41Z · https://github.com/AlphaC007/trump3fight/actions/runs/36604604310
+- Most recent run #2: failure (schedule) · 2026-09-29T12:09:14Z · https://github.com/AlphaC007/trump3fight/actions/runs/36566242778
 - Upstream APIs: CoinGecko/DexScreener normal; on-chain may trigger fallback.
 
 ## 2) Data Delta
