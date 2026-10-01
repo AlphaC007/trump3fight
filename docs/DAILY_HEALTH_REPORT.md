@@ -1,19 +1,19 @@
 # System Health & Data Inspection Report
 
-- Date (UTC+8): 2026-10-01 14:42
+- Date (UTC+8): 2026-10-02 02:35
 - Executive Summary: Core pipeline available; current risk assessment is [Stable].
 
 ## 1) Pipeline Health
-- Most recent run #1: success (schedule) · 2026-10-01T04:48:16Z · https://github.com/AlphaC007/trump3fight/actions/runs/36816805316
-- Most recent run #2: success (schedule) · 2026-09-30T17:21:17Z · https://github.com/AlphaC007/trump3fight/actions/runs/36750774732
+- Most recent run #1: success (schedule) · 2026-10-01T17:48:22Z · https://github.com/AlphaC007/trump3fight/actions/runs/36902097516
+- Most recent run #2: success (schedule) · 2026-10-01T12:27:51Z · https://github.com/AlphaC007/trump3fight/actions/runs/36861914026
 - Upstream APIs: CoinGecko/DexScreener normal; on-chain may trigger fallback.
 
 ## 2) Data Delta
-- as_of_utc: 2026-10-01T04:48:21Z
-- price_usd: 2.1428092577658324
-- top10_holder_pct: 88.7848
-- scenario_probabilities: Bull 0.4113, Base 0.4946, Stress 0.0941
-- Probability drift: Bull -0.0698, Base +0.0770, Stress -0.0072
+- as_of_utc: 2026-10-01T17:48:52Z
+- price_usd: 2.0662630690737753
+- top10_holder_pct: 88.365
+- scenario_probabilities: Bull 0.4082, Base 0.4953, Stress 0.0965
+- Probability drift: Bull -0.0029, Base +0.0006, Stress +0.0023
 
 ## 3) Falsification Radar
 - Trigger A: Data blind spot (missing real-time exchange netflow field)
