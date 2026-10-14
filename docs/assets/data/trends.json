@@ -1,26 +1,8 @@
 {
-  "generated_at_utc": "2026-10-13T18:43:10.052799Z",
+  "generated_at_utc": "2026-10-14T04:01:26.277999Z",
   "count_raw": 200,
-  "count_daily": 68,
+  "count_daily": 69,
   "points_raw": [
-    {
-      "ts": "2026-08-07T07:11:56Z",
-      "price_usd": 1.4699233729250119,
-      "top10_holder_pct": 87.9494,
-      "bull_probability_pct": 43.71,
-      "dex": {
-        "buys_24h": 1773.0,
-        "sells_24h": 2014.0,
-        "txn_total_24h": 3787,
-        "buy_sell_ratio_24h": 0.8803
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-08-07T12:44:21Z",
       "price_usd": 1.4646896722367815,
@@ -3602,15 +3584,33 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-10-14T04:01:24Z",
+      "price_usd": 1.914742343891782,
+      "top10_holder_pct": 88.4784,
+      "bull_probability_pct": 48.61,
+      "dex": {
+        "buys_24h": 5510.0,
+        "sells_24h": 4512.0,
+        "txn_total_24h": 10022,
+        "buy_sell_ratio_24h": 1.2212
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
     {
       "day": "2026-08-07",
-      "price_usd": 1.4673,
-      "top10_holder_pct": 87.9506,
-      "bull_probability_pct": 43.415,
-      "samples": 2
+      "price_usd": 1.4647,
+      "top10_holder_pct": 87.9519,
+      "bull_probability_pct": 43.12,
+      "samples": 1
     },
     {
       "day": "2026-08-08",
@@ -4080,6 +4080,13 @@
       "top10_holder_pct": 88.4503,
       "bull_probability_pct": 41.45,
       "samples": 3
+    },
+    {
+      "day": "2026-10-14",
+      "price_usd": 1.9147,
+      "top10_holder_pct": 88.4784,
+      "bull_probability_pct": 48.61,
+      "samples": 1
     }
   ]
 }
