@@ -1,21 +1,21 @@
 {
   "project": "trump-thesis-lab",
   "manifest_version": "1.0.0",
-  "generated_at_utc": "2026-11-11T06:55:26Z",
-  "latest_snapshot_date": "2026-11-11",
+  "generated_at_utc": "2026-11-12T07:31:09Z",
+  "latest_snapshot_date": "2026-11-12",
   "pipeline_version": "v1.0.0-Stable-RAG",
   "artifacts": {
     "snapshot": {
-      "path": "data/snapshots/2026-11-11.snapshot.json",
-      "sha256": "31f9b95c9fee34b1df8ec47f602b4c0d263037e62ab01224da36457a2f58d3b7"
+      "path": "data/snapshots/2026-11-12.snapshot.json",
+      "sha256": "f62d63e6f9f2c7018843b62a4842b774a7657ec47c880625d5d63e0b965e0a5c"
     },
     "trends_dataset": {
       "path": "docs/assets/data/trends.json",
-      "sha256": "9c46b43eaf6058d5405d08388b9c9640d12a0cbf63ee4a979185ca9ada3944a7"
+      "sha256": "1911b902328887422c3cfc6e866aeb63fab2decf2c6d20d9220cef4392870566"
     },
     "cio_report": {
-      "path": "reports/cio_briefings/2026-11-11-CIO-Report.md",
-      "sha256": "adf52b465bbe1a88491d761aab0666eaba889e657ee9a0466eaaf92cce726a16"
+      "path": "reports/cio_briefings/2026-11-12-CIO-Report.md",
+      "sha256": "86003350b3fa3be4750152dacfa66c697216daddb845396aede69d52b5705dcb"
     }
   },
   "source_priority": [
