@@ -1,62 +1,8 @@
 {
-  "generated_at_utc": "2026-11-18T09:43:11.907803Z",
+  "generated_at_utc": "2026-11-19T09:52:01.411070Z",
   "count_raw": 200,
   "count_daily": 68,
   "points_raw": [
-    {
-      "ts": "2026-09-12T03:42:20Z",
-      "price_usd": 1.9846761725974018,
-      "top10_holder_pct": 88.3886,
-      "bull_probability_pct": 44.82,
-      "dex": {
-        "buys_24h": 5629.0,
-        "sells_24h": 5916.0,
-        "txn_total_24h": 11545,
-        "buy_sell_ratio_24h": 0.9515
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
-    {
-      "ts": "2026-09-12T10:07:24Z",
-      "price_usd": 2.0056035152617033,
-      "top10_holder_pct": 88.3892,
-      "bull_probability_pct": 44.36,
-      "dex": {
-        "buys_24h": 5569.0,
-        "sells_24h": 6041.0,
-        "txn_total_24h": 11610,
-        "buy_sell_ratio_24h": 0.9219
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
-    {
-      "ts": "2026-09-12T14:45:03Z",
-      "price_usd": 1.9998149393870033,
-      "top10_holder_pct": 88.3915,
-      "bull_probability_pct": 44.58,
-      "dex": {
-        "buys_24h": 4305.0,
-        "sells_24h": 4600.0,
-        "txn_total_24h": 8905,
-        "buy_sell_ratio_24h": 0.9359
-      },
-      "derivatives": {
-        "taker_buy_sell_ratio_1d": null,
-        "funding_rate": null,
-        "open_interest": null,
-        "open_interest_24h_change_pct": null
-      }
-    },
     {
       "ts": "2026-09-13T03:49:56Z",
       "price_usd": 1.9784833787047615,
@@ -3602,16 +3548,63 @@
         "open_interest": null,
         "open_interest_24h_change_pct": null
       }
+    },
+    {
+      "ts": "2026-11-18T15:07:20Z",
+      "price_usd": 0.9402226982694748,
+      "top10_holder_pct": 88.3658,
+      "bull_probability_pct": 40.16,
+      "dex": {
+        "buys_24h": 4643.0,
+        "sells_24h": 4996.0,
+        "txn_total_24h": 9639,
+        "buy_sell_ratio_24h": 0.9293
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
+    },
+    {
+      "ts": "2026-11-18T19:48:01Z",
+      "price_usd": 0.9528358783017552,
+      "top10_holder_pct": 88.3564,
+      "bull_probability_pct": 39.95,
+      "dex": {
+        "buys_24h": 4603.0,
+        "sells_24h": 5027.0,
+        "txn_total_24h": 9630,
+        "buy_sell_ratio_24h": 0.9157
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
+    },
+    {
+      "ts": "2026-11-19T06:28:51Z",
+      "price_usd": 0.9661325287133166,
+      "top10_holder_pct": 88.4019,
+      "bull_probability_pct": 40.07,
+      "dex": {
+        "buys_24h": 5025.0,
+        "sells_24h": 5444.0,
+        "txn_total_24h": 10469,
+        "buy_sell_ratio_24h": 0.923
+      },
+      "derivatives": {
+        "taker_buy_sell_ratio_1d": null,
+        "funding_rate": null,
+        "open_interest": null,
+        "open_interest_24h_change_pct": null
+      }
     }
   ],
   "points_daily": [
-    {
-      "day": "2026-09-12",
-      "price_usd": 1.9967,
-      "top10_holder_pct": 88.3898,
-      "bull_probability_pct": 44.5867,
-      "samples": 3
-    },
     {
       "day": "2026-09-13",
       "price_usd": 1.9752,
@@ -4076,9 +4069,16 @@
     },
     {
       "day": "2026-11-18",
-      "price_usd": 0.9671,
-      "top10_holder_pct": 88.3704,
-      "bull_probability_pct": 39.94,
+      "price_usd": 0.9534,
+      "top10_holder_pct": 88.3642,
+      "bull_probability_pct": 40.0167,
+      "samples": 3
+    },
+    {
+      "day": "2026-11-19",
+      "price_usd": 0.9661,
+      "top10_holder_pct": 88.4019,
+      "bull_probability_pct": 40.07,
       "samples": 1
     }
   ]
